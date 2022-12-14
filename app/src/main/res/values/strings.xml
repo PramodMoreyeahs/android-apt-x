@@ -1,0 +1,721 @@
+<!DOCTYPE resources []>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="app_name">APT-X</string>
+
+    <string name="allow_camera_permission">Please allow Camera permission to scan qr code</string>
+    <string name="facebook_app_id">996993097906788</string>
+    <string name="fb_login_protocol_scheme">fb4264783076874096</string>
+
+    <array name="drawer_menu_titles">
+        <item>Home</item><!--0-->
+        <item>Notification</item><!--1-->
+        <item>Profile</item><!--7-->
+        <item>Setting</item><!--8-->
+    </array>
+
+
+    <!--Commom string-->
+    <string name="please_wait">Loading</string>
+    <string name="error">Error</string>
+
+
+    <string name="drawer_open">Drawer open</string>
+    <string name="drawer_close">Drawer closed</string>
+    <string name="internet_connection">Please check internet connection</string>
+
+    <!--Screen Title-->
+    <string name="txt_my_profile">Profile</string>
+    <string name="txt_home">Home</string>
+    <string name="txt_setting">Settings</string>
+
+
+    <!--Login screen-->
+    <string name="txt_email">Email</string>
+    <string name="txt_password_hint">Password</string>
+    <string name="txt_forgot_password">Forgot your password?</string>
+    <string name="txt_login">Login</string>
+    <string name="txt_or">or</string>
+    <string name="txt_login_facebook">Login with facebook</string>
+    <string name="txt_facebook">Facebook</string>
+    <string name="txt_facebook_with">With</string>
+    <string name="txt_sign_up_link">Sign up</string>
+    <string name="txt_passwrd_length">* Password must be at least 6 characters long</string>
+    <string name="txt_error_msg">There\'s been a mix up, please try again</string>
+    <string name="txt_valid_mobile_number">Oh no, that number does\'nt seem to be working - please enter a valid Hong Kong number.</string>
+    <string name="server_error">Server Error</string>
+    <string name="txt_valdation_empty_mobile_no">Please enter your mobile number.</string>
+    <string name="txt_valdation_empty_password">Please enter password.</string>
+    <string name="ok">OK</string>
+    <string name="enter_employeeid">Please enter Email Id</string>
+    <string name="enter_emailid">Please enter Email Id</string>
+    <string name="enter_emailid_">Enter Your Email</string>
+    <string name="enter_password">Enter password</string>
+    <string name="enter_first_name">Enter First Name</string>
+    <string name="enter_last_name">Enter Last Name</string>
+    <string name="enter_phone">Enter Phone Number</string>
+    <string name="enter_valid_employeeid">Please enter valid Email Id</string>
+
+    <!--CHANGE PASSWORD SCREEN-->
+    <string name="submit">Submit</string>
+    <string name="old_password">Old Password</string>
+    <string name="confirm_password">Confirm New Password</string>
+    <string name="enter_old_password">Enter old password</string>
+    <string name="enter_confirm_password">Enter confirm password</string>
+    <string name="confirm_password_match">Confirm password must match password</string>
+    <string name="new_password">New Password</string>
+    <string name="change_password">Change Password</string>
+
+    // welcome screen
+
+    <string name="scan_upload">Scan &amp; Uploaded Manage\nDocument</string>
+    <string name="sign_in">Sign In</string>
+    <string name="login">Login</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="register">Register</string>
+
+    // signup screen
+
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
+    <string name="email">Email</string>
+    <string name="mobile_number">Mobile Number</string>
+    <string name="password">Password</string>
+    <string name="already_hav">Already a member?</string>
+    <string name="welcome">Welcome</string>
+    <string name="googlesignin">googleSignIn</string>
+    <string name="facebooklogin">facebookLogin</string>
+    <string name="applelogin">appleLogin</string>
+    <string name="or">Or</string>
+    <string name="hint_phone">Email</string>
+    <string name="password_hint">Password</string>
+    <string name="fingerprintlock">fingerPrintLock</string>
+    <string name="full_name">Full name</string>
+
+    <string name="t_and_c">By clicking on the “Continue” button, you agree to our <font color="#2FB1F8"><b>User Agreement</b></font> and our <font color="#2FB1F8"><b>Privacy Policy</b></font>.</string>
+    <string name="terms_and_condition_">The User has read and agrees to the Electronic communication agreement (E-sign Act). </string>
+    <string name="terms_and_condition_2">By clicking on the “Continue” button, the user agrees to our User Agreement and our Privacy Policy </string>
+    <string name="terms_and_condition_3">In order qualify for the Aptcard Prepaid Reloadable Mastercard®, we need to  verify your identity, as required by applicable law. We collect your private information such as, name, address, date of birth and validate your goverment-issued ID. The information will be shared with the issuing bank. you aknowledge, that you have read and agree to the <font color="#2FB1F8"><b>privacy policy.</b></font> </string>
+
+    <string name="terms_amp_conditions"><![CDATA[Terms & Conditions]]></string>
+    <string name="dummy_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</string>
+    <string name="transaction">transaction</string>
+    <string name="country">country</string>
+    <string name="your_address">Your Address</string>
+    <string name="add">Add</string>
+    <string name="skip_for_now">Skip for now</string>
+    <string name="continue_">Continue</string>
+    <string name="sendbtn" translatable="false">Send</string>
+    <string name="select_state">Province / State</string>
+    <string name="city">City</string>
+    <string name="postal_code">Postal / Zip</string>
+    <string name="apartment_suite_unit_etc">Address Line 2 (Optional)</string>
+    <string name="apartment_suite_unit_etc1">Apartment, Suite ,Unit, etc. (optional)</string>
+    <string name="address_line">Address</string>
+    <string name="back">Back</string>
+    <string name="search">Search</string>
+    <string name="aptpay">APT-X</string>
+    <string name="user_image">user_image</string>
+    <string name="menu">menu</string>
+    <string name="wallet">wallet</string>
+    <string name="notification">notification</string>
+    <string name="verify">Verify</string>
+    <string name="number_subheading">Your Email</string>
+    <string name="et_hint_otp">---</string>
+    <string name="resend_code">Resend Code</string>
+    <string name="agree">Agree</string>
+    <string name="disagree">Disagree</string>
+    <string name="new_transaction">New Transaction</string>
+    <string name="new_transaction_header">Where would you like to send money?</string>
+    <string name="re_enter_account_number">Re-enter Account Number</string>
+    <string name="aba_routing" translatable="false">ABA Routing</string>
+    <string name="account_number">Account Number</string>
+    <string name="account_number_not_matech">Account Number not match</string>
+    <string name="cash_pickup">Cash Pickup</string>
+    <string name="get_strted">Get Started</string>
+    <string name="your_money">Your Money, Your Way</string>
+    <string name="forgot_password">Forgot Password</string>
+    <string name="phone">Phone</string>
+    <string name="back_to_sign_in">Back to <font color="#2FB1F8"> <b>Sign In</b></font></string>
+    <string name="toget">to get</string>
+    <string name="userAgreement">User Agreement</string>
+    <string name="privacyPolicy"> Privacy Policy</string>
+    <string name="termsandcondition" translatable="false"> Terms and Conditions</string>
+    <string name="please_send">Please enter your email address. We\'ll send you a confirmation code. We use it to ensure the security of our users.</string>
+    <string name="enter_ver">Enter the 4 digit verification code that has been sent to  </string>
+    <string name="Back">Back</string>
+    <string name="instructions">Place your fingertip on the Home button to verify your identity</string>
+    <string name="biometric_l">Biometric Login</string>
+    <string name="please_enable">Please enable biometric login if you want to use biometric lock in your app</string>
+    <string name="please_iden">Please identify your Fingerprint ID to access our services.</string>
+    <string name="touch_the_f">Touch the fingerprint sensor</string>
+    <string name="enable">Enable</string>
+    <string name="close">Close</string>
+    <string name="user_finger">Use Fingerprint to Unlock</string>
+    <string name="enter_valid_phone">Enter Valid Mobile Number</string>
+    <string name="my_profile">My Profile</string>
+    <string name="edit">edit</string>
+    <string name="emma_wilson">Emma Wilson</string>
+    <string name="update">Submit</string>
+    <string name="updatetxt">Update</string>
+    <string name="change_language">Change Language</string>
+    <string name="kyc_details">Verify your details to</string>
+    <string name="kyc" translatable="false">KYC</string>
+    <string name="to_get_your_aptpay_card">Sign-up</string>
+    <string name="identity_card">Identity Card</string>
+    <string name="permanent_resident_card">Permanent Resident Card</string>
+    <string name="driving_license">Driver’s License</string>
+    <string name="passport">Passport</string>
+    <string name="citizenship_card">Citizenship Card</string>
+    <string name="please_fill_the_details">Please fill the details</string>
+    <string name="passport_details">Passport Details</string>
+    <string name="passport_number">Passport Number</string>
+    <string name="date_of_issue">Date of Issue</string>
+    <string name="date_of_expiration_date">Date of Expiration Date</string>
+    <string name="province_state_that_issued_the_document">Province/State That issued The Document</string>
+    <string name="date_hint">YYYY-MM-DD</string>
+    <string name="province_state">Province/State</string>
+    <string name="country_that_issued_the_document">Country that issued the document</string>
+    <string name="please_choo">Please choose the document for the verification</string>
+    <string name="something_went_wrong">Something went wrong</string>
+    <string name="didn_t_receive">Did\'nt receive?</string>
+    <string name="txt_not_recieve">Did\'nt receive?</string>
+    <string name="txt_resend_in"><font color="#676767"> Resend Code </font></string>
+    <string name="txt_send_otp">Resend</string>
+    <string name="cancel">Cancel</string>
+    <string name="Logout">Log Out</string>
+    <string name="are_you_sure_exit">Are you sure you want to exit application? </string>
+    <string name="click_yes">Click on Yes to continue</string>
+    <string name="enter_valid_password">Password should be 8 character</string>
+    <string name="enter_valid_otp">Please enter valid otp</string>
+    <string name="enter_otp">Please enter otp</string>
+    <string name="dialog_title_auth">Use Pattern</string>
+    <string name="dialog_msg_auth">use pattern title</string>
+    <string name="usepin">Use Pin/Pattern</string>
+    <string name="edit_profile">Edit Profile</string>
+
+
+    <string name="empty_passport">Please enter correct passport number</string>
+    <string name="empty_issue_date">Please enter correct Issue date</string>
+    <string name="empty_expiration_date">Please enter correct Expiration date</string>
+    <string name="empty_country">Please enter correct country</string>
+    <string name="address_empty">Please enter correct address</string>
+    <string name="house_empty">Please enter correct house number</string>
+    <string name="city_empty">Please enter correct city</string>
+    <string name="zip_empty">Please enter correct Zipcode</string>
+    <string name="state_empty">Please enter correct State</string>
+    <string name="my_transactions">My Transactions</string>
+    <string name="total_spend_this_month">Total Spend This Month</string>
+    <string name="_1_000">$1,000</string>
+    <string name="month">Month</string>
+    <string name="filters">Filters</string>
+    <string name="john">John</string>
+    <string name="_30">-$30</string>
+    <string name="apr_05_20">Apr 05 20</string>
+    <string name="transactions_details">Transaction Details</string>
+    <string name="transaction_id">Transaction ID</string>
+    <string name="txn_id_demo">aptpat1234567890</string>
+    <string name="copy">COPY</string>
+    <string name="debited_from">Debited From</string>
+    <string name="bank_name">Bank Name</string>
+    <string name="account_hint">••••••••••0000</string>
+    <string name="other_details">Other Details</string>
+    <string name="you_sent">You Send</string>
+    <string name="they_received">They Received</string>
+    <string name="transfer_fee">Transfer Fee</string>
+    <string name="sub_total">Sub Total</string>
+    <string name="total_paid">Total Paid</string>
+    <string name="send_again">Send Again</string>
+    <string name="security">Security</string>
+    <string name="payment">Payment</string>
+    <string name="app_language">App Language</string>
+    <string name="more_options">More Options</string>
+    <string name="app_passcode">App Passcode</string>
+    <string name="saved_bank_account">Saved Bank Account</string>
+    <string name="saving_account">Saving Account</string>
+    <string name="add_account">+Add Account</string>
+
+    <string name="master_card">Master Card</string>
+    <string name="card_hint">XXXX 1080</string>
+    <string name="prepaid_card">Prepaid Card</string>
+    <string name="sending_from">Sending From</string>
+    <string name="terms_of_service">Terms and Conditions</string>
+    <string name="cardholder_agreement">Cardholder Agreement</string>
+    <string name="faqs">FAQs</string>
+    <string name="close_account">Close Account</string>
+
+    <string name="cross_borde">Cross Border</string>
+    <string name="rewards">Rewards</string>
+    <string name="experience">Experiences</string>
+    <string name="we_re_launc">We\'re launching soon</string>
+    <string name="send_money_">Send money online to multiple countries for what matters. Our app makes it easy for you to send money to your loved ones instantaneously.</string>
+    <string name="our_flexibl">Our flexible rewards program will allow you to redeem your way to shopping, travel, dining, and much more.</string>
+    <string name="we_re_creat">
+
+We\'re creating something exciting in the house and about to launch soon. Thank you so much for your interest.
+</string>
+    <string name="notify">Notify Me</string>
+    <string name="tap_to">Tap to change the profile photo</string>
+    <string name="bank_transfer">Bank Transfer</string>
+    <string name="your_name">Your Name</string>
+    <string name="institution_number">Institution Number</string>
+    <string name="transit_number">Transit</string>
+    <string name="enter_the_bank_details">Enter the bank details</string>
+    <string name="add_new_address">Add New Address</string>
+    <string name="billing_address">Billing Address</string>
+    <string name="send_money">Send Money</string>
+    <string name="delivery_notification">Delivery Notification</string>
+    <string name="yes_please">Yes, Please</string>
+    <string name="no_thanks">No, Thanks</string>
+    <string name="forword">Forword</string>
+    <string name="paying">Paying</string>
+    <string name="please_choose_the_payment_method">Please choose the payment method</string>
+    <string name="prepaid_card_balance">Prepaid card balance</string>
+    <string name="pay">Pay</string>
+    <string name="recipient_s_address">Recipient’s Address</string>
+    <string name="recipient_name">Recipient Name</string>
+    <string name="to_avoid_delays_your_recipient_s_name_below_should_match_the_name_of_their_bank_account">To avoid delays your recipient’s name below should match the name of their bank account.</string>
+    <string name="recipient_bank_details">Recipient Bank Details</string>
+    <string name="united_states">United States</string>
+    <string name="country_flag">country_flag</string>
+    <string name="cad">CAD</string>
+    <string name="down">down</string>
+    <string name="delivery_method">Delivery Method</string>
+    <string name="how_would_you_like_the_money_delivered">How would you like the money delivered?</string>
+    <string name="dummy_name">Mark Henry</string>
+    <string name="recipient_phone">Recipient’s Phone</string>
+    <string name="recipient_dob">Recipient’s Date of Birth</string>
+    <string name="please_enter_the_recipient_birthdate">Please enter the recipient birthdate.</string>
+    <string name="family_support">Family Support</string>
+    <string name="sender_address">Sender Address</string>
+    <string name="sender_info">Sender Info</string>
+    <string name="enter_your_date_of_birth">Enter your date of birth</string>
+    <string name="bank_deposit">Recipient Bank Deposit</string>
+
+    <string name="select_your_recipient_s_bank">Select your recipient\'s bank</string>
+    <string name="please_enter_the_recipient_phone_number">Please enter the recipient phone number.</string>
+    <string name="reason_for_sending">Reason for Sending</string>
+    <string name="please_choose_the_reason_of_transaction">Please choose the reason of transaction.</string>
+    <string name="would_you_like_to_notify_john_when_funds_are_ready">Do you want a copy of this transaction sent to you?</string>
+    <string name="enter_your_name_as_it_appears_on_a_valid_id">Enter your name as it appears on a valid ID.</string>
+    <string name="enter_your_phone_number">Enter your phone number</string>
+    <string name="address_01">Address 01</string>
+    <string name="address_dummy">6 St George Crt Fort Erie ON L0S 1B0</string>
+    <string name="dummy">6 St George Crt Fort Erie ON L0S 1B0</string>
+    <string name="account">Account</string>
+    <string name="saved_cards">Saved Cards</string>
+
+    <string name="secure_certificate_of_indian_status">Secure Certificate of Indian Status</string>
+    <string name="driving_license_details">Driving License Details</string>
+    <string name="driving_license_number">Driving License Number</string>
+    <string name="permanent_resident_card_details">Permanent Resident Card Details</string>
+    <string name="card_number">Card Number</string>
+    <string name="identity_card_details">Identity Card Details</string>
+    <string name="citizenship_card_details">Citizenship Card Details</string>
+    <string name="certificate_details">Certificate Details</string>
+    <string name="exitapp">Exit App</string>
+    <string name="please_sele">Please select date of issue</string>
+    <string name="capture_id">Capture ID</string>
+    <string name="capture_id_">Capture ID/</string>
+    <string name="capture_id_passport">Capture ID \nPassport</string>
+    <string name="capture_id_licence">Capture ID \nLicence</string>
+    <string name="capture_a_c">Capture a clear picture of the front of your ID card.</string>
+    <string name="verified">Success: Verified user\'s identity</string>
+    <string name="your_device">Your Device does not have a Fingerprint Sensor</string>
+    <string name="fingerprintauth">Fingerprint authentication permission not enabled</string>
+    <string name="register_atleas">Register at least one fingerprint in Settings</string>
+    <string name="lock">Lock screen security not enabled in Settings</string>
+    <string name="verified_iden">Verified identity</string>
+    <string name="session">Session not close</string>
+    <string name="loading">Loading</string>
+    <string name="submitted">Submitted Data</string>
+    <string name="retry">Retry</string>
+
+    <string name="txt_permission_message">If you reject permission,you can not use this service,Please turn on permissions at [Setting] &gt; [Permission]</string>
+    <string name="continue_with">Continue with this image</string>
+
+
+    <string name="ImageCaptured">Image Captured</string>
+
+    <string name="load_fund">Load Funds</string>
+    <string name="how_much_fund_would_you_like_to_add">How much fund would you like to add?</string>
+    <string name="load_fund_method">Load Fund Method</string>
+
+    <string name="how_would_you_like_to_add_money">How would you like to add money?</string>
+    <string name="bill_pay">Bill Pay</string>
+    <string name="interac_e_transfer">Interac E-transfer</string>
+    <string name="rule_one">The name on the bank account needs to match with the legal name associated with the Apt-X account.</string>
+    <string name="rule_two">You can add from <font color="#FFFFFF"><b>$100 CAD</b></font>  up to <font color="#FFFFFF"><b> $25,000  CAD </b></font>to your Apt-X balance. Only <font color="#FFFFFF"><b> CAD </b></font> is accepted.</string>
+    <string name="rule_three">Funding can take up to one business day to appear in your Apt-X balance.</string>
+    <string name="payment_email">payment email</string>
+    <string name="email_hint">mark@hello.com</string>
+    <string name="idendification_number">Identification Number</string>
+    <string name="number_demo">1234567890</string>
+    <string name="warning_message">Include the identification number in the message field of your e-transfer for us to identify your deposit. If the identification number is missing or incorrect, the funds may be lost or delayed in processing.</string>
+    <string name="final_details"> Apt-X does not charge a fee to deposit funds into your account, and is not responsible for fees charged by your Banking Institution. Please check with your bank for e-transfer charges.</string>
+    <string name="send_all_account_info_to_my_email">Send all account info to my email</string>
+
+    <string name="secure_certificate_of_indian_status_details">Secure Certificate of Indian Status Details</string>
+
+    <string name="choose">Choose</string>
+    <string name="the_languag">The Language</string>
+
+    <string name="english_uk">UK</string>
+    <string name="french">French</string>
+    <string name="mycard">My Card</string>
+    <string name="viewall">View All</string>
+    <string name="send_money_new">Send\nMoney</string>
+    <string name="Expiry">Expiry</string>
+    <string name="visa">Visa Electron</string>
+    <string name="total_balance">Total Balance</string>
+    <string name="load_money">Load\nFund</string>
+    <string name="please_enter_amou">Please enter amount to proceed</string>
+    <string name="recieving_amount_not_empty">Recieving amount can not be 0</string>
+    <string name="please_enter_debut_num">Please enter debit card number</string>
+    <string name="Canada">Canada</string>
+    <string name="dont_have">Don\'t have an account?</string>
+    <string name="enter_your_">Enter your address as it appears on a valid ID</string>
+    <string name="bank_america">Bank of America Corp</string>
+    <string name="english">English</string>
+
+
+    <!--    acuantcamera -->
+    <string name="description_info">Info</string>
+    <string name="request_permission">This sample needs camera permission.</string>
+    <string name="acuant_camera_error">This device does\'nt support Camera2 API.</string>
+
+    <string name="acuant_camera_align">ALIGN</string>
+    <string name="acuant_camera_align_and_tap">ALIGN AND TAP</string>
+    <string name="acuant_camera_move_closer">MOVE CLOSER</string>
+    <string name="acuant_camera_not_in_frame">TOO CLOSE!</string>
+    <string name="acuant_camera_hold_steady">HOLD STEADY</string>
+    <string name="acuant_camera_capturing">CAPTURING</string>
+
+    <string name="acuant_reading_mrz">Reading MRZ</string>
+    <string name="acuant_align_mrz">Align</string>
+    <string name="acuant_closer_mrz">Move Closer</string>
+    <string name="acuant_glare_mrz">Try Repositioning</string>
+    <string name="acuant_read_mrz">Read Successful</string>
+
+    <!--    acuantfacecapture/acuantpassiveliveness -->
+    <string name="acuant_face_camera_initial">Align face to start capture</string>
+    <string name="acuant_face_camera_face_too_close">Too close! Move away</string>
+    <string name="acuant_face_too_far">Move closer</string>
+    <string name="acuant_face_camera_face_has_angle">Face has angle. Do not tilt</string>
+    <string name="acuant_face_camera_face_not_in_frame">Move in frame</string>
+    <string name="acuant_face_camera_face_moved">Hold steady</string>
+    <string name="acuant_face_camera_capturing">Capturing…</string>
+    <plurals name="acuant_face_camera_countdown">
+        <item quantity="one">Capturing\n%d…</item>
+        <item quantity="other">Capturing\n%d…</item>
+    </plurals>
+
+    <!--    acuanthgliveness -->
+    <string name="hg_move_in_frame">Move in frame</string>
+    <string name="hg_hold_steady">Hold steady</string>
+    <string name="hg_blink">Blink!</string>
+    <string name="hg_too_close">Too close! Move away</string>
+    <string name="hg_too_far_away">Move closer</string>
+    <string name="hg_align_face_and_blink">Align face to begin</string>
+
+    <!--    acuantipliveness -->
+    <string name="iproov__language_file">en</string>
+    <string name="iproov__app_name">iProov</string>
+    <string name="iproov__error">Error</string>
+    <string name="iproov__prompt_hold_still">Put your face in the oval</string>
+    <string name="iproov__prompt_connecting">Connecting…</string>
+    <string name="iproov__prompt_connecting_slow">Connecting, network is slow…</string>
+    <string name="iproov__prompt_tap_to_begin">Tap the screen to begin</string>
+    <string name="iproov__prompt_too_far">Move closer</string>
+    <string name="iproov__prompt_too_bright">Go somewhere shadier</string>
+    <string name="iproov__progress_streaming">Streaming…</string>
+    <string name="iproov__progress_streaming_slow">Streaming, network is slow…</string>
+    <string name="iproov__prompt_scanning">Scanning…</string>
+    <string name="iproov__starting_detector">Starting detector…</string>
+    <string name="iproov__progress_identifying_face">Identifying face…</string>
+    <string name="iproov__progress_confirming_identity">Confirming identity…</string>
+    <string name="iproov__progress_assessing_genuine_presence">Assessing genuine presence…</string>
+    <string name="iproov__progress_loading">Loading…</string>
+    <string name="iproov__progress_creating_identity">Creating identity…</string>
+    <string name="iproov__progress_finding_face">Finding face…</string>
+    <string name="iproov__authenticate">Authenticate</string>
+    <string name="iproov__enrol">Enrol</string>
+    <string name="iproov__message_format">%1$s to %2$s</string>
+    <string name="iproov__prompt_too_close">Too close</string>
+    <string name="iproov__failure_ambiguous_outcome">Sorry, ambiguous outcome</string>
+    <string name="iproov__failure_network_problem">Sorry, network problem</string>
+    <string name="iproov__failure_motion_too_much_movement">Please do not move while iProoving</string>
+    <string name="iproov__failure_lighting_flash_reflection_too_low">Ambient light too strong or screen brightness too low</string>
+    <string name="iproov__failure_lighting_backlit">Strong light source detected behind you</string>
+    <string name="iproov__failure_lighting_too_dark">Your environment appears too dark</string>
+    <string name="iproov__failure_lighting_face_too_bright">Too much light detected on your face</string>
+    <string name="iproov__failure_motion_too_much_mouth_movement">Please do not talk while iProoving</string>
+    <string name="iproov__failure_user_timeout">Sorry, your session has timed out</string>
+    <string name="iproov__message_format_with_username">%1$s as %2$s to %3$s</string>
+    <string name="iproov__prompt_roll_too_high">Avoid tilting your head</string>
+    <string name="iproov__prompt_roll_too_low">Avoid tilting your head</string>
+    <string name="iproov__prompt_yaw_too_low">Turn slightly to your right</string>
+    <string name="iproov__prompt_yaw_too_high">Turn slightly to your left</string>
+    <string name="iproov__prompt_pitch_too_high">Hold the device at eye level</string>
+    <string name="iproov__prompt_pitch_too_low">Hold the device at eye level</string>
+    <string name="iproov__prompt_get_ready">Get ready…</string>
+    <string name="iproov__error_streaming">Streaming error</string>
+    <string name="iproov__error_encoder">Encoder error</string>
+    <string name="iproov__error_camera">Camera error</string>
+    <string name="iproov__error_camera_permission_denied">Camera permission denied</string>
+    <string name="iproov__error_server_abort">Server abort</string>
+    <string name="iproov__error_lighting_model">Lighting model error</string>
+    <string name="iproov__error_camera_permission_denied_message_android">You must allow access to your camera in order to iProov yourself</string>
+    <string name="iproov__error_flashmark">Malformed flashMark</string>
+    <string name="iproov__error_multi_screen_title">Application is in multi-window mode</string>
+    <string name="iproov__error_multi_screen_message">Application is in multi-window mode.\\nPlease make it full-screen and try again</string>
+    <string name="iproov__error_device_not_supported">Sorry, your device is currently not supported</string>
+    <string name="iproov__error_service_connection_lost">Connection to the Service has been lost</string>
+    <string name="iproov__error_face_detector">Face detector error</string>
+    <string name="iproov__error_capture_already_active">An existing capture is already in progress</string>
+
+    <!--    SampleApp -->
+    <string name="permission_camera_rationale">Access to the camera is needed for detection</string>
+    <string name="no_camera_permission">This application cannot run because it does not have the camera permission.  The application will now exit.</string>
+    <string name="low_storage_error">Face detector dependencies cannot be downloaded due to low device storage</string>
+    <string name="classification_error">Could not classify the document</string>
+
+    <string name="scan_back_side_id">Scan back side of document.</string>
+    <string name="scan_back_side_health_insurance_card">Capture back side of health insurance card.</string>
+
+    <string name="classification_error_retry">Retry</string>
+    <string name="classification_error_image_preview">Image Preview</string>
+    <string name="id_passport_button_text">ID/Passport</string>
+    <string name="health_insurance_button_text">Health Insurance Card</string>
+    <string name="auto_capture">Auto Capture</string>
+    <string name="ip_liveness_enabled">IP Liveness Enabled</string>
+    <string name="face_capture_button_text">Face Capture</string>
+    <string name="image_of_signature">Image of signature</string>
+    <string name="captured_face_image_preview">Captured Face Image Preview</string>
+    <string name="face_image_preview">Face Image Preview</string>
+    <string name="scan_echip">Scan eChip</string>
+    <string name="front_captured_image">Front Captured Image</string>
+    <string name="back_captured_image">Back Captured Image</string>
+    <string name="start_echip">startEchip</string>
+    <string name="document_number_label">Document number:</string>
+    <string name="dob_label">Date of birth (yyMMdd):</string>
+    <string name="doe_label">Expiration date (yyMMdd):</string>
+    <string name="verify_captured_data">Verify captured data and tap startEchip</string>
+    <string name="photo_of_person">Photo of the person obtained from chip</string>
+    <string name="photo_of_signature">Photo of signature obtained from passport chip</string>
+    <string name="mrz_camera">Read MRZ</string>
+
+    <string name="mrz_help_text">Ensure sufficient lighting with no reflection or glare on the passport.</string>
+    <string name="tap_anywhere_to_continue">Tap anywhere to continue</string>
+    <string name="mrz_help_title">Capture the MRZ</string>
+    <string name="mrz_successfully_read">Successful MRZ read</string>
+    <string name="the_following_fields_were_extracted">The following fields were extracted:</string>
+    <string name="locate_echip_help">Place the phone on the passport and move slowly.\nSTOP moving when eChip is located.</string>
+    <string name="locate_echip">Locate eChip</string>
+    <string name="found_echip_help">eChip located.\nDo NOT move phone.</string>
+    <string name="found_echip">eChip Located</string>
+    <string name="error_echip_help">eChip read interrupted.\nPlease try again making sure to keep the phone still.</string>
+    <string name="error_echip">eChip Not Read</string>
+    <string name="confirm">Confirm</string>
+    <string name="face_doest_match">Facial Match Failed! Please try again</string>
+    <string name="yes_we_are_done">Yes we are Done!</string>
+    <string name="thank_you_">Thank You!</string>
+    <string name="thank_you_f">Thank you for registration.</string>
+    <string name="user_already">User Already Registered</string>
+    <string name="user_not_registered">User not registered</string>
+    <string name="enter_card">Enter Card Details</string>
+    <string name="card_details">Card Details</string>
+    <string name="Pleaseentercard">Please enter card number</string>
+    <string name="please_enter_ex">Please enter expiry date of card</string>
+    <string name="do_you_want">Do you want a physical card or not ?
+    If you want a physical card you need to confirm your address.\n
+        Click yes to continue</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="welcom_to_apt_cart" translatable="false">Welcome To Aptcard</string>
+
+    <string name="add_new_recipient">Add New Recipient</string>
+    <string name="enter_the_recipient_details">Enter the recipient details</string>
+    <string name="bank_branches">Bank Branch</string>
+    <string name="to_avoid_delay">To avoid delays your recipient’s name below should match the name of their bank account.</string>
+
+
+    <string name="select_your_bank_branches">Select your recipient\'s bank branch</string>
+    <string name="to_get_your_card">To get Your Card</string>
+    <string name="add_card">+Add Card</string>
+    <string name="add_new_account">Add New Account</string>
+    <string name="are_you_sure_logout">Are you sure you want to logout? </string>
+    <string name="witdraw_method">Withdraw method</string>
+    <string name="eft">EFT</string>
+    <string name="apt_send">Apt-send</string>
+    <string name="eft_account_details">EFT Account Details</string>
+    <string name="bank_id">Bank Id</string>
+    <string name="apt_card_detail">Apt-send Card Details</string>
+    <string name="account_name">Account Name</string>
+    <string name="debit_card_number">Debit Card Number</string>
+    <string name="expiration_date">Expiry date</string>
+    <string name="cvv">CVV</string>
+    <string name="please_enter_account_num">please enter account number</string>
+    <string name="verify_email">Verify Email</string>
+    <string name="please_enter_verify_email">please enter verify email</string>
+    <string name="email_not_match">Verify email  must match email</string>
+    <string name="my_card">My Card</string>
+    <string name="issue_physical_card">Issue Physical Card</string>
+    <string name="see_card_details">See Card Details</string>
+
+    <string name="change_pin">Change Pin</string>
+    <string name="block_card">Block Card</string>
+    <string name="add_account_">Add Account</string>
+    <string name="add_card_">Add Card</string>
+    <string name="view_balance">View Balance</string>
+    <string name="fx_rate">Fx Rate</string>
+    <string name="please_enter_pin">Please enter the PIN to see the card details.</string>
+    <string name="enter_card_pin">Enter Card PIN</string>
+    <string name="card_pin">Card PIN</string>
+    <string name="please_enter_old_pin">Please enter the old PIN</string>
+    <string name="please_enter_the_new_pin">Please enter the new PIN</string>
+    <string name="remove_card">Remove Card</string>
+    <string name="sure_want_to_block_card">Are you sure you want to block this card?</string>
+    <string name="block">Block</string>
+    <string name="please_enter_pin_block">Please enter your card PIN to block this card</string>
+    <string name="please_enter_valid_amount">Please enter valid amount</string>
+    <string name="please_enter_address">Please enter address</string>
+    <string name="please_enter_addresssplchar">Please enter address</string>
+    <string name="please_enter_postal_code">Please enter postal code</string>
+    <string name="please_enter_apartment_code">Please enter apartment</string>
+    <string name="please_enter_city">Please enter city</string>
+    <string name="Addresstand2">Address Lines should be identical</string>
+    <string name="please_enter_mobile_number">Please enter mobile number</string>
+    <string name="please_enter_reason_for_trasaction">Please enter reason for transaction</string>
+    <string name="exchange_rate">Exchange Rate</string>
+
+    <string name="international_money_transfer">International Money Transfer</string>
+    <string name="recipient">Recipient</string>
+    <string name="who_we_are_sending_to">Who are you sending to?</string>
+    <string name="is_this_new">Select New Recipient if you are sending money to a first time recipient or select Existing Recipient if you have already sent receiver funds before via Apt-X.</string>
+    <string name="new_recipient">New Recipient</string>
+    <string name="existing_recipient">Existing Recipient</string>
+    <string name="search_recipient">Search Recipient</string>
+    <string name="enter_iban_number">Enter IBAN number of bank</string>
+    <string name="iban_number">IBAN number</string>
+    <string name="enter_ifsc">Enter IFSC code</string>
+    <string name="delivery_time">Delivery Time</string>
+    <string name="in_seconds">In Seconds</string>
+    <string name="please_select_purpose">Please select reason for sending</string>
+    <string name="enter_valid_name">Please enter valid name</string>
+    <string name="server_client_id">900330274579-5dh5ld4l1ineo9gvcnedpsk4c0mv051o.apps.googleusercontent.com</string>
+    <string name="please_enter_province">Please enter province</string>
+    <string name="payee_name_or_email">Payee name or email</string>
+    <string name="password_should_be_8_character">Password should be 8 character</string>
+    <string name="email_id_already_register">Email id is already registered</string>
+    <string name="your_occupation">Your Occupation</string>
+    <string name="view_pin">View Pin</string>
+    <string name="choose_recepient">Choose Recepient</string>
+
+    <string name="slide_to_send">Slide to send</string>
+    <string name="payment_success">Payment Success!!!</string>
+    <string name="Review">Review</string>
+    <string name="sending_to">Sending to</string>
+    <string name="user_details_update">user details update successfully</string>
+    <string name="please_identify_your_finger">\"Please identify your Fingerprint ID to access our services. \"</string>
+    <string name="biometric_login">Biometric Login</string>
+    <string name="authenticate_failed">Authenticate failed</string>
+    <string name="authenticate_failedwait" translatable="false">Tried Too many attempts please wait for 30 seconds</string>
+    <string name="authenticate_failedblocked" translatable="false">Biometrics Disabled plese unlock your device</string>
+    <string name="user_cancel">user canceled</string>
+    <string name="devices_not_fingerprint_sensor">This device doesnot have a fingerprint sensor</string>
+    <string name="biometric_unavailable">The biometric sensor is currently unavailable</string>
+    <string name="your_device_dont_have_saved_security">Your device doesn\'t have fingerprint saved,please check your security settings</string>
+    <string name="add_apt_send_account">Add Apt-send Account</string>
+    <string name="done">Done</string>
+    <string name="add_new">Add New</string>
+    <string name="wrong_pin">Wrong PIN</string>
+    <string name="failed_to_add">Failed to Add</string>
+    <string name="the_recipient_you_are_trying_to_add_doesn_t_exist_you_can_sent_invitation_mail_to_send_money_via_aptpay">The Recipient you are trying to add doesn’t exist. You can sent invitation mail to send money via Aptpay.</string>
+    <string name="send_email">Send Email</string>
+    <string name="user_already_exists">User already exists</string>
+    <string name="welcom_to_apt_x">Welcome To </string>
+    <string name="send_funds">Send Funds</string>
+    <string name="eft_account">EFT Account</string>
+    <string name="invalid_debit_card_number">Enter 16 digit card number</string>
+    <string name="p2p_money_transfer">P2P Money Transfer</string>
+    <string name="existing_p2p_recepient">Existing P2P Recepient</string>
+    <string name="remove_user">Remove User</string>
+    <string name="do_you_want_to_remove">Do you want to remove</string>
+    <string name="send_by">Send By</string>
+    <string name="tbd">TBD</string>
+    <string name="service_rate">Service Fee</string>
+    <string name="are_you_sure_want_to_send">Are you sure? you want to send money.</string>
+    <string name="coming_soon">Coming Soon</string>
+    <string name="no_user_found">No User Found</string>
+    <string name="user_deleted">User Deleted</string>
+    <string name="bank_detail_not_correct">Bank detail not correct</string>
+    <string name="transaction_sucessfully">Transaction Successfully</string>
+    <string name="add_address">Add Address</string>
+    <string name="to">To</string>
+    <string name="delete">Delete</string>
+    <string name="amount_should_be_">Amount can be from $100 CAD up to $25,000 CAD</string>
+    <string name="service_charge">A Service fee for every transaction will be applicable based off the recipient country</string>
+    <string name="otp_not_match">otp did not match</string>
+    <string name="user_already_register">User already registerd</string>
+    <string name="user_not_register">User not registerd</string>
+    <string name="view_exchange_rate"><font color="#2FB1F8">View Exchange Rate</font></string>
+    <string name="view_exchange_rate_">View Exchange Rate</string>
+    <string name="email_">Email</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="select_country">Select Country</string>
+    <string name="check_exchange_rate_header">Which country do you want to check the exchange rate?</string>
+    <string name="password_should_not_same">New password and old password should not be same</string>
+    <string name="confirm_payment">Confirm Payment</string>
+    <string name="the_amount">The amount</string>
+    <string name="transfer_will_be_">will be deducted from your Apt-X App balance. Your transaction will be cancelled if there are insufficient funds.</string>
+    <string name="you_can_top_up_your_account">You can top up your Apt-X App balance by</string>
+    <string name="foreign_exchange_rates_can_go_up_as_well_as_down_when_you_confirm_this_transaction_we_secure_your_exchange_rate_as_soon_as_we_received_your_order_you_are_liable_for_any_close_out_cost_incurred_by_you_if_you_cancel_your_transaction_when_you_confirm_this_transaction_no_details_can_be_changed_and_you_are_entering_into_a_foreign_exchange_transaction_with_us_as_incorporated_into_our_terms_and_conditions">Foreign exchange rates can go up as well as down. When you confirm this Transaction, we secure your exchange rate as soon as we received your order. You are liable for any close out cost incurred by you if you cancel your Transaction. When you confirm this Transaction, no details can be changed and you are entering into a Foreign Exchange Transaction with us, as incorporated into our <font color="#2FB1F8"><b></b></font></string>
+    <string name="to_ensure_we_meet_our_anti_money_laundering_obligations_we_may_from_time_to_time_as_you_for_more_information_relating_to_your_payment_this_may_be_required_before_your_money_transfer_reaches_the_recipient">To ensure we meet our Anti-Money Laundering obligations, we may from time to time, as you for more information relating to your payment. This may be required before your money transfer reaches the recipient.</string>
+    <string name="confirm_transaction_now">Confirm transaction now</string>
+    <string name="amount">Amount</string>
+    <string name="rate">Rate</string>
+    <string name="rate_inverse">Rate (inverse)</string>
+    <string name="cost">Cost</string>
+    <string name="earliest_payment_date">Earliest payment date</string>
+    <string name="total_cost">Total Cost</string>
+    <string name="you_have_bought">You Have Bought</string>
+    <string name="you_have_sold">You Have Sold</string>
+    <string name="country_name">Country Name</string>
+    <string name="fee">1.257</string>
+    <string name="iban_not_valid">IBAN number is not valid</string>
+    <string name="provided_detail_not_correct">Provided Details are not correct</string>
+    <string name="service_fee">Service Fee  </string>
+    <string name="update_address">Update Address</string>
+    <string name="status">Status</string>
+    <string name="by_clicking_on_continue_you_agree_to_get_a_copy_of_the_information_above">By clicking on Continue, you agree to get a copy of the above Interac e-transfer details.</string>
+    <string name="address">Address</string>
+    <string name="please_send_a_request_to_support_aptpay_com_nfor_address_change">Please send a request to <font color="#2FB1F8"> support@aptpay.com</font> \nfor address change.</string>
+    <string name="please_check_privacy">Please check  privacy policy</string>
+    <string name="please_check_terms_condition"><![CDATA[\"Please check the terms & Conditions \"]]></string>
+    <string name="about_apt_x">About Apt-X</string>
+    <string name="contact_support">Contact Support</string>
+    <string name="enable_notification">Enable Notification</string>
+    <string name="additional_options">More Options</string>
+    <string name="i_agree_policy_sign_up">I agree to be kept up to date with the latest information about products and services from [AptPay]. I can unsubscribe at any time. Please see [AptPay\'s]  </string>
+    <string name="support">Support</string>
+    <string name="details">Details</string>
+   <!-- <string name="api_key" translatable="false">AIzaSyC2_JaEArN6eNLIY4WZKMnW5KhB9kT1O8o</string>-->
+    <string name="api_key" translatable="false">AIzaSyBc7thhFMYo8t-6b51CsHkj8289hZLIZBs</string>
+
+    <string name="please_select_issue_type">Please select issue type</string>
+    <string name="to_start_sending_money_cross_border">To start sending money Cross Border</string>
+    <string name="about_text"><b>About Apt-X</b>\n""\n""Apt-X is a cross-border money transfer service for the digital age, enabling you to instantly send funds internationally directly into bank accounts and mobile wallets. We make sending money easy and give you competitive rates, special offers and there are no hidden fees. Transfer money to your Digital Wallet and send funds to your family and friends fast, safe and secure.\n""- Powered by Mastercard\n""- Protection against fraud\n""- 24/7 customer support\n""- Get Delivery times and be notified\n""- Great rates to send money\n""- Special offers for new members\n""- Send money to Austria, Bangladesh, Belgium, Cyprus, Czech Republic, Germany, Estonia, Spain, United Kingdom, Greece, Ireland, India, Italy, Sri Lanka, Malta, Netherlands, Philippines, Pakistan, Portugal, United States, Vietnam, and more.\n""\n""\n""<b>About Aptpay</b>\n""\n""AptPay is a global fintech based out of Canada that enables real-time* push payments\n""Our Mission is to drive an improved customer experience by enabling faster payouts on a more secure ecosystem via a simple integration.</string>
+    <string name="you_can_top_up_your_apt_x_app_balance_by_101_2570">You can top up your Apt-X App balance by <font color="#2FB1F8"> $101.2570 </font> </string>
+    <string name="dollorsign" translatable="false">$</string>
+
+
+    <string-array name="issue_aaray">
+        <item>Issue type</item>
+        <item>Identification</item>
+        <item>Close Account</item>
+        <item>Change of Address</item>
+        <item>Change of Name</item>
+        <item>Transaction Issues</item>
+    </string-array>
+
+</resources>

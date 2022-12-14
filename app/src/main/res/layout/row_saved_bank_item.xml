@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="data"
+            type="com.apt_x.app.model.GetTransactionHistoryResponse.WalletTransactionsEntity" />
+        <import type="com.apt_x.app.utils.DateParser" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:minHeight="103dp"
+        android:backgroundTint="#16141D"
+        app:cardCornerRadius="@dimen/_10sdp">
+
+    <RelativeLayout
+        android:layout_margin="@dimen/_5sdp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/_5sdp">
+
+        <ImageView
+            android:id="@+id/ivTransaction"
+            android:layout_width="@dimen/_50sdp"
+            android:layout_height="@dimen/_50sdp"
+            android:contentDescription="@string/transaction"
+            android:src="@drawable/out"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <LinearLayout
+            android:layout_toEndOf="@+id/ivTransaction"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/tvBankName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_16sdp"
+                android:fontFamily="@font/montserrat_semibold"
+                tools:text="Bank of America"
+                android:text="@{data.description +``}"
+                android:textColor="@color/white"
+                android:textFontWeight="600"
+                android:textSize="18sp" />
+            <TextView
+                android:id="@+id/tvAccountNumber"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/_5sdp"
+                android:layout_marginStart="@dimen/_16sdp"
+                android:fontFamily="@font/montserrat_semibold"
+                tools:text="••••••••••0000"
+                android:text="@{data.description +``}"
+                android:textColor="@color/white"
+                android:textFontWeight="600"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/tvType"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_16sdp"
+                android:fontFamily="@font/lato_regular"
+                tools:text="Saving Account"
+                android:text="@{`$`+data.amount +``}"
+                android:textColor="#676767"
+                android:textFontWeight="400"
+                android:lineHeight="19sp"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+
+    </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+</layout>

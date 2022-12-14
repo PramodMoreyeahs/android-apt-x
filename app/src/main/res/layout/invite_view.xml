@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:id="@+id/ll"
+    android:visibility="gone"
+    android:background="#03010C">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:layout_gravity="center"
+        android:fontFamily="@font/montserrat_semibold"
+        android:textSize="@dimen/_18sdp"
+        android:text="@string/failed_to_add"/>
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_300sdp"
+        android:layout_margin="@dimen/_20sdp"
+        android:layout_gravity="center"
+        android:src="@drawable/invite_email"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:layout_gravity="center"
+        android:textAlignment="center"
+        android:fontFamily="@font/montserrat_semibold"
+        android:textSize="@dimen/_15sdp"
+        android:text="@string/the_recipient_you_are_trying_to_add_doesn_t_exist_you_can_sent_invitation_mail_to_send_money_via_aptpay"/>
+
+    <TextView
+        android:id="@+id/tvContinue"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="@dimen/_16sdp"
+        android:layout_marginTop="@dimen/_16sdp"
+        android:layout_marginEnd="@dimen/_16sdp"
+        android:layout_marginBottom="@dimen/_16sdp"
+        android:background="@drawable/btn_bg"
+        android:clickable="true"
+        android:fontFamily="@font/montserrat_medium"
+        android:gravity="center"
+        android:onClick="onClick"
+        android:paddingVertical="@dimen/_13sdp"
+        android:text="@string/send_email"
+        android:textColor="@color/white" />
+
+</LinearLayout>
+</layout>

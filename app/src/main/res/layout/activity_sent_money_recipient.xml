@@ -1,0 +1,422 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="emailCheck"
+            type="androidx.databinding.ObservableBoolean" />
+
+        <import type="android.view.View" />
+
+    </data>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:animateLayoutChanges="true"
+        android:background="@color/background">
+
+        <include
+            android:id="@+id/ll_upper"
+            layout="@layout/top_header" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/tvContinue"
+            android:layout_below="@+id/ll_upper"
+            android:orientation="vertical">
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <ProgressBar
+                        android:id="@+id/progress_horizontal"
+                        style="?android:attr/progressBarStyleHorizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/_16sdp"
+                        android:backgroundTint="@color/blue"
+                        android:orientation="horizontal"
+                        android:progress="20"
+                        android:progressBackgroundTint="#208afa"
+                        android:theme="@style/progressBarBlue"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/linearLayout"
+                        app:layout_goneMarginTop="@dimen/_16sdp"
+                        tools:targetApi="lollipop" />
+
+                    <LinearLayout
+                        android:id="@+id/ll_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_16sdp"
+                        android:layout_marginEnd="@dimen/_16sdp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/TextViewSubHeader"
+
+                            android:layout_marginTop="@dimen/_2sdp"
+                            android:layout_marginEnd="@dimen/_16sdp"
+                            android:text="@string/recipient_name"
+                            android:textSize="18sp" />
+
+                        <TextView
+
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:fontFamily="@font/montserrat_medium"
+                            android:maxLines="3"
+                            android:onClick="onClick"
+                            android:text="@string/to_avoid_delay"
+                            android:textColor="@color/text_color"
+                            android:textSize="14sp" />
+
+                        <EditText
+                            android:id="@+id/et_first_name"
+                            style="@style/EditText"
+
+                            android:layout_marginTop="@dimen/_20sdp"
+                            android:hint="@string/first_name"
+                            android:importantForAutofill="no"
+                            android:inputType="textPostalAddress" />
+
+                        <EditText
+                            android:id="@+id/et_last_name"
+                            style="@style/EditText"
+
+                            android:layout_marginVertical="@dimen/_16sdp"
+                            android:hint="@string/last_name"
+                            android:inputType="textPostalAddress" />
+
+                        <EditText
+                            android:id="@+id/etEmail"
+                            style="@style/EditText"
+                            android:fontFamily="@font/lato_regular"
+                            android:hint="@string/email_"
+                            android:imeOptions="actionNext"
+                            android:importantForAutofill="no"
+                            android:inputType="textEmailAddress"
+                            android:paddingHorizontal="@dimen/_10sdp"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:id="@+id/tvemail_valid"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_8sdp"
+                            android:fontFamily="@font/lato_regular"
+                            android:text="@string/email_id_already_register"
+                            android:textColor="@color/red"
+                            android:textFontWeight="400"
+                            android:textSize="14sp"
+                            android:visibility="@{emailCheck ? View.VISIBLE :View.GONE}"
+
+                            tools:targetApi="p" />
+
+                        <TextView
+                            android:id="@+id/tvTitle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:fontFamily="@font/montserrat_semibold"
+                            android:lineHeight="26sp"
+                            android:lineSpacingExtra="@dimen/_5sdp"
+                            android:text="@string/recipient_phone"
+                            android:textColor="@color/white"
+                            android:textFontWeight="600"
+                            android:textSize="18sp"
+                            tools:targetApi="p" />
+
+                        <TextView
+                            android:id="@+id/tvDesc"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_8sdp"
+                            android:fontFamily="@font/lato_regular"
+                            android:text="@string/please_enter_the_recipient_phone_number"
+                            android:textColor="@color/et_hint"
+                            android:textFontWeight="400"
+                            android:textSize="14sp"
+                            tools:targetApi="p" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_16sdp"
+                            android:background="@drawable/iv_bg">
+
+                            <ImageView
+                                android:id="@+id/ivFlag"
+                                android:layout_width="35dp"
+                                android:layout_height="30dp"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginStart="@dimen/_10sdp"
+                                android:src="@drawable/flag"
+                                android:visibility="visible"
+                                tools:ignore="ContentDescription" />
+
+
+                            <TextView
+                                android:id="@+id/edit_country_Code"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginStart="@dimen/_2sdp"
+                                android:ellipsize="end"
+                                android:gravity="center_vertical"
+                                android:maxLength="5"
+                                android:paddingHorizontal="@dimen/_8sdp"
+                                android:text="+1"
+                                android:textColor="@color/text_color"
+                                android:textColorHint="@color/text_color"
+                                android:textSize="14sp"
+
+                                android:visibility="visible"
+                                tools:ignore="HardcodedText" />
+
+                            <EditText
+                                android:id="@+id/etNumber"
+                                style="@style/EditText"
+                                android:layout_marginStart="@dimen/_2sdp"
+                                android:drawablePadding="@dimen/_10sdp"
+                                android:fontFamily="@font/lato_regular"
+                                android:hint="@string/phone_number"
+                                android:imeOptions="actionNext"
+                                android:inputType="number"
+                                android:maxLength="20"
+                                android:paddingHorizontal="@dimen/_10sdp"
+                                android:textSize="14sp"
+                                tools:ignore="Autofill" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_16sdp"
+                            android:orientation="vertical">
+
+
+                            <TextView
+
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+
+                                android:fontFamily="@font/montserrat_semibold"
+                                android:lineHeight="26sp"
+                                android:lineSpacingExtra="@dimen/_5sdp"
+                                android:text="@string/recipient_s_address"
+                                android:textColor="@color/white"
+                                android:textFontWeight="600"
+                                android:textSize="18sp"
+                                tools:targetApi="p" />
+
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="2"
+                                android:orientation="horizontal">
+
+                                <EditText
+                                    android:id="@+id/etAddress"
+                                    style="@style/EditText"
+                                    android:layout_marginTop="@dimen/_16sdp"
+                                    android:layout_weight="1"
+                                    android:hint="@string/address_line"
+                                    android:imeOptions="actionSearch"
+                                    android:importantForAutofill="no"
+
+                                    android:inputType="textPostalAddress"
+                                    android:lineHeight="20sp"
+                                    android:textFontWeight="400"
+                                    android:textSize="16sp"
+                                    tools:targetApi="p" />
+
+                                <ImageView
+                                    android:id="@+id/addresssearchid"
+                                    style="@style/EditText"
+                                    android:layout_width="@dimen/_40sdp"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginStart="3dp"
+                                    android:layout_marginTop="@dimen/_16sdp"
+                                    android:layout_weight="0"
+                                    android:onClick="onClick"
+                                    android:paddingEnd="@dimen/_5sdp"
+                                    android:src="@drawable/ic_search_icon"
+                                    tools:ignore="RtlSymmetry">
+
+                                </ImageView>
+                            </LinearLayout>
+
+
+                            <androidx.recyclerview.widget.RecyclerView
+                                android:id="@+id/place_recycleview"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:clipToPadding="false"
+                                android:padding="@dimen/_2sdp"
+                                android:visibility="gone" />
+
+
+                            <EditText
+                                android:id="@+id/etHouse"
+                                style="@style/EditText"
+
+                                android:layout_marginTop="@dimen/_16sdp"
+                                android:hint="@string/apartment_suite_unit_etc"
+                                android:imeOptions="actionNext"
+                                android:importantForAutofill="no"
+                                android:inputType="textPostalAddress"
+                                android:lineHeight="20sp"
+                                android:textFontWeight="400"
+                                android:textSize="16sp"
+                                tools:targetApi="p" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+
+                                android:layout_marginTop="@dimen/_16sdp"
+                                android:orientation="horizontal">
+
+                                <EditText
+                                    android:id="@+id/etZipCode"
+                                    style="@style/EditText"
+                                    android:layout_marginEnd="@dimen/_16sdp"
+                                    android:layout_weight="1"
+                                    android:hint="@string/postal_code"
+                                    android:imeOptions="actionNext"
+                                    android:importantForAutofill="no"
+                                    android:inputType="text"
+                                    android:lineHeight="20sp"
+                                    android:textFontWeight="400"
+                                    android:textSize="16sp"
+                                    tools:targetApi="p"
+
+                                    />
+
+                                <EditText
+                                    android:id="@+id/etCity"
+                                    style="@style/EditText"
+                                    android:layout_weight="1"
+                                    android:hint="@string/city"
+                                    android:imeOptions="actionNext"
+                                    android:importantForAutofill="no"
+                                    android:inputType="textPostalAddress"
+                                    android:lineHeight="20sp"
+                                    android:textFontWeight="400"
+                                    android:textSize="16sp"
+                                    tools:targetApi="p" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/_16sdp"
+                                android:orientation="vertical">
+
+                                <com.google.android.material.textfield.TextInputLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+
+                                    android:layout_weight="2"
+                                    android:background="@drawable/iv_bg"
+                                    app:hintEnabled="false">
+
+                                    <com.google.android.material.textfield.TextInputEditText
+                                        android:id="@+id/et_select_pro"
+
+                                        style="@style/EditText"
+                                        android:drawablePadding="@dimen/_10sdp"
+                                        android:hint="@string/select_state"
+                                        android:inputType="text"
+                                        android:paddingStart="@dimen/_10sdp"
+                                        android:paddingEnd="@dimen/_10sdp"
+                                        android:textFontWeight="400"
+                                        android:textSize="16sp"
+                                        tools:ignore="RtlSymmetry"
+                                        tools:targetApi="p" />
+
+                                </com.google.android.material.textfield.TextInputLayout>
+
+                                <RelativeLayout
+                                    android:id="@+id/stateprovinceLyt"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="@dimen/_3sdp"
+
+                                    android:layout_marginRight="3dp"
+                                    android:visibility="gone"
+                                    android:background="@drawable/iv_bg"
+                                    android:paddingRight="@dimen/_5sdp"
+                                    android:orientation="horizontal">
+
+                                    <Spinner
+                                        android:id="@+id/statespinner"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_centerVertical="true"
+                                        android:layout_gravity="center"
+
+                                        android:text="Province / State"
+                                        android:background="@android:color/transparent"
+                                        android:gravity="center"
+                                        android:textSize="16sp"
+                                        android:spinnerMode="dropdown" />
+
+                                    <ImageView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_alignParentRight="true"
+                                        android:layout_centerVertical="true"
+                                        android:layout_gravity="center"
+                                        android:src="@drawable/ic_drop_down_icon" />
+
+                                </RelativeLayout>
+
+                            </LinearLayout>
+
+
+                        </LinearLayout>
+                    </LinearLayout>
+
+
+                </LinearLayout>
+            </ScrollView>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvContinue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="@dimen/_16sdp"
+            android:layout_marginTop="@dimen/_16sdp"
+            android:layout_marginEnd="@dimen/_16sdp"
+            android:layout_marginBottom="@dimen/_16sdp"
+            android:background="@drawable/btn_bg"
+            android:clickable="true"
+            android:fontFamily="@font/montserrat_medium"
+            android:gravity="center"
+            android:onClick="onClick"
+            android:paddingVertical="@dimen/_13sdp"
+            android:text="@string/continue_"
+            android:textColor="@color/white" />
+
+    </RelativeLayout>
+</layout>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_marginHorizontal="@dimen/_20sdp"
+    android:orientation="vertical"
+    android:layout_marginVertical="@dimen/_35sdp"
+    android:padding="@dimen/_10sdp"
+    android:background="@drawable/iv_bg"
+    android:layout_height="wrap_content">
+
+
+    <RelativeLayout
+        android:background="@drawable/search_view_selector"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:layout_marginEnd="@dimen/_10sdp"
+        android:id="@+id/sv_doctor_layout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_30sdp">
+        <androidx.appcompat.widget.AppCompatEditText
+            android:layout_centerVertical="true"
+            android:background="@null"
+            android:paddingStart="@dimen/_5sdp"
+            android:drawableStart="@android:drawable/ic_menu_search"
+            android:id="@+id/sv_doctor"
+            android:maxLines="1"
+            android:textColor="@color/white"
+            android:singleLine="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        </androidx.appcompat.widget.AppCompatEditText>
+
+    </RelativeLayout>
+
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_marginStart="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:layout_marginEnd="@dimen/_10sdp"
+        android:padding="@dimen/_5sdp"
+        android:id="@+id/rv_dial_code"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+</LinearLayout>

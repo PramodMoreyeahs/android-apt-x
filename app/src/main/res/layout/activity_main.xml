@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:ignore="MissingDefaultResource">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/black"
+        android:id="@+id/main_layout"
+        android:orientation="vertical">
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="@color/black"
+            android:orientation="vertical">
+
+            <include
+                android:id="@+id/header"
+                android:visibility="gone"
+                layout="@layout/top_header" />
+
+            <TextView
+                android:id="@+id/tvHeader"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/header"
+                android:layout_marginHorizontal="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_25sdp"
+                android:text="@string/capture_id_passport"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tvHeader"
+                android:layout_marginHorizontal="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:text="@string/capture_a_c"
+                android:textColor="@color/et_hint"
+                android:textSize="14sp" />
+
+
+            <LinearLayout
+                android:id="@+id/llCapture"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_150sdp"
+                android:layout_centerVertical="true"
+                android:layout_marginHorizontal="@dimen/_20sdp"
+                android:background="@drawable/ic_group_capture"
+                android:gravity="center">
+
+                <ImageView
+                    android:id="@+id/ivCapture"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="@dimen/_7sdp"
+                    android:scaleType="fitXY"
+                    tools:ignore="ContentDescription" />
+
+
+            </LinearLayout>
+
+
+            <Button
+                android:id="@+id/main_id_passport"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/llCapture"
+                android:layout_marginHorizontal="@dimen/_20sdp"
+                android:layout_marginTop="@dimen/_30sdp"
+                android:background="@drawable/btn_bg"
+                android:fontFamily="@font/montserrat_medium"
+                android:gravity="center"
+                android:onClick="idPassPortClicked"
+                android:paddingVertical="@dimen/_10sdp"
+                android:text="@string/capture_id_passport"
+                android:textAllCaps="false"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:visibility="gone"
+                android:id="@+id/tvRetry"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_20sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:fontFamily="@font/montserrat_medium"
+                android:gravity="center"
+                android:clickable="true"
+                android:focusable="true"
+                android:paddingVertical="@dimen/_10sdp"
+                android:text="@string/retry"
+                android:textColor="@color/text_gray" />
+
+            <LinearLayout
+                android:id="@+id/main_progress_layout"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:background="#CCFFFFFF"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="gone"
+                android:translationZ="2dp">
+
+                <ProgressBar
+                    android:id="@+id/progressBar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:id="@+id/pbText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:layout_marginTop="8dp" />
+
+            </LinearLayout>
+        </RelativeLayout>
+        <Button
+            android:id="@+id/main_mrz_camera"
+            android:layout_margin="30dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/mrz_camera"
+            android:onClick="readMrzClicked"
+            android:visibility="gone"
+            app:layout_constraintBottom_toTopOf="@+id/main_health_card"/>
+
+        <Spinner
+            android:layout_margin="30dp"
+            android:id="@+id/livenessSpinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+
+    </LinearLayout>
+
+
+</layout>

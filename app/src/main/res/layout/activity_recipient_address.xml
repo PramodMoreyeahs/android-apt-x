@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background"
+        tools:context="com.apt_x.app.views.activity.newTransactions.RecipientAddressActivity">
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="0dp"
+            android:layout_height="?attr/actionBarSize"
+            android:layout_marginTop="@dimen/_16sdp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <FrameLayout
+                android:id="@+id/frameLayout2"
+                android:layout_width="@dimen/_35sdp"
+                android:layout_height="@dimen/_35sdp"
+                android:layout_gravity="center"
+                android:layout_marginStart="@dimen/_16sdp"
+                android:background="@drawable/btn_bg_lined">
+
+                <ImageView
+                    android:id="@+id/ivBack"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:background="?attr/selectableItemBackground"
+                    android:contentDescription="@string/back"
+                    android:padding="@dimen/_10sdp"
+                    android:src="@drawable/ic_back" />
+            </FrameLayout>
+
+            <TextView
+                style="@style/TextViewTitle"
+                android:layout_marginHorizontal="@dimen/_16sdp"
+                android:gravity="center"
+                android:text="@string/send_money"
+                android:textFontWeight="500"
+                tools:targetApi="p" />
+
+        </LinearLayout>
+
+        <ProgressBar
+            android:id="@+id/progress_horizontal"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_16sdp"
+            android:layout_marginTop="@dimen/_16sdp"
+            android:backgroundTint="@color/blue"
+            android:orientation="horizontal"
+            android:progress="60"
+            android:progressBackgroundTint="#208afa"
+            android:theme="@style/progressBarBlue"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/linearLayout"
+            app:layout_goneMarginTop="@dimen/_16sdp"
+            tools:targetApi="lollipop" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/_16sdp"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/progress_horizontal">
+
+
+            <TextView
+                android:id="@+id/tvTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_16sdp"
+                android:fontFamily="@font/montserrat_semibold"
+                android:lineHeight="26sp"
+                android:lineSpacingExtra="@dimen/_5sdp"
+                android:text="@string/recipient_s_address"
+                android:textColor="@color/white"
+                android:textFontWeight="600"
+                android:textSize="18sp"
+                tools:targetApi="p" />
+
+            <TextView
+                android:id="@+id/tvDesc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_16sdp"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:fontFamily="@font/lato_regular"
+                android:text="@string/please_choose_the_reason_of_transaction"
+                android:textColor="@color/et_hint"
+                android:textFontWeight="400"
+                android:textSize="14sp"
+                tools:targetApi="p" />
+
+            <EditText
+                android:id="@+id/etAddress"
+                style="@style/EditText"
+                android:layout_marginHorizontal="@dimen/_16sdp"
+                android:layout_marginTop="@dimen/_16sdp"
+                android:hint="@string/address_line"
+                android:imeOptions="actionNext"
+                android:importantForAutofill="no"
+                android:inputType="textPostalAddress"
+                android:lineHeight="20sp"
+                android:textFontWeight="400"
+                android:textSize="16sp"
+                tools:targetApi="p" />
+
+            <EditText
+                android:id="@+id/etHouse"
+                style="@style/EditText"
+                android:layout_marginHorizontal="@dimen/_16sdp"
+                android:layout_marginTop="@dimen/_16sdp"
+                android:hint="@string/apartment_suite_unit_etc"
+                android:imeOptions="actionNext"
+                android:importantForAutofill="no"
+                android:inputType="textPostalAddress"
+                android:lineHeight="20sp"
+                android:textFontWeight="400"
+                android:textSize="16sp"
+                tools:targetApi="p" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_16sdp"
+                android:layout_marginTop="@dimen/_16sdp"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/etZipCode"
+                    style="@style/EditText"
+                    android:layout_marginEnd="@dimen/_16sdp"
+                    android:layout_weight="1"
+                    android:hint="@string/postal_code"
+                    android:imeOptions="actionNext"
+                    android:importantForAutofill="no"
+                    android:inputType="number"
+                    android:lineHeight="20sp"
+                    android:textFontWeight="400"
+                    android:textSize="16sp"
+                    tools:targetApi="p"
+
+                    />
+
+                <EditText
+                    android:id="@+id/etCity"
+                    style="@style/EditText"
+                    android:layout_weight="1"
+                    android:hint="@string/city"
+                    android:imeOptions="actionNext"
+                    android:importantForAutofill="no"
+                    android:inputType="textPostalAddress"
+                    android:lineHeight="20sp"
+                    android:textFontWeight="400"
+                    android:textSize="16sp"
+                    tools:targetApi="p" />
+            </LinearLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_16sdp"
+                android:layout_marginTop="@dimen/_16sdp"
+                android:background="@drawable/iv_bg"
+                app:hintEnabled="false">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    style="@style/EditText"
+                    android:drawableEnd="@drawable/ic_drop_down_icon"
+                    android:drawablePadding="@dimen/_10sdp"
+                    android:hint="@string/select_state"
+                    android:inputType="text"
+                    android:paddingStart="@dimen/_10sdp"
+                    android:paddingEnd="@dimen/_10sdp"
+                    android:textFontWeight="400"
+                    android:textSize="16sp"
+                    tools:ignore="RtlSymmetry"
+                    tools:targetApi="p" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <TextView
+                android:id="@+id/tvContinue"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_40sdp"
+                android:layout_marginHorizontal="@dimen/_16sdp"
+                android:layout_marginTop="@dimen/_16sdp"
+                android:background="@drawable/tv_btn_bg"
+                android:clickable="true"
+                android:fontFamily="@font/montserrat_medium"
+                android:gravity="center"
+                android:onClick="onClick"
+                android:text="@string/continue_"
+                android:textColor="@color/white" />
+
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

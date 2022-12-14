@@ -1,0 +1,412 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="accountCheck"
+            type="androidx.databinding.ObservableBoolean" />
+
+        <variable
+            name="confirm_check"
+            type="androidx.databinding.ObservableBoolean" />
+
+        <import type="android.view.View" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background"
+        tools:context="com.apt_x.app.views.activity.newTransactions.SenderInfoActivity">
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="0dp"
+            android:layout_height="?attr/actionBarSize"
+            android:layout_marginTop="@dimen/_16sdp"
+            android:weightSum="2"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <FrameLayout
+                android:layout_weight="0"
+                android:id="@+id/frameLayout2"
+                android:layout_width="@dimen/_35sdp"
+                android:layout_height="@dimen/_35sdp"
+                android:layout_gravity="center"
+                android:layout_marginStart="@dimen/_16sdp"
+                android:background="@drawable/btn_bg_lined">
+
+                <ImageView
+                    android:id="@+id/ivBack"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:background="?attr/selectableItemBackground"
+                    android:contentDescription="@string/back"
+                    android:padding="@dimen/_10sdp"
+                    android:src="@drawable/ic_back" />
+            </FrameLayout>
+
+            <TextView
+                android:layout_weight="2"
+                style="@style/TextViewTitle"
+
+                android:gravity="center"
+                android:text="@string/send_money"
+                android:textFontWeight="500"
+                tools:targetApi="p" />
+
+            <FrameLayout
+                android:visibility="invisible"
+                android:layout_weight="0"
+                android:id="@+id/frameLayout22"
+                android:layout_width="@dimen/_35sdp"
+                android:layout_height="@dimen/_35sdp"
+                android:layout_gravity="center"
+                android:layout_marginStart="@dimen/_16sdp"
+                android:background="@drawable/btn_bg_lined">
+
+                <ImageView
+
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:background="?attr/selectableItemBackground"
+                    android:contentDescription="@string/back"
+                    android:padding="@dimen/_10sdp"
+                    android:src="@drawable/ic_back" />
+            </FrameLayout>
+
+        </LinearLayout>
+
+        <ProgressBar
+            android:id="@+id/progress_horizontal"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_16sdp"
+            android:layout_marginTop="@dimen/_16sdp"
+            android:backgroundTint="@color/blue"
+            android:orientation="horizontal"
+            android:progress="85"
+            android:progressBackgroundTint="#208afa"
+            android:theme="@style/progressBarBlue"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/linearLayout"
+            app:layout_goneMarginTop="@dimen/_16sdp"
+            tools:targetApi="lollipop" />
+
+
+        <ScrollView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginHorizontal="@dimen/_16sdp"
+            android:layout_marginTop="@dimen/_25sdp"
+            android:layout_marginBottom="@dimen/_16sdp"
+            app:layout_constraintBottom_toTopOf="@id/tvContinue"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/progress_horizontal"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/progress_horizontal">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:visibility="@{accountCheck ? View.VISIBLE :View.GONE}">
+
+                    <TextView
+                        style="@style/TextViewSubHeader"
+
+                        android:layout_marginTop="@dimen/_2sdp"
+                        android:text="@string/recipient_bank_details"
+
+                        android:textSize="18sp" />
+
+                    <TextView
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:fontFamily="@font/montserrat_medium"
+                        android:maxLines="3"
+                        android:onClick="onClick"
+                        android:text="@string/to_avoid_delay"
+                        android:textColor="@color/text_color"
+                        android:textSize="14sp" />
+
+                    <RelativeLayout
+                        android:id="@+id/acctypeLyt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:layout_marginRight="3dp"
+                        android:layout_weight=".28"
+                        android:background="@drawable/iv_bg"
+                        android:orientation="horizontal"
+
+                        android:paddingRight="@dimen/_5sdp"
+                        android:visibility="gone">
+
+                        <Spinner
+                            android:id="@+id/statespinner"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_gravity="center"
+
+                            android:background="@android:color/transparent"
+                            android:gravity="center"
+                            android:spinnerMode="dropdown"
+                            android:text="Province / State"
+                            android:textSize="16sp" />
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_gravity="center"
+                            android:src="@drawable/ic_drop_down_icon" />
+
+                    </RelativeLayout>
+
+
+                    <EditText
+                        android:id="@+id/et_account_number"
+                        style="@style/EditText"
+
+                        android:layout_marginTop="@dimen/_16sdp"
+                        android:hint="@string/account_number"
+                        android:inputType="number"
+                        tools:ignore="TextFields" />
+
+                    <EditText
+                        android:id="@+id/abarouting"
+                        style="@style/EditText"
+                        android:layout_marginVertical="@dimen/_16sdp"
+                        android:hint="@string/aba_routing"
+                        android:inputType="number"
+                        android:visibility="gone"
+                        tools:ignore="TextFields" />
+
+                    <EditText
+                        android:id="@+id/et_very_account"
+                        style="@style/EditText"
+
+                        android:layout_marginVertical="@dimen/_16sdp"
+                        android:hint="@string/re_enter_account_number"
+                        android:inputType="number"
+                        tools:ignore="TextFields" />
+
+                    <EditText
+                        android:id="@+id/et_ifsc"
+                        style="@style/EditText"
+                        android:hint="@string/enter_ifsc"
+                        android:inputType="textCapCharacters"
+                        tools:ignore="TextFields" />
+                </LinearLayout>
+
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_1sdp"
+                    android:layout_marginTop="@dimen/_16sdp"
+                    android:background="@color/enable_text_color" />
+
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:fontFamily="@font/montserrat_semibold"
+                    android:lineHeight="26sp"
+                    android:lineSpacingExtra="@dimen/_5sdp"
+                    android:text="@string/reason_for_sending"
+                    android:textColor="@color/white"
+                    android:textFontWeight="600"
+                    android:textSize="18sp"
+                    tools:targetApi="p" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_16sdp"
+                    android:autoSizeMaxTextSize="@dimen/_8sdp"
+                    android:fontFamily="@font/lato_regular"
+                    android:text="@string/please_choose_the_reason_of_transaction"
+                    android:textColor="@color/et_hint"
+                    android:textFontWeight="400"
+                    android:textSize="14sp"
+                    tools:targetApi="p"
+
+
+                    />
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginRight="3dp"
+                    android:layout_weight=".28"
+                    android:background="@drawable/iv_bg"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/_10sdp">
+
+                    <Spinner
+                        android:id="@+id/spinner"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="5dp"
+                        android:background="@android:color/transparent"
+
+                        android:gravity="center"
+                        android:spinnerMode="dropdown" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_drop_down_icon" />
+
+                </RelativeLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/_5sdp"
+                    android:visibility="gone">
+
+
+                    <FrameLayout
+                        android:id="@+id/check1"
+                        android:layout_width="@dimen/_18sdp"
+                        android:layout_height="@dimen/_18sdp"
+                        android:layout_gravity="center"
+                        android:layout_marginEnd="@dimen/_10sdp"
+                        android:background="@drawable/radio_bg"
+                        android:onClick="onClick">
+
+                        <View
+                            android:layout_width="@dimen/_12sdp"
+                            android:layout_height="@dimen/_12sdp"
+
+                            android:layout_gravity="center"
+                            android:background="@drawable/view_bg"
+                            android:visibility="@{confirm_check? View.VISIBLE:View.GONE}" />
+
+                    </FrameLayout>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:ellipsize="end"
+                        android:fontFamily="@font/raleway_light"
+                        android:maxLines="3"
+                        android:text="@string/are_you_sure_want_to_send"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_12sdp" />
+
+
+                </LinearLayout>
+
+            </LinearLayout>
+        </ScrollView>
+
+        <!--        <RelativeLayout
+                    android:layout_width="0dp"
+                    android:id="@+id/rl_bottom"
+                    android:layout_height="wrap_content"
+                    android:paddingVertical="@dimen/_5sdp"
+                    android:visibility="visible"
+                    android:paddingStart="@dimen/_5sdp"
+                    android:layout_marginHorizontal="@dimen/_16sdp"
+                    android:layout_marginBottom="@dimen/_16sdp"
+                    android:background="@drawable/button_stroke"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    tools:ignore="RtlSymmetry">
+
+                    <SeekBar
+                        android:id="@+id/myseek"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:clickable="false"
+                        android:max="99"
+
+                        android:paddingStart="@dimen/_20sdp"
+                        android:progressDrawable="@color/background"
+                        android:text="Do Not Touch"
+                        android:thumb="@drawable/ic_slide_button" />
+
+                    <ProgressBar
+                        android:id="@+id/after_slide_button"
+                        android:layout_width="@dimen/_30sdp"
+                        android:layout_height="@dimen/_30sdp"
+                        android:layout_centerInParent="true"
+                        android:layout_centerHorizontal="true"
+                        android:text=""
+                        android:progressTint="@color/blue"
+                        android:indeterminateTint="@color/blue"
+                        android:visibility="invisible" />
+
+                    <TextView
+                        android:id="@+id/slider_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        android:text="@string/slide_to_send"
+                        android:textColor="#fff"
+                        android:textStyle="italic"
+                        android:visibility="visible"
+                        android:textSize="@dimen/_12sdp" />
+                </RelativeLayout>-->
+
+        <TextView
+            android:id="@+id/tvContinue"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_marginHorizontal="@dimen/_16sdp"
+            android:layout_marginBottom="@dimen/_16sdp"
+            android:layout_weight="1"
+            android:background="@drawable/tv_btn_bg"
+            android:fontFamily="@font/montserrat_medium"
+            android:gravity="center"
+            android:lineHeight="20sp"
+            android:onClick="onClick"
+            android:text="@string/continue_"
+            android:textColor="@color/white"
+
+            android:textFontWeight="500"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:targetApi="p" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

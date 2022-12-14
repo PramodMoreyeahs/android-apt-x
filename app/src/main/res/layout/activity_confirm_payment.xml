@@ -1,0 +1,529 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+
+    <data>
+        <variable
+            name="terms1"
+            type="androidx.databinding.ObservableBoolean" />
+        <variable
+            name="terms2"
+            type="androidx.databinding.ObservableBoolean" />
+        <import type="android.view.View"/>
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <include
+            android:id="@+id/ll_upper"
+            layout="@layout/top_header" />
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background"
+     >
+
+
+
+
+        <ProgressBar
+            android:id="@+id/progress_horizontal"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_16sdp"
+            android:layout_marginTop="@dimen/_16sdp"
+            android:backgroundTint="@color/blue"
+            android:orientation="horizontal"
+            android:progress="90"
+            android:progressBackgroundTint="#208afa"
+            android:theme="@style/progressBarBlue"
+            app:layout_goneMarginTop="@dimen/_16sdp"
+            tools:targetApi="lollipop" />
+
+        <TextView
+            android:id="@+id/tv_header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/progress_horizontal"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_marginEnd="@dimen/_20sdp"
+            android:layout_marginBottom="@dimen/_20sdp"
+            android:fontFamily="@font/lato_regular"
+            android:text=""
+            android:textColor="@color/white"
+            android:textFontWeight="500"
+            android:textSize="@dimen/_12sdp"
+            tools:targetApi="p" />
+
+        <TextView
+            android:id="@+id/tv_apt_balance"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_header"
+
+            android:layout_marginHorizontal="@dimen/_20sdp"
+            android:fontFamily="@font/lato_regular"
+            android:text=""
+            android:textColor="@color/white"
+            android:textFontWeight="400"
+            android:visibility="visible"
+            android:textSize="@dimen/_12sdp"
+            tools:targetApi="p" />
+
+        <androidx.cardview.widget.CardView
+            android:layout_below="@+id/tv_apt_balance"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:minHeight="250dp"
+            android:layout_margin="@dimen/_16sdp"
+            android:id="@+id/card_view"
+            android:backgroundTint="#16141D"
+            app:cardCornerRadius="@dimen/_10sdp">
+            <androidx.core.widget.NestedScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:layout_margin="@dimen/_5sdp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="@dimen/_5sdp">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_1sdp">
+
+                        <TextView
+                            android:id="@+id/kk"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/amount"
+                            android:textColor="@color/white"
+                            tools:targetApi="p" />
+
+                        <TextView
+                            android:id="@+id/tv_amount"
+                            tools.text="$ 100.00"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_toRightOf="@+id/kk"
+                            android:gravity="right"
+                            android:text="$ 0.0"
+                            android:textColor="@color/white"
+                            tools:ignore="Suspicious0dp"
+                            tools:targetApi="p" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginVertical="@dimen/_15sdp">
+
+                        <TextView
+                            android:id="@+id/kku"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/recipient"
+                            android:textColor="@color/white"
+                            tools:targetApi="p" />
+
+                        <TextView
+                            android:id="@+id/tv_recipient"
+                            tools.text="$ 79.55"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_toStartOf="@+id/kku"
+                            android:text="test"
+                            android:textColor="@color/white"
+                            tools:ignore="Suspicious0dp"
+                            tools:targetApi="p" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/kkuy"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/rate"
+                            android:textColor="@color/white"
+                            tools:targetApi="p" />
+
+                        <TextView
+                            android:id="@+id/tv_fix_rate"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_toStartOf="@+id/kkuy"
+                            android:text="$1.257"
+                            android:textColor="@color/white"
+
+                            tools:ignore="Suspicious0dp"
+                            tools:targetApi="p" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/tv_time"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/rate_inverse"
+                            android:textColor="@color/white"
+                            tools:targetApi="p" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_toStartOf="@+id/tv_time"
+                            android:textColor="@color/white"
+                            tools:ignore="Suspicious0dp"
+                            tools:targetApi="p"
+                            android:id="@+id/tv_inverse_rate"
+                            android:text="" />
+                    </RelativeLayout>
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/tv_cost_"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/cost"
+                            android:textColor="@color/white"
+                            tools:targetApi="p" />
+
+                        <TextView
+                            android:id="@+id/tv_cost"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_toStartOf="@+id/tv_cost_"
+                            android:text="CAD Amount"
+                            android:textColor="@color/white"
+                            tools:ignore="Suspicious0dp"
+                            tools:targetApi="p" />
+                    </RelativeLayout>
+
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/tv_earlie"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/earliest_payment_date"
+                            android:textColor="@color/white"
+                            tools:targetApi="p" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_toStartOf="@+id/tv_earlie"
+                            android:textColor="@color/white"
+                            tools:ignore="Suspicious0dp"
+                            tools:targetApi="p"
+                            android:id="@+id/tv_earlie_date"
+
+                            android:text="24 hr" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/tv_transfer"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/transfer_fee"
+                            android:textColor="@color/white"
+                            tools:targetApi="p" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_alignParentRight="true"
+                            android:id="@+id/tv_service_fee"
+                            android:text="$1.257"
+                            android:textColor="@color/white"
+                            tools:ignore="Suspicious0dp"
+
+                            tools:targetApi="p" />
+                    </RelativeLayout>
+
+
+
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginVertical="@dimen/_10sdp"
+                        android:layout_weight="1"
+                        android:background="@color/colorAccent" />
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/kky"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/total_cost"
+                            android:textStyle="bold"
+                            android:textColor="@color/white"
+                            tools:targetApi="p" />
+
+                        <TextView
+                            android:id="@+id/tv_total"
+                            tools.text="$ 101.2570"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_toStartOf="@+id/kky"
+                            android:text="$0.00"
+                            android:textColor="@color/colorAccent"
+                            tools:ignore="Suspicious0dp"
+                            tools:targetApi="p" />
+                    </RelativeLayout>
+
+
+
+                </LinearLayout>
+
+
+            </RelativeLayout>
+            </androidx.core.widget.NestedScrollView>
+        </androidx.cardview.widget.CardView>
+     <!--   <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:padding="@dimen/_3sdp"
+            android:id="@+id/ll_1"
+            android:layout_marginHorizontal="@dimen/_20sdp"
+            android:layout_below="@+id/card_view"
+            android:orientation="horizontal">
+
+
+            <FrameLayout
+                android:layout_width="@dimen/_8sdp"
+                android:layout_height="@dimen/_8sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_3sdp"
+             >
+
+                <View
+                    android:layout_width="@dimen/_8sdp"
+                    android:layout_height="@dimen/_8sdp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/ic_circle_bg"
+                  />
+
+            </FrameLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/lato_regular"
+                android:text="@string/foreign_exchange_rates_can_go_up_as_well_as_down_when_you_confirm_this_transaction_we_secure_your_exchange_rate_as_soon_as_we_received_your_order_you_are_liable_for_any_close_out_cost_incurred_by_you_if_you_cancel_your_transaction_when_you_confirm_this_transaction_no_details_can_be_changed_and_you_are_entering_into_a_foreign_exchange_transaction_with_us_as_incorporated_into_our_terms_and_conditions"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_12sdp" />
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_16sdp"
+            android:padding="@dimen/_3sdp"
+            android:id="@+id/ll_2"
+            android:layout_marginHorizontal="@dimen/_20sdp"
+            android:layout_below="@+id/ll_1"
+
+            android:orientation="horizontal">
+
+
+            <FrameLayout
+                android:layout_width="@dimen/_8sdp"
+                android:layout_height="@dimen/_8sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_3sdp"
+                >
+
+                <View
+                    android:layout_width="@dimen/_8sdp"
+                    android:layout_height="@dimen/_8sdp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/ic_circle_bg"
+                    />
+
+            </FrameLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/lato_regular"
+                android:text="@string/to_ensure_we_meet_our_anti_money_laundering_obligations_we_may_from_time_to_time_as_you_for_more_information_relating_to_your_payment_this_may_be_required_before_your_money_transfer_reaches_the_recipient"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_12sdp" />
+
+
+        </LinearLayout>-->
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:padding="@dimen/_5sdp"
+            android:id="@+id/ll_ll1"
+            android:layout_marginHorizontal="@dimen/_20sdp"
+            android:layout_below="@+id/card_view"
+            android:orientation="horizontal">
+
+
+            <FrameLayout
+                android:layout_width="@dimen/_18sdp"
+                android:layout_height="@dimen/_18sdp"
+
+                android:id="@+id/check1"
+                android:onClick="onClick"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:background="@drawable/radio_bg">
+
+                <View
+                    android:layout_width="@dimen/_12sdp"
+                    android:layout_height="@dimen/_12sdp"
+
+                    android:layout_gravity="center"
+                    android:background="@drawable/view_bg"
+                    android:visibility="@{terms1? View.VISIBLE:View.GONE}" />
+
+            </FrameLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/lato_regular"
+                android:text="@string/foreign_exchange_rates_can_go_up_as_well_as_down_when_you_confirm_this_transaction_we_secure_your_exchange_rate_as_soon_as_we_received_your_order_you_are_liable_for_any_close_out_cost_incurred_by_you_if_you_cancel_your_transaction_when_you_confirm_this_transaction_no_details_can_be_changed_and_you_are_entering_into_a_foreign_exchange_transaction_with_us_as_incorporated_into_our_terms_and_conditions"
+                android:textColor="@color/white"
+                android:layout_gravity="center"
+                android:id="@+id/cfrmpageterms"
+                android:ellipsize="end"
+                android:textSize="@dimen/_12sdp" />
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:padding="@dimen/_5sdp"
+            android:layout_marginHorizontal="@dimen/_20sdp"
+            android:id="@+id/ll_ll2"
+            android:layout_below="@+id/ll_ll1"
+            android:orientation="horizontal">
+
+
+            <FrameLayout
+                android:layout_width="@dimen/_18sdp"
+                android:layout_height="@dimen/_18sdp"
+
+                android:id="@+id/check2"
+                android:onClick="onClick"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:background="@drawable/radio_bg">
+
+                <View
+                    android:layout_width="@dimen/_12sdp"
+                    android:layout_height="@dimen/_12sdp"
+
+                    android:layout_gravity="center"
+                    android:background="@drawable/view_bg"
+                    android:visibility="@{terms2? View.VISIBLE:View.GONE}" />
+
+            </FrameLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/lato_regular"
+
+                android:text="@string/to_ensure_we_meet_our_anti_money_laundering_obligations_we_may_from_time_to_time_as_you_for_more_information_relating_to_your_payment_this_may_be_required_before_your_money_transfer_reaches_the_recipient"
+                android:textColor="@color/white"
+                android:layout_gravity="center"
+                android:ellipsize="end"
+                android:textSize="@dimen/_12sdp" />
+
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvContinue"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_below="@+id/ll_ll2"
+            android:layout_marginHorizontal="@dimen/_20sdp"
+
+
+            android:layout_marginVertical="@dimen/_10sdp"
+            android:onClick="onClick"
+            android:background="@drawable/tv_btn_bg"
+            android:fontFamily="@font/montserrat_medium"
+            android:gravity="center"
+            android:lineHeight="20sp"
+            android:text="@string/confirm_transaction_now"
+            android:textColor="@color/white"
+            android:textFontWeight="500"
+            android:textSize="16sp"
+            tools:targetApi="p" />
+
+    </RelativeLayout>
+
+    </ScrollView>
+    </LinearLayout>
+</layout>

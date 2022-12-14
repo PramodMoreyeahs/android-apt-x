@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+   >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@color/bg"
+        >
+
+        <ImageView
+            android:layout_width="@dimen/_100sdp"
+            android:layout_height="@dimen/_100sdp"
+            android:background="@drawable/ic_cross"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:id="@+id/ivLogo"
+            android:layout_gravity="center"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvHeader"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:text="@string/cross_borde"
+            android:layout_gravity="center"
+            android:textAllCaps="true"
+            android:textSize="@dimen/_15sdp"
+            android:fontFamily="@font/montserrat"
+            android:textColor="@color/white"
+
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/send_money_"
+            android:id="@+id/tvDesc"
+            android:layout_gravity="center"
+            android:layout_marginHorizontal="@dimen/_30sdp"
+            android:textSize="@dimen/_11sdp"
+            android:layout_marginVertical="@dimen/_10sdp"
+            android:gravity="center"
+            android:textColor="@color/text_color"
+
+            />
+    </LinearLayout>
+
+
+</layout>

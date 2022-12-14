@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.apt_x.app.views.activity.verification.AddressViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background"
+        android:orientation="vertical">
+        <LinearLayout
+            android:visibility="invisible"
+            android:id="@+id/linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:layout_marginTop="@dimen/_16sdp"
+            android:orientation="horizontal">
+
+            <FrameLayout
+                android:id="@+id/frameLayout2"
+                android:layout_width="@dimen/_35sdp"
+                android:layout_height="@dimen/_35sdp"
+                android:layout_gravity="center"
+                android:layout_marginStart="@dimen/_16sdp"
+                android:background="@drawable/btn_bg_lined">
+
+                <ImageView
+                    android:id="@+id/ivBack"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:onClick="onClick"
+                    android:background="?attr/selectableItemBackground"
+                    android:contentDescription="@string/back"
+                    android:padding="@dimen/_10sdp"
+                    android:src="@drawable/ic_back" />
+            </FrameLayout>
+
+            <TextView
+                style="@style/TextViewTitle"
+                android:layout_marginHorizontal="@dimen/_16sdp"
+                android:gravity="center"
+                android:text="@string/add_address"
+                android:textFontWeight="500"
+                tools:targetApi="p" />
+        </LinearLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/TextViewHeader"
+                    android:layout_marginStart="@dimen/_16sdp"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:layout_marginEnd="@dimen/_16sdp"
+                    android:text="@string/add"
+                    android:textFontWeight="700"
+
+                    />
+
+                <TextView
+                    style="@style/TextViewSubHeader"
+                    android:layout_marginStart="@dimen/_16sdp"
+                    android:layout_marginTop="@dimen/_2sdp"
+                    android:layout_marginEnd="@dimen/_16sdp"
+                    android:text="@string/your_address" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:orientation="horizontal">
+                <EditText
+                    android:id="@+id/etAddress"
+                    style="@style/EditText"
+                    android:layout_weight="1"
+                    android:layout_marginHorizontal="@dimen/_16sdp"
+                    android:layout_marginTop="@dimen/_50sdp"
+                    android:hint="@string/address_line"
+                    android:importantForAutofill="no"
+                    android:inputType="textPostalAddress" />
+
+                <ImageView
+                    android:id="@+id/addresssearchid"
+                    style="@style/EditText"
+                    android:layout_width="@dimen/_40sdp"
+                    android:layout_height="@dimen/_40sdp"
+
+                    android:layout_gravity="bottom"
+                    android:layout_marginTop="@dimen/_16sdp"
+                    android:layout_marginEnd="@dimen/_15sdp"
+                    android:layout_weight="0"
+                    android:onClick="onClick"
+                    android:paddingEnd="@dimen/_5sdp"
+                    android:src="@drawable/ic_search_icon"
+                    tools:ignore="RtlSymmetry">
+
+                </ImageView>
+
+            </LinearLayout>
+
+
+
+
+                <EditText
+                    android:id="@+id/etHouse"
+                    style="@style/EditText"
+                    android:visibility="visible"
+                    android:layout_marginHorizontal="@dimen/_16sdp"
+                    android:layout_marginTop="@dimen/_16sdp"
+                    android:hint="@string/apartment_suite_unit_etc1"
+                    android:inputType="textPostalAddress" />
+
+
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_16sdp"
+                    android:layout_marginTop="@dimen/_16sdp"
+                    android:orientation="horizontal">
+
+                    <EditText
+                        android:id="@+id/etZipCode"
+                        style="@style/EditText"
+                        android:layout_marginEnd="@dimen/_16sdp"
+                        android:layout_weight="1"
+                        android:hint="@string/postal_code" />
+
+                    <EditText
+                        android:id="@+id/etCity"
+                        style="@style/EditText"
+                        android:layout_weight="1"
+                        android:hint="@string/city"
+                        android:importantForAutofill="no"
+                        android:inputType="textPostalAddress" />
+                </LinearLayout>
+
+                <AutoCompleteTextView
+                    android:id="@+id/acTvState"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_40sdp"
+                    android:layout_marginHorizontal="@dimen/_16sdp"
+                    android:layout_marginTop="@dimen/_16sdp"
+                    android:layout_weight="1"
+                    android:background="@drawable/iv_bg"
+                    android:drawablePadding="@dimen/_16sdp"
+                    android:hint="@string/select_state"
+                    android:inputType="textPostalAddress"
+                    android:paddingStart="@dimen/_16sdp"
+                    android:paddingEnd="@dimen/_16sdp"
+                    android:textColor="@color/white"
+                    android:textColorHint="#676767"
+                    android:textSize="14sp" />
+                <!--android:drawableEnd="@drawable/ic_drop_down_icon"-->
+
+
+                <TextView
+                    android:id="@+id/tvContinue"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingVertical="@dimen/_13sdp"
+                    android:layout_marginHorizontal="@dimen/_16sdp"
+                    android:layout_marginTop="@dimen/_16sdp"
+                    android:background="@drawable/btn_bg"
+                    android:clickable="true"
+                    android:fontFamily="@font/montserrat_medium"
+                    android:gravity="center"
+                    android:onClick="onClick"
+                    android:text="@string/updatetxt"
+                    android:textColor="@color/white" />
+
+                <TextView
+                    android:id="@+id/tvSkip"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_40sdp"
+                    android:layout_marginHorizontal="@dimen/_16sdp"
+                    android:layout_marginTop="@dimen/_16sdp"
+                    android:layout_marginBottom="@dimen/_16sdp"
+                    android:clickable="true"
+                    android:fontFamily="@font/montserrat_medium"
+                    android:gravity="center"
+                    android:visibility="gone"
+                    android:onClick="onClick"
+                    android:text="@string/skip_for_now"
+                    android:textColor="@color/white" />
+
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+</layout>

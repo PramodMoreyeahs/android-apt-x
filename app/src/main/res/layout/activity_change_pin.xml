@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background"
+        android:id="@+id/ll_view"
+
+        android:orientation="vertical"
+        tools:context="com.apt_x.app.views.activity.signup.VerifyPhoneActivity">
+
+        <include
+            android:id="@+id/ll_upper"
+            layout="@layout/top_header" />
+
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_16sdp"
+            android:layout_marginTop="@dimen/_30sdp"
+            android:layout_marginEnd="@dimen/_16sdp"
+            android:gravity="center"
+            android:fontFamily="@font/lato_regular"
+            android:id="@+id/tvemail"
+            android:layout_gravity="center"
+            android:lineSpacingExtra="@dimen/_5sdp"
+            android:text="@string/please_enter_old_pin"
+            android:textColor="@color/et_hint"
+            android:textSize="@dimen/_14sdp" />
+
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="30dp"
+            android:layout_marginVertical="@dimen/_20sdp"
+            tools:ignore="RtlHardcoded">
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/et_otp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@android:color/transparent"
+                android:imeOptions="actionDone"
+                android:focusableInTouchMode="true"
+                android:focusable="true"
+                android:focusedByDefault="true"
+                android:inputType="number"
+                android:maxLength="4"
+                android:textColor="@android:color/transparent"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal">
+
+
+                <RelativeLayout
+                    android:id="@+id/rl1"
+                    android:layout_width="50dp"
+                    android:layout_weight="1"
+                    android:layout_height="60dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginHorizontal="10dp"
+                    android:background="@drawable/iv_bg"
+                    tools:ignore="RtlHardcoded">
+
+                    <TextView
+                        android:id="@+id/tv_code_one"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:inputType="number"
+                        android:hint="-"
+                        android:textColorHint="@color/gray_light"
+                        android:textColor="@color/white"
+                        android:fontFamily="@font/lato_regular"
+                        android:textSize="18sp"
+                        tools:ignore="TextViewEdits" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rl2"
+                    android:layout_width="50dp"
+                    android:layout_weight="1"
+                    android:layout_height="60dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginHorizontal="10dp"
+                    android:background="@drawable/iv_bg"
+                    tools:ignore="RtlHardcoded">
+
+                    <TextView
+                        android:id="@+id/tv_code_two"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:inputType="number"
+                        android:fontFamily="@font/lato_regular"
+                        android:hint="-"
+                        android:textColorHint="@color/gray_light"
+                        android:textColor="@color/white"
+                        android:textSize="18sp"
+                        tools:ignore="TextViewEdits" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rl3"
+                    android:layout_weight="1"
+
+                    android:layout_width="50dp"
+                    android:layout_height="60dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginHorizontal="10dp"
+                    android:background="@drawable/iv_bg"
+                    tools:ignore="RtlHardcoded">
+
+                    <TextView
+                        android:id="@+id/tv_code_three"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:inputType="number"
+                        android:textColor="@color/white"
+                        android:textSize="18sp"
+                        android:fontFamily="@font/lato_regular"
+                        android:hint="-"
+                        android:textColorHint="@color/gray_light"
+                        tools:ignore="TextViewEdits" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rl4"
+                    android:layout_width="50dp"
+                    android:layout_weight="1"
+
+                    android:layout_height="60dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginHorizontal="10dp"
+                    android:background="@drawable/iv_bg"
+                    tools:ignore="RtlHardcoded">
+
+                    <TextView
+                        android:id="@+id/tv_code_four"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:inputType="number"
+                        android:textColor="@color/white"
+                        android:textSize="18sp"
+                        android:hint="-"
+                        android:textColorHint="@color/gray_light"
+                        android:fontFamily="@font/lato_regular"
+
+                        tools:ignore="TextViewEdits" />
+                </RelativeLayout>
+            </LinearLayout>
+        </FrameLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_16sdp"
+            android:layout_marginTop="@dimen/_30sdp"
+            android:layout_marginEnd="@dimen/_16sdp"
+            android:gravity="center"
+            android:fontFamily="@font/lato_regular"
+
+            android:layout_gravity="center"
+            android:lineSpacingExtra="@dimen/_5sdp"
+            android:text="@string/please_enter_the_new_pin"
+            android:textColor="@color/et_hint"
+            android:textSize="@dimen/_14sdp" />
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="30dp"
+            android:layout_marginVertical="@dimen/_20sdp"
+            tools:ignore="RtlHardcoded">
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/et_otp2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@android:color/transparent"
+                android:imeOptions="actionDone"
+                android:focusableInTouchMode="true"
+                android:focusable="true"
+                android:focusedByDefault="true"
+                android:inputType="number"
+                android:maxLength="4"
+                android:textColor="@android:color/transparent"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal">
+
+
+                <RelativeLayout
+                    android:id="@+id/rln1"
+                    android:layout_width="50dp"
+                    android:layout_weight="1"
+                    android:layout_height="60dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginHorizontal="10dp"
+                    android:background="@drawable/iv_bg"
+                    tools:ignore="RtlHardcoded">
+
+                    <TextView
+                        android:id="@+id/tvn_code_one"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:inputType="number"
+                        android:hint="-"
+                        android:textColorHint="@color/gray_light"
+                        android:textColor="@color/white"
+                        android:fontFamily="@font/lato_regular"
+                        android:textSize="18sp"
+                        tools:ignore="TextViewEdits" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rln2"
+                    android:layout_width="50dp"
+                    android:layout_weight="1"
+                    android:layout_height="60dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginHorizontal="10dp"
+                    android:background="@drawable/iv_bg"
+                    tools:ignore="RtlHardcoded">
+
+                    <TextView
+                        android:id="@+id/tvn_code_two"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:inputType="number"
+                        android:fontFamily="@font/lato_regular"
+                        android:hint="-"
+                        android:textColorHint="@color/gray_light"
+                        android:textColor="@color/white"
+                        android:textSize="18sp"
+                        tools:ignore="TextViewEdits" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rln3"
+                    android:layout_weight="1"
+
+                    android:layout_width="50dp"
+                    android:layout_height="60dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginHorizontal="10dp"
+                    android:background="@drawable/iv_bg"
+                    tools:ignore="RtlHardcoded">
+
+                    <TextView
+                        android:id="@+id/tvn_code_three"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:inputType="number"
+                        android:textColor="@color/white"
+                        android:textSize="18sp"
+                        android:fontFamily="@font/lato_regular"
+                        android:hint="-"
+                        android:textColorHint="@color/gray_light"
+                        tools:ignore="TextViewEdits" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rln4"
+                    android:layout_width="50dp"
+                    android:layout_weight="1"
+
+                    android:layout_height="60dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginHorizontal="10dp"
+                    android:background="@drawable/iv_bg"
+                    tools:ignore="RtlHardcoded">
+
+                    <TextView
+                        android:id="@+id/tvn_code_four"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:inputType="number"
+                        android:textColor="@color/white"
+                        android:textSize="18sp"
+                        android:hint="-"
+                        android:textColorHint="@color/gray_light"
+                        android:fontFamily="@font/lato_regular"
+
+                        tools:ignore="TextViewEdits" />
+                </RelativeLayout>
+            </LinearLayout>
+        </FrameLayout>
+
+        <TextView
+            android:id="@+id/tvContinue"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_marginHorizontal="@dimen/_16sdp"
+            android:layout_marginTop="@dimen/_16sdp"
+            android:background="@drawable/red_btn"
+            android:visibility="gone"
+            android:fontFamily="@font/montserrat_medium"
+            android:gravity="center"
+            android:text="@string/block"
+            android:textColor="@color/white" />
+
+    </LinearLayout>
+</layout>

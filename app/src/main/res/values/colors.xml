@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="green_light">#697D5D</color>
+    <color name="gray_light">#989898</color>
+    <color name="text_gray">#666666</color>
+    <color name="yellow">#8E7536</color>
+    <color name="bg">#03010C</color>
+    <color name="text_green">#FFE7A1</color>
+    <color name="background1">#0B0815</color>
+    <color name="background">#03010C</color>
+    <!--Common App colors-->
+    <color name="colorPrimary1">#B4E4FF</color>
+    <color name="colorPrimary">#000000</color>
+    <color name="black_bg">#16141D</color>
+    <color name="colorPrimaryDark1">#666666</color>
+    <color name="colorPrimaryDark">#000000</color>
+    <color name="colorAccent">#2FB1F8</color>
+    <color name="white">#ffffff</color>
+    <color name="textblue">#2FB1F8</color>
+    <color name="textgrey">#676767</color>
+    <color name="black">#000000</color>
+    <color name="light_black">#80000000</color>
+    <color name="semi_black">#BC000000</color>
+    <color name="app_theme_color_green">#2CD5C4</color>
+    <color name="app_theme_color_red">#FB637E</color>
+    <color name="disable_bg_color">#4D8d8d8d</color>
+    <color name="enable_text_color">#4D8d8d8d</color>
+
+    <!--Login screen Color-->
+    <color name="btn_color_red_light">#FB637E</color>
+    <color name="btn_color_red_light_pressed">#BFFB637E</color>
+    <color name="btn_color_login_pressed">#BFFB637E</color>
+    <color name="btn_color_facebook">#005596</color>
+    <color name="btn_color_facebook_pressed">#BF005596</color>
+
+    // welcome screen
+    <color name="text_color">#676767</color>
+    <color name="toolbar_bg">#646569</color>
+    <color name="et_hint">#676767</color>
+    <color name="et_text">#676767</color>
+
+    <color name="blue">#2FB1F8</color>
+    <color name="green">#00C899</color>
+    <color name="red">#DA1717</color>
+
+    <color name="card_bg">#16141D</color>
+    <color name="price_color">#00C899</color>
+    <color name="card_color">#0B0B0B</color>
+
+</resources>

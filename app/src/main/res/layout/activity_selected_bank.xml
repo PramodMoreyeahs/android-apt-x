@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background"
+        tools:context="com.apt_x.app.views.activity.newTransactions.SelectedBankActivity">
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="0dp"
+            android:layout_marginTop="@dimen/_16sdp"
+            android:layout_height="?attr/actionBarSize"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <FrameLayout
+                android:id="@+id/frameLayout2"
+                android:layout_width="@dimen/_35sdp"
+                android:layout_height="@dimen/_35sdp"
+                android:layout_gravity="center"
+                android:layout_marginStart="@dimen/_16sdp"
+                android:background="@drawable/btn_bg_lined">
+
+                <ImageView
+                    android:id="@+id/ivBack"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:background="?attr/selectableItemBackground"
+                    android:contentDescription="@string/back"
+                    android:padding="@dimen/_10sdp"
+                    android:src="@drawable/ic_back" />
+            </FrameLayout>
+
+            <TextView
+                style="@style/TextViewTitle"
+                android:layout_marginHorizontal="@dimen/_16sdp"
+                android:gravity="center"
+                android:textFontWeight="500"
+                tools:targetApi="p"
+                android:text="@string/bank_deposit" />
+
+        </LinearLayout>
+
+        <ProgressBar
+            android:id="@+id/progress_horizontal"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_16sdp"
+            android:layout_marginTop="@dimen/_16sdp"
+            android:backgroundTint="@color/blue"
+            android:orientation="horizontal"
+            android:progress="35"
+            android:progressBackgroundTint="#208afa"
+            android:theme="@style/progressBarBlue"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/linearLayout"
+            tools:targetApi="lollipop" />
+
+        <ScrollView
+            android:id="@+id/scroll"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/_24sdp"
+            android:layout_marginBottom="@dimen/_16sdp"
+            app:layout_constraintBottom_toTopOf="@id/tvContinue"
+            app:layout_constraintEnd_toEndOf="@id/progress_horizontal"
+            app:layout_constraintStart_toStartOf="@id/progress_horizontal"
+            app:layout_constraintTop_toBottomOf="@id/progress_horizontal">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/montserrat_semibold"
+                    android:lineSpacingExtra="@dimen/_5sdp"
+                    android:lineHeight="26sp"
+                    android:textFontWeight="600"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    tools:targetApi="p"
+                    android:text="@string/recipient_name"
+                    />
+
+
+                <TextView
+                    android:id="@+id/tvDesc"
+                    android:layout_width="match_parent"
+                    android:textFontWeight="400"
+                    android:textSize="14sp"
+                    android:fontFamily="@font/lato_regular"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:textColor="@color/et_hint"
+                    app:layout_constraintEnd_toEndOf="@id/tvTitle"
+                    app:layout_constraintStart_toStartOf="@id/tvTitle"
+                    app:layout_constraintTop_toBottomOf="@id/tvTitle"
+                    tools:targetApi="p"
+                    android:text="@string/to_avoid_delays_your_recipient_s_name_below_should_match_the_name_of_their_bank_account"
+                    />
+
+
+                <EditText
+                    style="@style/EditText"
+                    android:layout_marginTop="@dimen/_25sdp"
+                    android:hint="@string/first_name"
+                    android:imeOptions="actionNext"
+                    android:importantForAutofill="no"
+                    android:inputType="textPersonName"
+                    android:maxLines="1"
+                    android:lineHeight="20sp"
+                    android:textFontWeight="400"
+                    android:textSize="16sp"
+                    android:paddingStart="@dimen/_10sdp"
+                    tools:ignore="RtlSymmetry"
+                    tools:targetApi="p" />
+
+
+                <EditText
+                    style="@style/EditText"
+                    android:layout_marginTop="@dimen/_16sdp"
+                    android:hint="@string/last_name"
+                    android:imeOptions="actionDone"
+                    android:importantForAutofill="no"
+                    android:inputType="textPersonName"
+                    android:maxLines="1"
+                    android:lineHeight="20sp"
+                    android:textFontWeight="400"
+                    android:textSize="16sp"
+                    android:paddingStart="@dimen/_10sdp"
+                    tools:ignore="RtlSymmetry"
+                    tools:targetApi="p" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/montserrat_semibold"
+                    android:lineSpacingExtra="@dimen/_5sdp"
+                    android:lineHeight="26sp"
+                    android:layout_marginTop="@dimen/_16sdp"
+                    android:textFontWeight="600"
+                    android:textSize="18sp"
+                    android:text="@string/recipient_bank_details"
+                    android:textColor="@color/white"
+                    tools:targetApi="p" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:textFontWeight="400"
+                    android:textSize="14sp"
+                    android:lineHeight="20sp"
+                    android:fontFamily="@font/lato_regular"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:text="@string/to_avoid_delays_your_recipient_s_name_below_should_match_the_name_of_their_bank_account"
+                    android:textColor="@color/white"
+                    tools:targetApi="p" />
+
+                <EditText
+                    style="@style/EditText"
+                    android:layout_marginTop="@dimen/_25sdp"
+                    android:hint="@string/account_number"
+                    android:imeOptions="actionNext"
+                    android:importantForAutofill="no"
+                    android:inputType="textPersonName"
+                    android:maxLines="1"
+                    android:lineHeight="20sp"
+                    android:textFontWeight="400"
+                    android:textSize="16sp"
+                    android:paddingStart="@dimen/_10sdp"
+                    tools:ignore="RtlSymmetry"
+                    tools:targetApi="p" />
+
+                <EditText
+                    style="@style/EditText"
+                    android:layout_marginTop="@dimen/_16sdp"
+                    android:hint="@string/re_enter_account_number"
+                    android:imeOptions="actionNext"
+                    android:importantForAutofill="no"
+                    android:inputType="textPersonName"
+                    android:maxLines="1"
+                    android:lineHeight="20sp"
+                    android:textFontWeight="400"
+                    android:textSize="16sp"
+                    android:paddingStart="@dimen/_10sdp"
+                    tools:ignore="RtlSymmetry"
+                    tools:targetApi="p" />
+            </LinearLayout>
+        </ScrollView>
+
+        <TextView
+            android:id="@+id/tvContinue"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_marginHorizontal="@dimen/_16sdp"
+            android:layout_marginBottom="@dimen/_16sdp"
+            android:layout_weight="1"
+            android:background="@drawable/tv_btn_bg"
+            android:fontFamily="@font/montserrat_medium"
+            android:gravity="center"
+            android:text="@string/continue_"
+            android:textFontWeight="500"
+            android:lineHeight="20sp"
+            android:textSize="16sp"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:targetApi="p" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

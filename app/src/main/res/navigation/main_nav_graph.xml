@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_nav_graph"
+    app:startDestination="@id/homeFragment">
+
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.apt_x.app.views.fragment.home.HomeFragment"
+        android:label="HomeFragment"
+        tools:layout="@layout/home_fragment_layout">
+        <action
+            android:id="@+id/action_homeFragment_to_transactionFragment"
+            app:destination="@id/transactionFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_mycardFragment"
+            app:destination="@id/mycardFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_transaction_detail"
+            app:destination="@id/transaction_detail" />
+    </fragment>
+    <fragment
+        android:id="@+id/transactionFragment"
+        android:name="com.apt_x.app.views.fragment.transaction.TransactionFragment"
+        android:label="TransactionFragment"
+        tools:layout="@layout/activity_my_transactions">
+        <action
+            android:id="@+id/action_transactionFragment_to_transaction_detail"
+            app:destination="@id/transaction_detail" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/mycardFragment"
+        android:name="com.apt_x.app.views.fragment.mycard.MyCardFragment"
+        android:label="MyCardFragment"
+        tools:layout="@layout/mycard_fragment_layout"
+        />
+    <fragment
+        android:id="@+id/transaction_detail"
+        android:name="com.apt_x.app.views.fragment.transaction.TransactionDetailFragment"
+        android:label="TransactionDetail"
+        tools:layout="@layout/activity_transactions_details"
+        />
+
+</navigation>

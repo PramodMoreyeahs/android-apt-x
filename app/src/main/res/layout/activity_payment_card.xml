@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background"
+        android:orientation="vertical"
+        tools:context="com.apt_x.app.views.activity.profile.PaymentActivity">
+
+        <LinearLayout
+            android:id="@+id/lhHeader"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:layout_margin="@dimen/_16sdp"
+            android:orientation="horizontal">
+
+
+            <FrameLayout
+                android:id="@+id/frameLayout2"
+                android:layout_width="@dimen/_35sdp"
+                android:layout_height="@dimen/_35sdp"
+                android:layout_gravity="center"
+                android:background="@drawable/btn_bg_lined">
+
+                <ImageView
+                    android:id="@+id/ivBack"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:background="?attr/selectableItemBackground"
+                    android:contentDescription="@string/back"
+                    android:padding="@dimen/_10sdp"
+                    android:src="@drawable/ic_back" />
+            </FrameLayout>
+
+            <TextView
+                style="@style/TextViewTitle"
+                android:layout_marginHorizontal="@dimen/_16sdp"
+                android:gravity="center"
+                android:text="@string/payment"
+                android:textFontWeight="500"
+                tools:targetApi="p" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/TextViewTitle"
+                android:layout_height="26sp"
+                android:text="@string/apt_send"
+                android:textFontWeight="600"
+                android:textSize="18sp"
+                android:layout_marginBottom="@dimen/_16sdp"
+                android:layout_marginHorizontal="@dimen/_10sdp"
+                tools:targetApi="p" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvBank"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:itemCount="1"
+
+                tools:listitem="@layout/row_saved_bank_item" />
+
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/addCard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:fontFamily="@font/montserrat_semibold"
+            android:lineHeight="26sp"
+            android:visibility="visible"
+            android:padding="@dimen/_10sdp"
+            android:background="@color/background"
+            android:text="@string/add_card"
+            android:textColor="@color/blue"
+            android:textFontWeight="600"
+            android:textSize="18sp"
+            tools:targetApi="p" />
+
+    </LinearLayout>
+</layout>

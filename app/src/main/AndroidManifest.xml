@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.apt_x.app">
+
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.CAMERA2" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.USE_FINGERPRINT" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.NFC" />
+
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="true" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+    <uses-feature
+        android:name="android.hardware.fingerprint"
+        android:required="false" />
+
+    <application
+        android:name="com.apt_x.app.application.MyApp"
+        android:hardwareAccelerated="true"
+        android:icon="@mipmap/ic_launcher_round"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/NoActionbarTheme"
+        android:usesCleartextTraffic="true"
+        tools:ignore="GoogleAppIndexingWarning"
+        tools:targetApi="m">
+        <activity
+            android:name=".PlacesActivity"
+            android:exported="true">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".GooglePlacesActivity"
+            android:exported="true">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".views.activity.SupportActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".privacy.PrivacyPolicy"
+            android:exported="false" />
+        <activity android:name=".views.activity.forgotpassword.ForgetPassword" />
+        <activity android:name=".views.activity.changepassword.ChangePasswordActivity" />
+        <activity android:name=".views.activity.signup.ThankYouActivity" />
+        <activity
+            android:name=".views.activity.profile.ChangeLanguageActivity"
+            android:configChanges="locale" />
+        <activity android:name=".views.activity.home.HomeActivity" />
+        <activity android:name=".views.activity.loadfund.InteracETransferActivity" />
+        <activity android:name=".views.activity.loadfund.LoadFundSecondActivity" />
+        <activity android:name=".views.activity.loadfund.LoadFundActivity" />
+        <activity android:name=".views.activity.activeCountry.ActiveCountryServicveActivity" />
+        <activity android:name=".views.activity.activeCountry.MoneyConverterActivity" />
+        <activity android:name=".views.activity.getBank.BankDepositActivity" />
+        <activity android:name=".views.activity.getBank.BankBranchesActivity" />
+        <activity android:name=".views.activity.account.AddNewAccountActivity" />
+        <activity
+            android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
+            android:theme="@style/Base.Theme.AppCompat" />
+        <activity
+            android:name="com.gun0912.tedpermission.TedPermissionActivity"
+            android:theme="@style/Transparent"
+            android:windowSoftInputMode="stateHidden|adjustResize"
+            tools:replace="android:theme" />
+        <activity android:name=".views.activity.newTransactions.SenderInfoActivity" />
+        <activity android:name=".views.activity.newTransactions.RecipientAddressActivity" />
+        <activity android:name=".views.activity.newTransactions.DeliveryNotificationActivity" />
+        <activity android:name=".views.activity.newTransactions.SendToRecipientActivity" />
+        <activity android:name=".views.activity.profile.MoreActionActivity" />
+        <activity android:name=".views.activity.profile.PersonalDetailActivity" />
+        <activity android:name=".views.activity.profile.PaymentActivity" />
+        <activity android:name=".views.activity.profile.SecurityActivity" />
+        <activity android:name=".views.activity.transaction.TransactionsDetailsActivity" />
+        <activity android:name=".views.activity.transaction.MyTransactionsActivity" /> <!-- <activity android:name=".views.activity.kyc.KYCActivity" /> -->
+        <activity android:name=".views.activity.signup.CaptureIdActivity" />
+        <activity android:name=".views.activity.SendingFromActivity" />
+        <activity android:name=".views.activity.verification.AddAddressActivity" />
+        <activity android:name=".views.activity.ChangePasswordActivity" />
+        <activity android:name=".views.activity.profile.SettingsActivity" />
+        <activity android:name=".views.activity.profile.EditProfileActivity" />
+        <activity android:name=".views.activity.profile.MyProfileActivity" />
+        <activity android:name=".views.activity.NewHomeActivity" />
+        <activity android:name=".views.activity.signup.VerifyPhoneActivity" />
+        <activity android:name=".views.activity.TermsAndConditionsActivity" />
+        <activity android:name=".views.activity.sendMoney.NewTransactionActivity2" />
+        <activity android:name=".views.activity.sendMoney.AddNewRecepientActivity" />
+        <activity android:name=".views.activity.sendMoney.SendingActivity" />
+        <activity android:name=".views.activity.sendMoney.ReviewActivity" />
+        <activity android:name=".views.activity.recipient.AddNewRecipientWithAddressActivity" />
+        <activity android:name=".views.activity.forgotpassword.ForgotPasswordVerificationActivity" />
+        <activity android:name=".views.activity.kyc.KYCDetailsActivity" />
+        <activity android:name=".views.activity.withdraw.WithdrawMethodActivity" /> <!-- <activity android:name=".views.activity.kyc.KYCDetailsActivity" /> -->
+        <activity android:name=".views.activity.kyc.KYCActivity" />
+        <activity android:name=".views.activity.withdraw.AddNewEftAccountActivity" />
+        <activity android:name=".views.activity.withdraw.AddNewCardActivity" />
+        <activity android:name=".views.activity.withdraw.SendingPaymentActivity" />
+        <activity android:name=".views.activity.GoogleplacesActivity" />
+        <activity android:name=".views.activity.PlacesActivity" />
+        <activity
+            android:name=".views.activity.splash.WelcomeActivity"
+            android:windowSoftInputMode="stateHidden"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".views.activity.login.LoginActivity"
+            android:launchMode="singleTask" /> <!-- <activity android:name=".views.activity.home.HomeActivity" /> -->
+        <activity android:name=".views.activity.forgotpassword.ForgotPasswordActivity" />
+        <activity android:name=".views.activity.signup.SignUpActivity" />
+        <activity android:name="com.apt_x.app.authsdk.verifyAucant.MainActivity" />
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="com.apt_x.app"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths" />
+        </provider>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/facebook_app_id" />
+
+        <activity
+            android:name="com.facebook.FacebookActivity"
+            android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+            android:label="@string/app_name" />
+        <activity
+            android:name="com.facebook.CustomTabActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:scheme="@string/fb_login_protocol_scheme"
+                    tools:ignore="ManifestResource" />
+            </intent-filter>
+        </activity>
+
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_icon"
+            android:resource="@drawable/app_logo" />
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_color"
+            android:resource="@color/colorAccent" />
+        <meta-data
+            android:name="firebase_messaging_auto_init_enabled"
+            android:value="false" />
+        <meta-data
+            android:name="firebase_analytics_collection_enabled"
+            android:value="false" />
+
+        <service android:name="com.apt_x.app.utils.MyFirebaseMessagingService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+
+        <activity android:name="com.apt_x.app.authsdk.verifyAucant.TestMainActivity" />
+        <activity
+            android:name="com.apt_x.app.authsdk.verifyAucant.ConfirmationActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.apt_x.app.authsdk.verifyAucant.ResultActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.apt_x.app.authsdk.verifyAucant.NfcResultActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.apt_x.app.authsdk.verifyAucant.MrzHelpActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.apt_x.app.authsdk.verifyAucant.NfcConfirmationActivity"
+            android:noHistory="true"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.apt_x.app.authsdk.verifyAucant.ClassificationFailureActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.apt_x.app.authsdk.verifyAucant.FacialMatchFailedActivity"
+            android:screenOrientation="portrait" />
+        <!--
+ <activity android:name=".verifyAucant.MainActivity"
+            android:screenOrientation="portrait" />
+        -->
+        <activity
+            android:name="com.apt_x.app.authsdk.verifyAucant.FacialLivenessActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity
+            android:name=".views.activity.loadfund.CardLoadFundActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity android:name=".views.activity.profile.PaymentCardActivity" />
+        <activity android:name=".views.activity.withdraw.PaymentSucessActivity" />
+        <activity android:name=".views.activity.splash.SplashActivity" />
+        <activity android:name=".views.activity.forgotpassword.ForgetPasswordChangeActivity" />
+        <activity
+            android:name=".views.activity.card.CardPinActivity"
+            android:windowSoftInputMode="stateVisible" />
+        <activity android:name=".views.activity.card.CardDetailActivity" />
+        <activity android:name=".views.activity.card.ChangePinActivity" />
+        <activity android:name=".views.activity.card.BlockCardActivity" />
+        <activity android:name=".views.activity.newTransactions.RecipientActivity" />
+        <activity android:name=".views.activity.newTransactions.AddIBANActivity" />
+        <activity android:name=".views.activity.signup.AddOccupationActivity">
+
+            <!--
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            -->
+        </activity>
+        <activity android:name=".views.activity.card.ViewPinActivity" />
+        <activity android:name=".views.activity.exchangeRate.CountryListActivity" />
+        <activity android:name=".views.activity.exchangeRate.CurrencyConverterActivity" />
+        <activity android:name=".views.activity.confirmPayment.ConfirmPaymentActivity" />
+        <activity android:name=".views.activity.profile.UpdateAddressActivity" />
+        <activity android:name=".views.activity.AboutActivity" />
+
+        <receiver
+            android:name="com.apt_x.app.utils.ConnectivityReceiver"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+                <action android:name="android.net.wifi.WIFI_STATE_CHANGED" />
+            </intent-filter>
+        </receiver>
+    </application>
+
+</manifest>

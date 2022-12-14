@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background"
+        android:orientation="vertical"
+        tools:context="com.apt_x.app.views.activity.profile.MoreActionActivity">
+
+        <LinearLayout
+            android:id="@+id/lhHeader"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:layout_margin="@dimen/_16sdp"
+            android:orientation="horizontal">
+
+
+            <FrameLayout
+                android:id="@+id/frameLayout2"
+                android:layout_width="@dimen/_35sdp"
+                android:layout_height="@dimen/_35sdp"
+                android:layout_gravity="center"
+                android:background="@drawable/btn_bg_lined">
+
+                <ImageView
+                    android:id="@+id/ivBack"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:background="?attr/selectableItemBackground"
+                    android:contentDescription="@string/back"
+                    android:padding="@dimen/_10sdp"
+                    android:src="@drawable/ic_back" />
+            </FrameLayout>
+
+            <TextView
+                style="@style/TextViewTitle"
+                android:layout_marginHorizontal="@dimen/_16sdp"
+                android:gravity="center"
+                android:text="@string/witdraw_method"
+                android:textFontWeight="500"
+                tools:targetApi="p" />
+
+        </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginHorizontal="@dimen/_16sdp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <TextView
+                    style="@style/TextViewHeader"
+                    android:text="@string/kyc_details"
+                    android:visibility="invisible"
+                    android:textFontWeight="700" />
+
+                <TextView
+                    android:layout_marginTop="5dp"
+                    android:visibility="gone"
+                    style="@style/TextViewSubHeader"
+                    android:text="@string/to_get_your_card" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_50sdp"
+                    android:background="@drawable/et_bg"
+                    android:clickable="true"
+                    android:onClick="onClick"
+                    android:id="@+id/ll_EFT"
+                    android:visibility="gone"
+                    android:orientation="horizontal"
+                    android:focusable="true">
+
+                    <TextView
+                        android:id="@+id/tvEft"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginHorizontal="@dimen/_16sdp"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/lato_regular"
+                        android:textFontWeight="500"
+                        android:lineHeight="19sp"
+                        android:textSize="16sp"
+                        android:text="@string/eft"
+                        android:textColor="@color/white"
+                         />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginHorizontal="@dimen/_16sdp"
+                        android:src="@drawable/ic_forward"
+                        android:contentDescription="@string/forword" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_50sdp"
+                    android:layout_marginTop="@dimen/_16sdp"
+                    android:background="@drawable/et_bg"
+                    android:onClick="onClick"
+                    android:visibility="gone"
+                    android:id="@+id/ll_AptSend"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tvAptSend"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginHorizontal="@dimen/_16sdp"
+                        android:layout_weight="1"
+                        android:text="@string/apt_send"
+                        android:textColor="@color/white"
+                        android:fontFamily="@font/lato_regular"
+                        android:textFontWeight="500"
+                        android:lineHeight="19sp"
+                        android:textSize="16sp"
+                         />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginHorizontal="@dimen/_16sdp"
+                        android:src="@drawable/ic_forward" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_50sdp"
+                    android:layout_marginTop="@dimen/_16sdp"
+                    android:background="@drawable/et_bg"
+                    android:onClick="onClick"
+                    android:id="@+id/ll_tbd"
+                    android:orientation="horizontal">
+
+                    <TextView
+
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginHorizontal="@dimen/_16sdp"
+                        android:layout_weight="1"
+                        android:text="@string/tbd"
+                        android:textColor="@color/white"
+                        android:fontFamily="@font/lato_regular"
+                        android:textFontWeight="500"
+                        android:lineHeight="19sp"
+                        android:textSize="16sp"
+                        />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginHorizontal="@dimen/_16sdp"
+                        android:src="@drawable/ic_forward" />
+                </LinearLayout>
+
+
+            </LinearLayout>
+    </LinearLayout>
+</layout>

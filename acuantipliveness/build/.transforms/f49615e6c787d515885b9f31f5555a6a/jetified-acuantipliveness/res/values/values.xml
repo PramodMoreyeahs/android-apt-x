@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="iproov__agree">Agree</string>
+    <string name="iproov__camera_permission_denied">Camera permission denied</string>
+    <string name="iproov__cannot_stream_video">Cannot stream video, please try again</string>
+    <string name="iproov__connected">Connected</string>
+    <string name="iproov__device_not_supported">Sorry, your device is currently not supported</string>
+    <string name="iproov__dialog_instructions_message">â€¢ Fill the oval with your face\n\nâ€¢ Tap or wait for the countdown\n\nâ€¢ Stay still during the flashing</string>
+    <string name="iproov__dialog_instructions_skip">Don\'t show this again</string>
+    <string name="iproov__dialog_instructions_title">iProov Instructions</string>
+    <string name="iproov__dialog_privacy_disagree_message">You must agree to the privacy policy in order to use iProov</string>
+    <string name="iproov__dialog_privacy_disagree_title">Sorry</string>
+    <string name="iproov__disagree">Disagree</string>
+    <string name="iproov__empty_string"/>
+    <string name="iproov__error">Error</string>
+    <string name="iproov__face_camera">Face the camera directly</string>
+    <string name="iproov__hold_still">Hold still</string>
+    <string name="iproov__iproov_success">You have iProoved successfully</string>
+    <string name="iproov__lost_internet_link">Lost internet connection, please try again</string>
+    <string name="iproov__network_problem_cant_connect">Network problem, can\'t connect</string>
+    <string name="iproov__ok">OK</string>
+    <string name="iproov__open_your_eyes">Open your eyes</string>
+    <string name="iproov__progress_processing">Processing…</string>
+    <string name="iproov__progress_streaming">Streaming…</string>
+    <string name="iproov__progress_streaming_slow">Streaming, network is slow…</string>
+    <string name="iproov__prompt_beginning_in">Starting in…</string>
+    <string name="iproov__prompt_connecting">Connecting…</string>
+    <string name="iproov__prompt_connecting_slow">Connecting, network is slow…</string>
+    <string name="iproov__prompt_hold_still">Put your face in the oval</string>
+    <string name="iproov__prompt_loading">Please wait…</string>
+    <string name="iproov__prompt_loading_slow">Connecting, network is slow…</string>
+    <string name="iproov__prompt_move_closer">Move closer</string>
+    <string name="iproov__prompt_tap_to_begin">Tap the screen to begin</string>
+    <string name="iproov__prompt_too_backlit">You\'re backlit, turn slightly</string>
+    <string name="iproov__prompt_too_backlit_short">You\'re backlit, turn slightly</string>
+    <string name="iproov__prompt_too_bright">Go somewhere shadier</string>
+    <string name="iproov__scanning">Scanning…</string>
+    <string name="iproov__ssl_exception">SSL Exception</string>
+    <string name="iproov__starting_detector">Starting detectorâ€¦</string>
+    <string name="iproov__streamer_finished">Finished</string>
+    <string name="iproov__too_close">Too close</string>
+    <string name="iproov__too_many_faces">Too many faces</string>
+    <string name="iproov__unknown_error">Unknown Error</string>
+    <string name="iproov__unknown_identity">This username is not enrolled, register first</string>
+    <string name="iproov__username_already_enrolled">This username has already been enrolled</string>
+</resources>

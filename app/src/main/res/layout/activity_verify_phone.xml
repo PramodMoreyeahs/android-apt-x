@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.apt_x.app.views.activity.signup.SignUpViewModel" />
+    </data>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background"
+        android:orientation="vertical"
+        tools:context="com.apt_x.app.views.activity.signup.VerifyPhoneActivity">
+
+        <ImageView
+            android:layout_width="@dimen/_35sdp"
+            android:layout_height="@dimen/_35sdp"
+            android:layout_marginStart="@dimen/_16sdp"
+            android:layout_marginTop="@dimen/_16sdp"
+            android:background="@drawable/btn_bg_linedwhiteline"
+            android:id="@+id/iv_back"
+            android:onClick="onClick"
+            android:padding="@dimen/_10sdp"
+            android:src="@drawable/ic_back" />
+
+        <TextView
+            style="@style/TextViewHeader"
+            android:layout_marginStart="@dimen/_16sdp"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_marginEnd="@dimen/_16sdp"
+            android:fontFamily="@font/montserrat"
+            android:textFontWeight="600"
+            android:text="@string/verify" />
+
+        <TextView
+            style="@style/TextViewSubHeader"
+            android:layout_marginStart="@dimen/_16sdp"
+            android:layout_marginEnd="@dimen/_16sdp"
+            android:text="@string/number_subheading" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_16sdp"
+            android:layout_marginTop="@dimen/_24sdp"
+            android:layout_marginEnd="@dimen/_16sdp"
+            android:gravity="center"
+            android:fontFamily="@font/lato_regular"
+            android:id="@+id/tvemail"
+            android:lineSpacingExtra="@dimen/_5sdp"
+            android:text="@string/enter_ver"
+            android:textColor="@color/et_hint"
+            android:textSize="@dimen/_14sdp" />
+
+        <!--<LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_16sdp"
+            android:layout_marginTop="@dimen/_16sdp"
+            android:orientation="horizontal">
+
+            <EditText
+                style="@style/EditTextOTP"
+                android:layout_marginEnd="@dimen/_16sdp"
+                android:hint="@string/et_hint_otp"
+                />
+
+            <EditText
+                style="@style/EditTextOTP"
+                android:layout_marginEnd="@dimen/_16sdp"
+                android:hint="@string/et_hint_otp" />
+
+            <EditText
+                style="@style/EditTextOTP"
+                android:layout_marginEnd="@dimen/_16sdp"
+                android:hint="@string/et_hint_otp" />
+
+            <EditText
+                style="@style/EditTextOTP"
+                android:hint="@string/et_hint_otp" />
+        </LinearLayout>-->
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="30dp"
+            android:layout_marginVertical="10dp"
+            tools:ignore="RtlHardcoded">
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/et_otp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:importantForAutofill="noExcludeDescendants"
+                android:background="@android:color/transparent"
+                android:cursorVisible="false"
+                android:imeOptions="actionDone"
+                android:inputType="number"
+                android:maxLength="4"
+                android:textColor="@android:color/transparent"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal">
+
+
+                <RelativeLayout
+                    android:id="@+id/rl1"
+                    android:layout_width="50dp"
+                    android:layout_weight="1"
+                    android:layout_height="60dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginHorizontal="10dp"
+                    android:background="@drawable/iv_bg"
+                    tools:ignore="RtlHardcoded">
+
+                    <TextView
+                        android:id="@+id/tv_code_one"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:fontFamily="@font/lato_regular"
+                        android:importantForAutofill="noExcludeDescendants"
+                        android:inputType="number"
+                        android:textColor="@color/white"
+                        android:textSize="18sp"
+                        tools:ignore="TextViewEdits" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rl2"
+                    android:layout_width="50dp"
+                    android:layout_weight="1"
+                    android:layout_height="60dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginHorizontal="10dp"
+                    android:background="@drawable/iv_bg"
+                    tools:ignore="RtlHardcoded">
+
+                    <TextView
+                        android:id="@+id/tv_code_two"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:inputType="number"
+                        android:importantForAutofill="noExcludeDescendants"
+                        android:fontFamily="@font/lato_regular"
+
+                        android:textColor="@color/white"
+                        android:textSize="18sp"
+                        tools:ignore="TextViewEdits" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rl3"
+                    android:layout_weight="1"
+
+                    android:layout_width="50dp"
+                    android:layout_height="60dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginHorizontal="10dp"
+                    android:background="@drawable/iv_bg"
+                    tools:ignore="RtlHardcoded">
+
+                    <TextView
+                        android:id="@+id/tv_code_three"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:inputType="number"
+                        android:importantForAutofill="noExcludeDescendants"
+
+                        android:textColor="@color/white"
+                        android:textSize="18sp"
+                        android:fontFamily="@font/lato_regular"
+
+                        tools:ignore="TextViewEdits" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rl4"
+                    android:layout_width="50dp"
+                    android:layout_weight="1"
+
+                    android:layout_height="60dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginHorizontal="10dp"
+                    android:background="@drawable/iv_bg"
+                    tools:ignore="RtlHardcoded">
+
+                    <TextView
+                        android:id="@+id/tv_code_four"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:inputType="number"
+                        android:importantForAutofill="noExcludeDescendants"
+                        android:textColor="@color/white"
+                        android:textSize="18sp"
+                        android:fontFamily="@font/lato_regular"
+
+                        tools:ignore="TextViewEdits" />
+                </RelativeLayout>
+            </LinearLayout>
+        </FrameLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingVertical="@dimen/_13sdp"
+            android:id="@+id/tvContinue"
+            android:onClick="onClick"
+            android:clickable="true"
+            android:layout_marginHorizontal="@dimen/_16sdp"
+            android:layout_marginTop="@dimen/_16sdp"
+            android:background="@drawable/btn_bg"
+            android:fontFamily="@font/montserrat_medium"
+            android:gravity="center"
+            android:text="@string/continue_"
+            android:textColor="@color/white" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txtResend"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/didn_t_receive"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:textAllCaps="false"
+            android:fontFamily="@font/lato_regular"
+            android:layout_gravity="center"
+            android:textSize="14sp"
+            android:textColor="@color/colorAccent" />
+
+    </LinearLayout>
+</layout>

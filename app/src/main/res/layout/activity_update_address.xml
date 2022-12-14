@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.apt_x.app.views.activity.verification.AddressViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background"
+        android:orientation="vertical">
+        <LinearLayout
+
+            android:id="@+id/linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:layout_marginTop="@dimen/_16sdp"
+            android:orientation="horizontal">
+
+            <FrameLayout
+                android:id="@+id/frameLayout2"
+                android:layout_width="@dimen/_35sdp"
+                android:layout_height="@dimen/_35sdp"
+                android:layout_gravity="center"
+                android:layout_marginStart="@dimen/_16sdp"
+                android:background="@drawable/btn_bg_lined">
+
+                <ImageView
+                    android:id="@+id/ivBack"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:onClick="onClick"
+                    android:background="?attr/selectableItemBackground"
+                    android:contentDescription="@string/back"
+                    android:padding="@dimen/_10sdp"
+                    android:src="@drawable/ic_back" />
+            </FrameLayout>
+
+            <TextView
+                style="@style/TextViewTitle"
+                android:layout_marginHorizontal="@dimen/_16sdp"
+                android:gravity="center"
+                android:visibility="invisible"
+                android:text="@string/address"
+                android:textFontWeight="500"
+                tools:targetApi="p" />
+        </LinearLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/TextViewHeader"
+                    android:layout_marginStart="@dimen/_16sdp"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:layout_marginEnd="@dimen/_16sdp"
+                    android:text="@string/address"
+                    android:textFontWeight="700"
+
+                    />
+
+                <TextView
+                    style="@style/TextViewSubHeader"
+                    android:layout_marginStart="@dimen/_16sdp"
+                    android:layout_marginTop="@dimen/_2sdp"
+                    android:layout_marginEnd="@dimen/_16sdp"
+                    android:visibility="gone"
+                    android:text="@string/your_address" />
+
+                <EditText
+                    android:id="@+id/etAddress"
+                    style="@style/EditText"
+                    android:layout_marginHorizontal="@dimen/_16sdp"
+                    android:layout_marginTop="@dimen/_50sdp"
+                    android:hint="@string/address_line"
+                    android:enabled="false"
+                    android:importantForAutofill="no"
+                    android:inputType="textPostalAddress" />
+
+                <EditText
+                    android:id="@+id/etHouse"
+                    style="@style/EditText"
+                    android:visibility="gone"
+                    android:layout_marginHorizontal="@dimen/_16sdp"
+                    android:layout_marginTop="@dimen/_16sdp"
+                    android:hint="@string/apartment_suite_unit_etc"
+                    android:inputType="textPostalAddress" />
+                <EditText
+                    style="@style/EditText"
+                    android:id="@+id/etEmail"
+                    android:layout_marginTop="@dimen/_16sdp"
+                    android:enabled="false"
+                    android:hint="@string/email"
+                    android:layout_marginHorizontal="@dimen/_16sdp"
+                    android:textSize="14sp"
+                    android:fontFamily="@font/lato_regular"
+                    android:imeOptions="actionNext"
+                    android:importantForAutofill="no"
+                    android:inputType="textEmailAddress"
+                    android:paddingHorizontal="@dimen/_10sdp" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_16sdp"
+                    android:layout_marginHorizontal="@dimen/_16sdp"
+                    android:background="@drawable/iv_bg"
+                    >
+                    <ImageView
+                        android:visibility="gone"
+                        android:id="@+id/ivFlag"
+                        android:layout_width="35dp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_height="30dp"
+                        android:src="@drawable/flag"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        tools:ignore="ContentDescription" />
+
+
+                    <TextView
+                        android:visibility="gone"
+                        android:id="@+id/edit_country_Code"
+                        android:layout_width="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_2sdp"
+                        android:gravity="center_vertical"
+                        android:text="+1"
+                        android:maxLength="5"
+                        android:ellipsize="end"
+                        android:paddingHorizontal="@dimen/_8sdp"
+                        android:textSize="14sp"
+                        android:textColor="@color/text_color"
+
+                        android:textColorHint="@color/text_color"
+                        tools:ignore="HardcodedText" />
+                    <EditText
+                        style="@style/EditText"
+                        android:id="@+id/etNumber"
+                        android:drawablePadding="@dimen/_10sdp"
+                        android:hint="@string/phone_number"
+                        android:imeOptions="actionNext"
+                        android:layout_marginStart="@dimen/_2sdp"
+                        android:inputType="number"
+                        android:maxLength="10"
+                        android:enabled="false"
+                        android:textSize="14sp"
+                        android:fontFamily="@font/lato_regular"
+                        android:paddingHorizontal="@dimen/_10sdp"
+                        tools:ignore="Autofill" />
+
+                </LinearLayout>
+
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_16sdp"
+                    android:layout_marginTop="@dimen/_16sdp"
+                    android:orientation="horizontal">
+
+                    <EditText
+                        android:id="@+id/etZipCode"
+                        style="@style/EditText"
+                        android:layout_marginEnd="@dimen/_16sdp"
+                        android:layout_weight="1"
+                        android:enabled="false"
+                        android:hint="@string/postal_code" />
+
+                    <EditText
+                        android:id="@+id/etCity"
+                        style="@style/EditText"
+                        android:layout_weight="1"
+                        android:hint="@string/city"
+                        android:enabled="false"
+                        android:importantForAutofill="no"
+                        android:inputType="textPostalAddress" />
+                </LinearLayout>
+
+                <AutoCompleteTextView
+                    android:id="@+id/acTvState"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_40sdp"
+                    android:layout_marginHorizontal="@dimen/_16sdp"
+                    android:layout_marginTop="@dimen/_16sdp"
+                    android:layout_weight="1"
+                    android:background="@drawable/iv_bg"
+                    android:drawablePadding="@dimen/_16sdp"
+                    android:hint="@string/select_state"
+                    android:enabled="false"
+                    android:inputType="textPostalAddress"
+                    android:paddingStart="@dimen/_16sdp"
+                    android:paddingEnd="@dimen/_16sdp"
+                    android:textColor="@color/white"
+                    android:textColorHint="#676767"
+                    android:textSize="14sp" />
+                <!--android:drawableEnd="@drawable/ic_drop_down_icon"-->
+
+
+                <TextView
+                    android:id="@+id/tvContinue"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingVertical="@dimen/_13sdp"
+                    android:layout_marginHorizontal="@dimen/_16sdp"
+                    android:layout_marginTop="@dimen/_16sdp"
+                    android:background="@drawable/btn_bg"
+                    android:clickable="true"
+                    android:fontFamily="@font/montserrat_medium"
+                    android:gravity="center"
+                    android:visibility="gone"
+                    android:onClick="onClick"
+                    android:text="@string/continue_"
+                    android:textColor="@color/white" />
+
+                <TextView
+                    android:id="@+id/tvSkip"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_40sdp"
+                    android:layout_marginHorizontal="@dimen/_16sdp"
+                    android:layout_marginTop="@dimen/_16sdp"
+                    android:layout_marginBottom="@dimen/_16sdp"
+                    android:clickable="true"
+                    android:fontFamily="@font/montserrat_medium"
+                    android:gravity="center"
+                    android:visibility="gone"
+                    android:onClick="onClick"
+                    android:text="@string/skip_for_now"
+                    android:textColor="@color/white" />
+
+                <TextView
+
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_40sdp"
+                    android:layout_marginHorizontal="@dimen/_16sdp"
+                    android:layout_marginTop="@dimen/_16sdp"
+                    android:layout_marginBottom="@dimen/_16sdp"
+                    android:clickable="true"
+                    android:gravity="center"
+                    android:textSize="@dimen/_10sdp"
+                    android:visibility="visible"
+                    android:onClick="onClick"
+                    android:text="@string/please_send_a_request_to_support_aptpay_com_nfor_address_change"
+                    android:textColor="@color/gray" />
+
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+</layout>

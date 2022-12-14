@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/black">
+
+        <ImageView
+            android:id="@+id/ivThankYou"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_80sdp"
+            android:src="@drawable/ic_thankyou" />
+
+
+        <TextView
+            android:id="@+id/tvTha"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/thank_you_"
+            android:textColor="@color/white"
+            android:textSize="24sp"
+            android:gravity="center"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:layout_below="@+id/ivThankYou"
+            android:fontFamily="@font/montserrat_bold"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/thank_you_f"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            android:id="@+id/tvTh"
+            android:gravity="center"
+            android:layout_marginVertical="@dimen/_15sdp"
+            android:layout_below="@+id/tvTha"
+            android:fontFamily="@font/montserrat_bold"
+            />
+        <TextView
+            android:id="@+id/tvContinue"
+            android:paddingVertical="@dimen/_13sdp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/tv_btn_bg"
+            android:fontFamily="@font/montserrat_medium"
+            android:gravity="center"
+            android:layout_marginHorizontal="@dimen/_20sdp"
+            android:layout_below="@+id/tvTh"
+            android:text="@string/continue_"
+            android:textColor="@color/white" />
+
+    </RelativeLayout>
+</layout>

@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/iv_animation"
+                android:layout_marginBottom="@dimen/_20sdp"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tv_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/seguisb"
+                        android:text="@string/welcom_to_apt_x"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_22sdp" />
+
+                    <RelativeLayout
+                        android:layout_width="@dimen/_105sdp"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:paddingRight="@dimen/_10sdp">
+
+                        <ImageView
+                            android:id="@+id/iv_x"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_5sdp"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:paddingRight="@dimen/_6sdp"
+
+                            android:src="@drawable/aptoglogo" />
+                    </RelativeLayout>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="@dimen/_200sdp"
+                        android:layout_height="@dimen/_20sdp"
+                        android:layout_marginStart="@dimen/_23sdp"
+                        android:layout_marginEnd="@dimen/_16sdp"
+                        android:paddingStart="@dimen/_5sdp"
+                        android:paddingEnd="@dimen/_5sdp"
+                        android:paddingBottom="@dimen/_5sdp"
+                        android:src="@drawable/pwerednew" />
+
+                    <RelativeLayout
+                        android:layout_width="@dimen/_118sdp"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:paddingRight="@dimen/_10sdp">
+
+                        <Space
+                            android:layout_width="@dimen/_75sdp"
+                            android:layout_height="@dimen/_30sdp" />
+
+                    </RelativeLayout>
+                </LinearLayout>
+
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+            <!--  <LinearLayout
+                  android:layout_width="@dimen/_100sdp"
+                  android:layout_height="@dimen/_95sdp"
+                  android:layout_centerInParent="true"
+                  android:id="@+id/ll_icon"
+                  android:layout_marginTop="@dimen/_20sdp"
+                  android:background="@drawable/apt_logo_icon"
+                  >
+                  <TextView
+                      style="@style/TextViewTitle"
+                      android:gravity="center"
+                      android:layout_gravity="center"
+                      android:textSize="@dimen/_25sdp"
+                      android:text="APT-X" />
+              </LinearLayout>-->
+
+
+            <ImageView
+                android:id="@+id/iv_animation"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_200sdp"
+                android:layout_centerInParent="true" />
+        </RelativeLayout>
+
+    </LinearLayout>
+
+
+
+</layout>

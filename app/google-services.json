@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "539848566290",
+    "project_id": "aptcard-610a4",
+    "storage_bucket": "aptcard-610a4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:539848566290:android:2f11a1cbc309e6f4b4dacb",
+        "android_client_info": {
+          "package_name": "com.apt_x.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "539848566290-g14k89vnaf5ovr1uk5ssgcgu6obdeill.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.apt_x.app",
+            "certificate_hash": "c2763aaaa8c7a051c28046f980e59ad3f3cc5f18"
+          }
+        },
+        {
+          "client_id": "539848566290-96d000q5fb7qokhepf6g8as9r38qgncg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBiS1TVxX66Df8V-8ekkopEpqD3llSVSa8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "539848566290-96d000q5fb7qokhepf6g8as9r38qgncg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

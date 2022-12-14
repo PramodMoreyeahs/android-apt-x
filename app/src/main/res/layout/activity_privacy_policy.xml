@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/background">
+            <LinearLayout
+                android:id="@+id/frameLayout"
+                android:layout_width="match_parent"
+                android:weightSum="2"
+                android:layout_height="@dimen/_35sdp"
+                android:layout_marginLeft="@dimen/_16sdp"
+                android:layout_marginTop="@dimen/_16sdp"
+                android:layout_marginRight="@dimen/_16sdp"
+                android:orientation="horizontal"
+                >
+
+                <FrameLayout
+                    android:layout_weight="0"
+                    android:id="@+id/frameLayout2"
+                    android:layout_width="@dimen/_35sdp"
+                    android:layout_height="@dimen/_35sdp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/btn_bg_lined">
+
+                    <ImageView
+                        android:id="@+id/ivBack"
+                        android:layout_width="@dimen/_35sdp"
+                        android:layout_height="@dimen/_35sdp"
+                        android:background="@drawable/btn_bg_lined"
+                        android:padding="@dimen/_10sdp"
+                        android:src="@drawable/ic_back" />
+                </FrameLayout>
+
+                <TextView
+                    style="@style/TextViewTitle"
+                    android:layout_weight="2"
+                    android:gravity="center"
+                    android:layout_marginStart="@dimen/_16sdp"
+                    android:id="@+id/tv_title"
+                    android:text="@string/terms_amp_conditions"
+                    android:textColor="@color/white" />
+
+                <FrameLayout
+                    android:layout_weight="0"
+                    android:visibility="invisible"
+                    android:layout_width="@dimen/_35sdp"
+                    android:layout_height="@dimen/_35sdp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/btn_bg_lined">
+
+                    <ImageView
+
+                        android:layout_width="@dimen/_35sdp"
+                        android:layout_height="@dimen/_35sdp"
+                        android:background="@drawable/btn_bg_lined"
+                        android:padding="@dimen/_10sdp"
+                        android:src="@drawable/ic_back" />
+                </FrameLayout>
+
+            </LinearLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_below="@+id/frameLayout"
+                android:layout_height="match_parent">
+
+
+                <!--  <com.github.barteksc.pdfviewer.PDFView
+                      android:id="@+id/pdfView"
+                      android:layout_width="match_parent"
+                      android:layout_height="match_parent" />-->
+                <!--  <WebView
+                      android:id="@+id/pdfView"
+                      android:layout_width="match_parent"
+                      android:layout_height="match_parent" />-->
+
+                <com.apt_x.app.utils.ViewPagerVerticle
+                    android:id="@+id/pdfViewPager"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    app:assetFileName="sample.pdf"/>
+                <ProgressBar
+                    android:id="@+id/progressBar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:indeterminateTint="@color/blue"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/pdfViewPager" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </RelativeLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

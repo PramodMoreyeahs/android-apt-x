@@ -1,0 +1,473 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+
+    <data>
+
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background">
+
+        <include
+            android:id="@+id/ll_upper"
+            layout="@layout/top_header" />
+
+        <androidx.cardview.widget.CardView
+            android:layout_below="@+id/ll_upper"
+            android:id="@+id/cvYouSent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_16sdp"
+            android:layout_marginTop="@dimen/_16sdp"
+            android:backgroundTint="@color/card_bg"
+            app:cardCornerRadius="@dimen/_12sdp"
+            tools:targetApi="lollipop">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:baselineAligned="false"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_margin="@dimen/_10sdp"
+
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/montserrat"
+                        android:text="@string/you_sent"
+                        android:textColor="@color/text_color"
+                        android:textFontWeight="400"
+                        android:textSize="12sp"
+                        tools:targetApi="p" />
+
+                    <EditText
+                        android:id="@+id/etAmount"
+                        android:inputType="numberDecimal"
+                       android:background="@null"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="24sp"
+                        android:hint="@string/dollorsign"
+
+                        android:layout_gravity="center_vertical"
+                        android:gravity="center_vertical"
+                        android:textColorHint="@color/et_hint"
+
+
+                        android:textColor="@color/white" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="@dimen/_80sdp"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/ll_bg"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="@dimen/_24sdp"
+                        android:layout_height="@dimen/_12sdp"
+                        android:layout_marginLeft="@dimen/_8sdp"
+                        android:layout_marginRight="@dimen/_8sdp"
+                        android:contentDescription="@string/country_flag"
+                        android:src="@drawable/flag" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/_8sdp"
+                        android:fontFamily="@font/montserrat_semibold"
+                        android:text="@string/cad"
+                        android:lineHeight="15sp"
+                        android:textAllCaps="true"
+                        android:textFontWeight="600"
+                        android:textColor="@color/black"
+                        android:textSize="12sp"
+                        tools:targetApi="p" />
+
+                   <!-- <ImageView
+                        android:layout_width="@dimen/_12sdp"
+                        android:layout_height="@dimen/_12sdp"
+                        android:layout_marginEnd="@dimen/_16sdp"
+                        android:contentDescription="@string/down"
+                        android:src="@drawable/ic_drop_down_icon_blue" />-->
+                </LinearLayout>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:layout_marginHorizontal="@dimen/_16sdp"
+            android:layout_below="@+id/cvYouSent"
+            android:id="@+id/sd"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_24sdp"
+            android:backgroundTint="@color/card_bg"
+            app:cardCornerRadius="@dimen/_12sdp"
+            app:layout_constraintEnd_toEndOf="@id/cvYouSent"
+            app:layout_constraintStart_toStartOf="@id/cvYouSent"
+            app:layout_constraintTop_toBottomOf="@id/cvYouSent"
+            tools:targetApi="lollipop">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:baselineAligned="false"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="@dimen/_10sdp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/montserrat"
+                        android:text="@string/they_received"
+                        android:textColor="@color/text_color"
+                        android:textFontWeight="400"
+                        android:textSize="12sp"
+                        tools:targetApi="p" />
+                      <androidx.appcompat.widget.LinearLayoutCompat
+                          android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/white"
+                        android:textSize="24sp"
+                        android:visibility="gone"
+                        android:id="@+id/tv_symbol"
+                        android:text=""/>
+                    <TextView
+                        android:layout_height="wrap_content"
+                        android:layout_width="wrap_content"
+                        android:lineHeight="29sp"
+                        android:textColor="@color/white"
+
+                        android:id="@+id/tv_received"
+                        android:textFontWeight="600"
+                        android:hint="@string/dollorsign"
+                        android:textColorHint="@color/et_hint"
+                        android:textSize="24sp"
+                        tools:targetApi="p" />
+                      </androidx.appcompat.widget.LinearLayoutCompat>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="@dimen/_80sdp"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/ll_bg"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="@dimen/_24sdp"
+                        android:layout_height="@dimen/_12sdp"
+                        android:layout_marginLeft="@dimen/_8sdp"
+                        android:layout_marginRight="@dimen/_8sdp"
+                        android:visibility="visible"
+                        android:id="@+id/iv_flag"
+                        android:contentDescription="@string/country_flag"
+                        android:src="@drawable/american_flag" />
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/_8sdp"
+                        android:fontFamily="@font/montserrat_semibold"
+                        android:text="@string/cad"
+                        android:id="@+id/tvReciever"
+                        android:lineHeight="15sp"
+                        android:textAllCaps="true"
+                        android:textFontWeight="600"
+                        android:textColor="@color/black"
+                        android:textSize="12sp"
+                        tools:targetApi="p" />
+
+                    <!--<ImageView
+                        android:layout_width="@dimen/_12sdp"
+                        android:layout_height="@dimen/_12sdp"
+                        android:layout_marginEnd="@dimen/_16sdp"
+                        android:contentDescription="@string/down"
+                        android:src="@drawable/ic_drop_down_icon_blue" />-->
+                </LinearLayout>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+
+        <androidx.cardview.widget.CardView
+            android:layout_below="@+id/sd"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/tvContinue"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:minHeight="250dp"
+            app:layout_constraintTop_toBottomOf="@id/sd"
+            android:layout_margin="@dimen/_16sdp"
+            android:backgroundTint="#16141D"
+            app:cardCornerRadius="@dimen/_10sdp">
+            <androidx.core.widget.NestedScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:layout_margin="@dimen/_5sdp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="@dimen/_5sdp">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:gravity="center"
+                    android:orientation="vertical">
+                  <!--  <TextView
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:text="1 USD = 1.25700 CAD"
+                        android:textColor="@color/white"
+                        tools:targetApi="p" />-->
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/lato_regular"
+                        android:lineHeight="19sp"
+                        android:text="@string/other_details"
+                        android:textColor="#676767"
+                        android:textFontWeight="400"
+                        android:textSize="14sp" />
+
+
+
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_15sdp">
+
+                        <TextView
+                            android:id="@+id/tv_exchange"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/exchange_rate"
+                            android:textColor="@color/white"
+                            tools:targetApi="p" />
+
+                        <TextView
+                            android:id="@+id/tv_exchange_rate"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_toStartOf="@+id/tv_exchange"
+                            android:textColor="@color/white"
+                            tools:ignore="Suspicious0dp"
+                            tools:targetApi="p"
+                            android:text="$ 0.00"
+                            tools.text="$ 100.00"
+                            />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_15sdp">
+
+                        <TextView
+                            android:id="@+id/kk"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/you_sent"
+                            android:textColor="@color/white"
+                            tools:targetApi="p" />
+
+                        <TextView
+                            android:id="@+id/tv_you_send"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_toStartOf="@+id/kk"
+                            android:textColor="@color/white"
+                            tools:ignore="Suspicious0dp"
+                            tools:targetApi="p"
+                            android:text="$ 0.00"
+                            tools.text="$ 100.00"
+                           />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginVertical="@dimen/_15sdp">
+
+                        <TextView
+                            android:id="@+id/kku"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/they_received"
+                            android:textColor="@color/white"
+                            tools:targetApi="p" />
+
+                        <TextView
+                            android:id="@+id/tv_they_received"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_toStartOf="@+id/kku"
+                            android:textColor="@color/price_color"
+                            tools:ignore="Suspicious0dp"
+                            tools:targetApi="p"
+                            android:text="0.00"
+                            tools.text="$ 79.55"
+                            />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/kkuy"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/service_rate"
+                            android:textColor="@color/white"
+                            tools:targetApi="p" />
+
+                        <TextView
+                            android:id="@+id/tv_service_fee"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_toStartOf="@+id/kkuy"
+                            android:text="$1.257"
+                            android:textColor="@color/white"
+                            tools:ignore="Suspicious0dp"
+                            tools:targetApi="p" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/tv_time"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/delivery_time"
+                            android:textColor="@color/white"
+                            tools:targetApi="p" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_toStartOf="@+id/tv_time"
+                            android:textColor="@color/white"
+                            tools:ignore="Suspicious0dp"
+                            tools:targetApi="p"
+                            android:id="@+id/tv_second"
+                            android:text="@string/in_seconds" />
+                    </RelativeLayout>
+
+
+
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginVertical="@dimen/_10sdp"
+                        android:layout_weight="1"
+                        android:background="@color/colorAccent" />
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/kky"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:textColor="@color/white"
+                            tools:targetApi="p"
+                            android:text="@string/total_paid" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_toStartOf="@+id/kky"
+                            android:textColor="@color/colorAccent"
+                            tools:ignore="Suspicious0dp"
+                            tools:targetApi="p"
+                            android:text="$0.00"
+                            android:id="@+id/tv_total"
+                            tools.text="$ 101.2570"
+                             />
+                    </RelativeLayout>
+
+
+
+                </LinearLayout>
+
+
+            </RelativeLayout>
+            </androidx.core.widget.NestedScrollView>
+        </androidx.cardview.widget.CardView>
+
+
+        <TextView
+            android:id="@+id/tvContinue"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginHorizontal="@dimen/_16sdp"
+            android:layout_marginBottom="@dimen/_16sdp"
+
+
+            android:background="@drawable/tv_btn_bg"
+            android:fontFamily="@font/montserrat_medium"
+            android:gravity="center"
+            android:lineHeight="20sp"
+            android:text="@string/continue_"
+            android:textColor="@color/white"
+            android:textFontWeight="500"
+            android:textSize="16sp"
+            tools:targetApi="p" />
+    </RelativeLayout>
+
+    </ScrollView>
+</layout>

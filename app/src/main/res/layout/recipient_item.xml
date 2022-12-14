@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        xmlns:android="http://schemas.android.com/apk/res/android" >
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="@dimen/_5sdp"
+    android:id="@+id/ll_view"
+    android:background="@color/background"
+    >
+    <LinearLayout
+        android:layout_width="@dimen/_50sdp"
+        android:layout_height="@dimen/_50sdp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:padding="@dimen/_5sdp"
+        android:background="@drawable/iv_bg"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/calibri_bold"
+            android:textSize="@dimen/_20sdp"
+           android:layout_gravity="center"
+            android:id="@+id/tvIcon"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:text="A"/>
+
+
+
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_5sdp"
+        android:padding="@dimen/_5sdp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/calibri_bold"
+            android:textSize="@dimen/_15sdp"
+            android:id="@+id/tvName"
+            android:textColor="@color/white"
+            android:text="A"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/calibri_bold"
+            android:textSize="@dimen/_12sdp"
+            android:id="@+id/tvEmail"
+            android:textColor="@color/text_color"
+            android:text="j@hello.com"/>
+
+
+
+    </LinearLayout>
+
+</LinearLayout>
+       <!-- <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="@dimen/_30sdp"
+            android:id="@+id/tv_menu"
+            android:textSize="@dimen/_20sdp"
+            android:visibility="visible"
+            android:text="&#8942;"
+            android:textColor="@color/white"
+          />-->
+        <ImageView
+            android:layout_width="@dimen/_35sdp"
+            android:layout_height="@dimen/_35sdp"
+            android:layout_alignParentRight="true"
+            android:padding="@dimen/_5sdp"
+            android:id="@+id/iv_delete"
+            android:layout_marginEnd="@dimen/_20sdp"
+            android:layout_centerVertical="true"
+            android:src="@drawable/ic_delete_icon"/>
+
+
+    </RelativeLayout>
+</layout>

@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:ignore="MissingDefaultResource">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:id="@+id/mrz_read"
+        android:gravity="center"
+        android:textSize="24sp"
+        android:layout_marginTop="40dp"
+        android:textStyle="bold"
+        android:text="@string/mrz_successfully_read"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/mrz_read"
+        android:layout_marginTop="40dp"
+        android:gravity="center"
+        android:textSize="20sp"
+        android:text="@string/the_following_fields_were_extracted"/>
+
+    <RelativeLayout
+        android:id="@+id/relativeLayoutMRZ"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="10dp">
+
+        <LinearLayout
+            android:id="@+id/mrzDocumentNumberLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="10dp">
+
+            <TextView
+                android:id="@+id/mrzDocumentNumberLabel"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="60"
+                android:padding="5dp"
+                android:background="@android:color/transparent"
+                android:text="@string/document_number_label"
+                android:labelFor="@id/mrzDocumentNumber"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/mrzDocumentNumber"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="40"
+                android:importantForAutofill="no"
+                android:inputType="textCapCharacters"
+                android:minHeight="48dp"
+                android:text=""
+                android:textSize="16sp"
+                android:textStyle="bold"
+                tools:ignore="TextFields" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/mrzDOBLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/mrzDocumentNumberLayout"
+            android:padding="10dp"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/mrzDOBLabel"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="60"
+                android:padding="5dp"
+                android:background="@android:color/transparent"
+                android:text="@string/dob_label"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:labelFor="@id/mrzDOB"/>
+
+            <EditText
+                android:id="@+id/mrzDOB"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="40"
+                android:importantForAutofill="no"
+                android:inputType="number"
+                android:minHeight="48dp"
+                android:text=""
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/mrzDOELayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/mrzDOBLayout"
+            android:padding="10dp"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/mrzDOELabel"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="60"
+                android:padding="5dp"
+                android:background="@android:color/transparent"
+                android:text="@string/doe_label"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:labelFor="@id/mrzDOE"/>
+
+            <EditText
+                android:id="@+id/mrzDOE"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="40"
+                android:importantForAutofill="no"
+                android:inputType="number"
+                android:minHeight="48dp"
+                android:text=""
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/mrzInstructionLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/mrzDOELayout"
+            android:padding="10dp"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/mrzInstruction"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/verify_captured_data"
+                android:gravity="center"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/mrzInstruction2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="15dp"
+                android:gravity="center"
+                android:textSize="16sp"/>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/buttonLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp"
+        android:paddingBottom="15dp">
+
+        <Button
+            android:id="@+id/eChipButton"
+            android:onClick="nfcPressed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/start_echip"
+            android:textAllCaps="false"
+            android:textSize="20sp"
+            android:textStyle="bold"/>
+
+    </LinearLayout>
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/nfc_help_layout"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:background="#FFFFFFFF"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:translationZ="2dp"
+        android:visibility="gone">
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:id="@+id/nfc_help_image"
+
+            android:layout_marginTop="40dp"
+
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+
+            app:layout_constraintWidth_percent=".9"
+            app:layout_constraintWidth_default="percent"
+
+            app:layout_constraintHeight_percent=".5"
+            app:layout_constraintHeight_default="percent"
+
+            android:src="@drawable/echip_searching_icon"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:id="@+id/nfc_help_title"
+
+            android:paddingBottom="20dp"
+
+            app:layout_constraintTop_toBottomOf="@id/nfc_help_image"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+
+            android:text="@string/locate_echip"
+            android:textSize="34sp"
+            android:textStyle="bold"
+            android:gravity="center" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:id="@+id/nfc_help_text"
+
+            android:paddingBottom="35dp"
+            android:paddingRight="30dp"
+            android:paddingLeft="30dp"
+
+            app:layout_constraintTop_toBottomOf="@id/nfc_help_title"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+
+            android:text="@string/locate_echip_help"
+            android:textSize="20sp"
+            android:gravity="center" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:id="@+id/nfc_help_text_2"
+
+            android:paddingRight="30dp"
+            android:paddingLeft="30dp"
+
+            app:layout_constraintTop_toBottomOf="@id/nfc_help_text"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+
+            android:textSize="19sp"
+            android:gravity="center" />
+
+    </android.support.constraint.ConstraintLayout>
+
+</RelativeLayout>

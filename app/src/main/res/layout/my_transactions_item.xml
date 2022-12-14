@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+  <!--  <data>
+
+        <variable
+            name="data"
+            type="com.aptcard.app.model.GetTransactionHistoryResponse.DataEntity" />
+        <import type="com.aptcard.app.utils.DateParser" />
+    </data>-->
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/_16sdp"
+        android:background="@color/background"
+        android:id="@+id/const_l"
+        android:padding="@dimen/_5sdp">
+
+        <ImageView
+            android:id="@+id/ivTransaction"
+            android:layout_width="@dimen/_40sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:contentDescription="@string/transaction"
+            android:src="@drawable/out"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_16sdp"
+            android:fontFamily="@font/montserrat_semibold"
+            tools:text="@string/john"
+            android:text="John"
+            android:textColor="@color/white"
+            android:textFontWeight="600"
+            android:textSize="@dimen/_14sdp"
+            app:layout_constraintBottom_toTopOf="@id/tvPrice"
+            app:layout_constraintEnd_toStartOf="@id/tvDate"
+            app:layout_constraintStart_toEndOf="@id/ivTransaction"
+            app:layout_constraintTop_toTopOf="@id/ivTransaction" />
+
+        <TextView
+            android:id="@+id/tvPrice"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/lato_regular"
+            tools:text="@string/_30"
+            android:text="-$30"
+            android:textColor="#FF4141"
+            android:textFontWeight="400"
+            android:lineHeight="19sp"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@+id/ivTransaction"
+            app:layout_constraintEnd_toEndOf="@+id/tvName"
+            app:layout_constraintStart_toStartOf="@id/tvName"
+            app:layout_constraintTop_toBottomOf="@id/tvName" />
+
+        <TextView
+            android:id="@+id/tvDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/lato_regular"
+            tools:text="@string/apr_05_20"
+            android:text="Apr 05 20"
+            android:textColor="#676767"
+            android:textFontWeight="400"
+            android:textSize="12sp"
+            android:lineHeight="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/tvName" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvDate"
+           android:layout_marginTop="@dimen/_12sdp"
+            >
+            <ImageView
+                android:id="@+id/ivStatus"
+                android:layout_width="@dimen/_12sdp"
+                android:layout_height="@dimen/_12sdp"
+                android:contentDescription="@string/country"
+                android:src="@drawable/ic_sucess"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                />
+
+            <TextView
+                android:id="@+id/tvStatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_5sdp"
+                android:fontFamily="@font/montserrat_semibold"
+                android:inputType="textPersonName"
+                tools:text="Sucess"
+
+                android:text="Sucessdghhfsgh"
+                android:textColor="@color/white"
+                android:textFontWeight="600"
+                android:textSize="@dimen/_10sdp"
+                app:layout_constraintStart_toEndOf="@+id/ivStatus"
+                app:layout_constraintTop_toTopOf="parent"
+              />
+            <ImageView
+                android:id="@+id/ivCountry"
+                android:layout_width="@dimen/_24sdp"
+                android:layout_height="@dimen/_12sdp"
+                android:contentDescription="@string/country"
+                android:src="@drawable/flag"
+                android:layout_marginStart="@dimen/_5sdp"
+                app:layout_constraintBottom_toBottomOf="parent"
+               app:layout_constraintStart_toEndOf="@+id/tvStatus"
+                app:layout_constraintTop_toTopOf="parent"
+                />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

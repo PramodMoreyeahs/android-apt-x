@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background"
+        android:id="@+id/ll_view"
+
+        android:orientation="vertical"
+        tools:context="com.apt_x.app.views.activity.signup.VerifyPhoneActivity">
+
+        <include
+            android:id="@+id/ll_upper"
+            layout="@layout/top_header" />
+
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_16sdp"
+            android:layout_marginTop="@dimen/_30sdp"
+            android:layout_marginEnd="@dimen/_16sdp"
+            android:gravity="center"
+            android:fontFamily="@font/lato_regular"
+            android:id="@+id/tvemail"
+            android:lineSpacingExtra="@dimen/_5sdp"
+            android:text="@string/sure_want_to_block_card"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_14sdp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_16sdp"
+            android:layout_marginTop="@dimen/_16sdp">
+            <TextView
+                android:id="@+id/tvNo"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_40sdp"
+                android:background="@drawable/btn_strok"
+                android:fontFamily="@font/montserrat_medium"
+                android:gravity="center"
+                android:layout_marginEnd="@dimen/_5sdp"
+                android:layout_weight="1"
+                android:text="@string/no"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:id="@+id/tvyes"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_40sdp"
+                android:layout_weight="1"
+                android:layout_marginStart="@dimen/_5sdp"
+                android:background="@drawable/btn_bg"
+                android:fontFamily="@font/montserrat_medium"
+                android:gravity="center"
+                android:text="@string/yes"
+                android:textColor="@color/white" />
+        </LinearLayout>
+
+
+
+
+
+    </LinearLayout>
+</layout>

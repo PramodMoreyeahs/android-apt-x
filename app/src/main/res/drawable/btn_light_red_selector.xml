@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_pressed="true">
+        <shape android:shape="rectangle">
+            <solid android:color="@color/btn_color_red_light_pressed" />
+            <stroke android:color="@color/btn_color_red_light_pressed"
+                android:width="@dimen/_1sdp" />
+            <corners android:radius="@dimen/_3sdp" />
+        </shape>
+    </item>
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="@color/app_theme_color_red" />
+            <stroke android:color="@color/app_theme_color_red"
+                android:width="@dimen/_1sdp" />
+            <corners android:radius="@dimen/_3sdp" />
+        </shape>
+    </item>
+</selector>
+
+
+
