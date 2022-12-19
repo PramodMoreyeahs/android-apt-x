@@ -520,6 +520,9 @@ We\'re creating something exciting in the house and about to launch soon. Thank 
     <string name="yes_we_are_done">Yes we are Done!</string>
     <string name="thank_you_">Thank You!</string>
     <string name="thank_you_f">Thank you for registration.</string>
+    <string name="kyc_fail">We are sorry, but your KYC could not be validated. At this time, we cannot complete your onboarding. In order to be able to use Cross border services, we will need to validate your information.</string>
+    <string name="kyc_fail2">Please contact  our support team and we will further assist you to get your onboarding completed.</string>
+    <string name="kyc_fail3">You can reach us at following:</string>
     <string name="user_already">User Already Registered</string>
     <string name="user_not_registered">User not registered</string>
     <string name="enter_card">Enter Card Details</string>
@@ -699,7 +702,7 @@ We\'re creating something exciting in the house and about to launch soon. Thank 
     <string name="i_agree_policy_sign_up">I agree to be kept up to date with the latest information about products and services from [AptPay]. I can unsubscribe at any time. Please see [AptPay\'s]  </string>
     <string name="support">Support</string>
     <string name="details">Details</string>
-   <!-- <string name="api_key" translatable="false">AIzaSyC2_JaEArN6eNLIY4WZKMnW5KhB9kT1O8o</string>-->
+    <!-- <string name="api_key" translatable="false">AIzaSyC2_JaEArN6eNLIY4WZKMnW5KhB9kT1O8o</string>-->
     <string name="api_key" translatable="false">AIzaSyBc7thhFMYo8t-6b51CsHkj8289hZLIZBs</string>
 
     <string name="please_select_issue_type">Please select issue type</string>

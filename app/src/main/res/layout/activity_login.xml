@@ -252,6 +252,21 @@
                     android:text="@string/txt_forgot_password"
                     android:textColor="@color/blue"
                     android:textSize="16sp" />
+
+                <TextView
+                    android:visibility="gone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/_16sdp"
+                    android:gravity="center"
+                    android:fontFamily="@font/lato_regular"
+                    android:id="@+id/testkycpage"
+                    android:text="Testkycpage"
+                    android:textColor="@color/blue"
+                    android:textSize="16sp" />
+
+
             </LinearLayout>
         </LinearLayout>
     </ScrollView>

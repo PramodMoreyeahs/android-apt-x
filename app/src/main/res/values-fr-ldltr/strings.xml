@@ -524,6 +524,9 @@ Le numéro de compte ne correspond pash</string>
     <string name="face_doest_match">Échec de la correspondance facial! Veuillez réessayer</string>
     <string name="yes_we_are_done">Oui, nous avons terminé!</string>
     <string name="thank_you_">Merci!</string>
+    <string name="kyc_fail">Nous sommes désolés, mais votre KYC n\'a pas pu être validé. Pour le moment, nous ne pouvons pas terminer votre intégration. Afin de pouvoir utiliser les services transfrontaliers, nous devrons valider vos informations.</string>
+    <string name="kyc_fail2">Veuillez contacter notre équipe d\'assistance et nous vous aiderons davantage à terminer votre intégration.</string>
+    <string name="kyc_fail3">Vous pouvez nous joindre à l\'adresse suivante:</string>
     <string name="thank_you_f">Merci pour l\'inscription.</string>
     <string name="user_already">Utilisateur déjà enregistré</string>
     <string name="capture_id_passport">Capture d\'identité/passeport</string>

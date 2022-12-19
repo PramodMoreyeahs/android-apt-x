@@ -33,6 +33,7 @@ import com.apt_x.app.utils.ConnectivityReceiver;
 import com.apt_x.app.utils.FingerPrintEnable;
 import com.apt_x.app.utils.LocaleHelper;
 import com.apt_x.app.views.activity.NewHomeActivity;
+import com.apt_x.app.views.activity.kyc.KYCfailedActivity;
 import com.facebook.AccessToken;
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
@@ -265,6 +266,14 @@ public class LoginActivity extends BaseActivity implements
             bottomSheet.show(getSupportFragmentManager(), "bottom_Sheet");*/
             fingerPrintEnable.enableFingerPrint();
         });
+
+  /*      binding.testkycpage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(LoginActivity.this, KYCfailedActivity.class));
+            }
+        });*/
+
     }
 
     @RequiresApi(api = Build.VERSION_CODES.M)

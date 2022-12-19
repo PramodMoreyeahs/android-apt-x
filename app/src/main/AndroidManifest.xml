@@ -34,6 +34,13 @@
         tools:ignore="GoogleAppIndexingWarning"
         tools:targetApi="m">
         <activity
+            android:name=".KYCfailedActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".PlacesActivity"
             android:exported="true">
             <meta-data
@@ -114,10 +121,11 @@
         <activity android:name=".views.activity.withdraw.SendingPaymentActivity" />
         <activity android:name=".views.activity.GoogleplacesActivity" />
         <activity android:name=".views.activity.PlacesActivity" />
+        <activity android:name=".views.activity.kyc.KYCfailedActivity" />
         <activity
             android:name=".views.activity.splash.WelcomeActivity"
-            android:windowSoftInputMode="stateHidden"
-            android:exported="true">
+            android:exported="true"
+            android:windowSoftInputMode="stateHidden">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -180,7 +188,8 @@
             android:name="firebase_analytics_collection_enabled"
             android:value="false" />
 
-        <service android:name="com.apt_x.app.utils.MyFirebaseMessagingService"
+        <service
+            android:name="com.apt_x.app.utils.MyFirebaseMessagingService"
             android:exported="false">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />

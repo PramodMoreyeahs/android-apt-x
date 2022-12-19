@@ -22,6 +22,7 @@ import com.apt_x.app.privacy.netcom.retrofit.ApiCalls
 import com.apt_x.app.utils.Utils
 import com.apt_x.app.views.activity.home.HomeActivity
 import com.apt_x.app.views.activity.kyc.KYCViewModel
+import com.apt_x.app.views.activity.kyc.KYCfailedActivity
 import com.apt_x.app.views.activity.signup.ThankYouActivity
 import com.apt_x.app.views.activity.verification.AddAddressActivity
 import com.google.gson.JsonObject
@@ -135,8 +136,7 @@ class ResultActivity : AppCompatActivity() {
 
 //        val lines: List<String> = ProcessedData.formattedString.split("\\r?\\n")
 
-        val lstValues: List<String> =
-            ProcessedData.formattedString.split("\n").map { it -> it.trim() }
+        val lstValues: List<String> = ProcessedData.formattedString.split("\n").map { it -> it.trim() }
         lstValues.forEach { it ->
             Log.i("Values", "value=$it")
         }
@@ -328,8 +328,8 @@ class ResultActivity : AppCompatActivity() {
         val body = RequestBody.create(
             mediaType, jsonObject1.toString()
         )
-    var apiUrl = "https://sec.sandbox.aptpay.com/aptverify/callback" // Staging
-     // var apiUrl = "https://sec.aptpay.com/aptverify/callback" // Production
+    //var apiUrl = "https://sec.sandbox.aptpay.com/aptverify/callback" // Staging
+      var apiUrl = "https://sec.aptpay.com/aptverify/callback" // Production
 
 
 //        if (BuildConfig.BUILD_TYPE.equals("debug", ignoreCase = true)) {
@@ -338,18 +338,18 @@ class ResultActivity : AppCompatActivity() {
 //            apiUrl =" https://sec.aptpay.com"+apiUrl
 //        }
 
-        val request: Request = Request.Builder()
-            .url(apiUrl)
-            .method("POST", body)
-            .addHeader("Content-Type", "application/json")
-            .addHeader("AptPayApiKey", "ohl9KWxW2rdtx9f3EEmhzQaoAdtQ8d") //Staging
-            .build()
        /* val request: Request = Request.Builder()
             .url(apiUrl)
             .method("POST", body)
             .addHeader("Content-Type", "application/json")
-            .addHeader("AptPayApiKey", "En9qyQqGezeRdUf7rR6tOJPiq0w5V5") //Production
+            .addHeader("AptPayApiKey", "ohl9KWxW2rdtx9f3EEmhzQaoAdtQ8d") //Staging
             .build()*/
+        val request: Request = Request.Builder()
+            .url(apiUrl)
+            .method("POST", body)
+            .addHeader("Content-Type", "application/json")
+            .addHeader("AptPayApiKey", "En9qyQqGezeRdUf7rR6tOJPiq0w5V5") //Production
+            .build()
         Utils.showDialog(this, getString(R.string.please_wait))
         client.newCall(request).enqueue(object : Callback {
             override fun onFailure(call: Call, e: IOException) {
@@ -368,10 +368,16 @@ class ResultActivity : AppCompatActivity() {
                       Utils.showToast(this@ResultActivity, getString(R.string.provided_detail_not_correct))
 
                     println("OnSuccess::code" + response.code)
+                    callKYCfailScreen()
 
                 }
             }
         })
+    }
+
+    private fun callKYCfailScreen() {
+        startActivity(Intent(this, KYCfailedActivity::class.java))
+        finish()
     }
 
     fun getKyc() {
@@ -384,11 +390,7 @@ class ResultActivity : AppCompatActivity() {
         if (addres.equals("")&& city.equals("")) {
             MyPref.getInstance(applicationContext).writeBooleanPrefs(Pref.IS_KYC_FILLED, true)
             MyPref.getInstance(applicationContext).writeBooleanPrefs(Pref.IS_LOGIN, true)
-            startActivity(
-                Intent(
-                    this,
-                    AddAddressActivity::class.java
-                ).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+            startActivity(Intent(this, AddAddressActivity::class.java).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
                     .putExtra("Type", "P")
                     .putExtra("dob",dob)
                     .putExtra("isFirsttime", "true")
