@@ -34,6 +34,20 @@
         tools:ignore="GoogleAppIndexingWarning"
         tools:targetApi="m">
         <activity
+            android:name=".CardDetailNewActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".AddCardNewActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".KYCfailedActivity"
             android:exported="false">
             <meta-data
@@ -122,6 +136,8 @@
         <activity android:name=".views.activity.GoogleplacesActivity" />
         <activity android:name=".views.activity.PlacesActivity" />
         <activity android:name=".views.activity.kyc.KYCfailedActivity" />
+        <activity android:name=".views.activity.loadfund.AddCardNewActivity" />
+        <activity android:name=".views.activity.card.CardDetailNewActivity"/>
         <activity
             android:name=".views.activity.splash.WelcomeActivity"
             android:exported="true"

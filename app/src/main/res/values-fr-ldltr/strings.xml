@@ -283,6 +283,7 @@
     <string name="delivery_method">méthode de livraison</string>
     <string name="how_would_you_like_the_money_delivered">Comment aimeriez-vous que l\'argent soit livré?</string>
     <string name="dummy_name">Marc Henry</string>
+    <string name="add_cardnew">Ma carte</string>
     <string name="recipient_phone">Téléphone du destinataire</string>
     <string name="recipient_dob">Date de naissance du bénéficiaire</string>
     <string name="please_enter_the_recipient_birthdate">Veuillez saisir la date de naissance du destinataire.</string>

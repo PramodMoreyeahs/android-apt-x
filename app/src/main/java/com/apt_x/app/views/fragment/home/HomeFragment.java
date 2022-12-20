@@ -33,6 +33,7 @@ import com.apt_x.app.model.CrossBorderHistoryResponse;
 import com.apt_x.app.preferences.Pref;
 import com.apt_x.app.utils.FingerPrintEnable;
 import com.apt_x.app.views.activity.home.HomeActivity;
+import com.apt_x.app.views.activity.loadfund.AddCardNewActivity;
 import com.apt_x.app.views.activity.loadfund.InteracETransferActivity;
 import com.apt_x.app.views.activity.newTransactions.RecipientActivity;
 import com.apt_x.app.views.adapter.TransactionAdapter;
@@ -335,7 +336,8 @@ public class HomeFragment extends BaseFragment implements DialogClickListener,Fi
                 startActivity(new Intent(context, RecipientActivity.class));
                 break;
             case R.id.ll_load_fund:
-                startActivity(new Intent(context, InteracETransferActivity.class));
+              //  startActivity(new Intent(context, InteracETransferActivity.class));
+                startActivity(new Intent(context, AddCardNewActivity.class));
                 break;
         }
     }

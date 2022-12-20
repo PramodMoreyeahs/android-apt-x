@@ -8,6 +8,7 @@
     <color name="text_green">#FFE7A1</color>
     <color name="background1">#0B0815</color>
     <color name="background">#03010C</color>
+    <color name="backgroundpink">#EE4E9B</color>
     <!--Common App colors-->
     <color name="colorPrimary1">#B4E4FF</color>
     <color name="colorPrimary">#000000</color>

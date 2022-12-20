@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/llMain"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/_16sdp"
+        android:background="@color/background"
+        android:padding="@dimen/_5sdp">
+
+        <FrameLayout
+            android:id="@+id/frameLayout2"
+            android:layout_width="@dimen/_35sdp"
+            android:layout_height="@dimen/_35sdp"
+            android:layout_gravity="center"
+            android:visibility="visible"
+            android:background="@drawable/btn_bg_lined"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:visibility="visible"
+                android:id="@+id/iv_image"
+                android:background="@drawable/btn_bg_lined"
+                android:padding="@dimen/_9sdp"
+                android:src="@drawable/physicalcardwhite" />
+        </FrameLayout>
+
+        <TextView
+            android:id="@+id/tvcardfunctions"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_16sdp"
+            android:layout_marginEnd="@dimen/_16sdp"
+            android:ellipsize="end"
+            android:maxLines="1"
+
+            tools:text="Card Details"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_14sdp"
+            app:layout_constraintBottom_toBottomOf="@id/frameLayout2"
+            app:layout_constraintEnd_toEndOf="@id/image"
+            app:layout_constraintStart_toEndOf="@id/frameLayout2"
+            app:layout_constraintTop_toTopOf="@id/frameLayout2" />
+
+
+        <ImageView
+            android:id="@+id/image"
+            android:layout_width="@dimen/_24sdp"
+            android:layout_height="@dimen/_12sdp"
+            android:src="@drawable/ic_forward"
+            app:layout_constraintBottom_toBottomOf="@id/frameLayout2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/frameLayout2" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

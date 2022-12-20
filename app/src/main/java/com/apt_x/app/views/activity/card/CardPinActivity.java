@@ -66,7 +66,7 @@ public class CardPinActivity extends BaseActivity {
              }
              else
              {
-
+                 //binding.llUpper.tvTitle.setText(getResources().getString(R.string.block_card));
              }
 
          } catch (Exception e){

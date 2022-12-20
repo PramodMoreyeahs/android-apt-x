@@ -282,6 +282,7 @@ We\'re creating something exciting in the house and about to launch soon. Thank 
     <string name="delivery_method">Delivery Method</string>
     <string name="how_would_you_like_the_money_delivered">How would you like the money delivered?</string>
     <string name="dummy_name">Mark Henry</string>
+    <string name="add_cardnew">My Card</string>
     <string name="recipient_phone">Recipient’s Phone</string>
     <string name="recipient_dob">Recipient’s Date of Birth</string>
     <string name="please_enter_the_recipient_birthdate">Please enter the recipient birthdate.</string>
