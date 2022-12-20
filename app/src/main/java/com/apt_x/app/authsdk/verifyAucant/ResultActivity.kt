@@ -328,8 +328,8 @@ class ResultActivity : AppCompatActivity() {
         val body = RequestBody.create(
             mediaType, jsonObject1.toString()
         )
-    //var apiUrl = "https://sec.sandbox.aptpay.com/aptverify/callback" // Staging
-      var apiUrl = "https://sec.aptpay.com/aptverify/callback" // Production
+    var apiUrl = "https://sec.sandbox.aptpay.com/aptverify/callback" // Staging
+      //var apiUrl = "https://sec.aptpay.com/aptverify/callback" // Production
 
 
 //        if (BuildConfig.BUILD_TYPE.equals("debug", ignoreCase = true)) {
@@ -338,18 +338,18 @@ class ResultActivity : AppCompatActivity() {
 //            apiUrl =" https://sec.aptpay.com"+apiUrl
 //        }
 
-       /* val request: Request = Request.Builder()
-            .url(apiUrl)
-            .method("POST", body)
-            .addHeader("Content-Type", "application/json")
-            .addHeader("AptPayApiKey", "ohl9KWxW2rdtx9f3EEmhzQaoAdtQ8d") //Staging
-            .build()*/
         val request: Request = Request.Builder()
             .url(apiUrl)
             .method("POST", body)
             .addHeader("Content-Type", "application/json")
-            .addHeader("AptPayApiKey", "En9qyQqGezeRdUf7rR6tOJPiq0w5V5") //Production
+            .addHeader("AptPayApiKey", "ohl9KWxW2rdtx9f3EEmhzQaoAdtQ8d") //Staging
             .build()
+   /*     val request: Request = Request.Builder()
+            .url(apiUrl)
+            .method("POST", body)
+            .addHeader("Content-Type", "application/json")
+            .addHeader("AptPayApiKey", "En9qyQqGezeRdUf7rR6tOJPiq0w5V5") //Production
+            .build()*/
         Utils.showDialog(this, getString(R.string.please_wait))
         client.newCall(request).enqueue(object : Callback {
             override fun onFailure(call: Call, e: IOException) {
