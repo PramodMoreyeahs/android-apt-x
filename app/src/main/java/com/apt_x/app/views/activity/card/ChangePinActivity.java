@@ -47,8 +47,10 @@ public class ChangePinActivity extends BaseActivity {
     }
 
      public void initializeViews() {
-        binding.llUpper.ivBack.setOnClickListener(this);
-        binding.llUpper.tvTitle.setText(getResources().getString(R.string.change_pin));
+        binding.ivBack.setOnClickListener(this);
+        binding.changepinbtn.setOnClickListener(this);
+     //   binding.TextViewTitle.setText(getResources().getString(R.string.change_pin));
+        binding.titlecgpn.setText(getResources().getString(R.string.change_pin));
 
          binding.etOtp.addTextChangedListener(new TextWatcher() {
              public void afterTextChanged(Editable s) {
@@ -108,7 +110,7 @@ public class ChangePinActivity extends BaseActivity {
                      if (i == 3) {
                          binding.tvnCodeFour.setText(String.valueOf(cArr[i]));
 
-                         startActivity(new Intent(ChangePinActivity.this, HomeActivity.class));
+
                      }
                  }
                /* if (binding.etOtp.getText().toString().length() == 4) {
@@ -136,6 +138,10 @@ public class ChangePinActivity extends BaseActivity {
             case R.id.ivBack:
                 onBackPressed();
                 break;
+            case  R.id.changepinbtn:
+                startActivity(new Intent(ChangePinActivity.this, HomeActivity.class));
+                break;
+
         }
     }
 

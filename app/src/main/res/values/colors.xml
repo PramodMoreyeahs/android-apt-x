@@ -17,6 +17,7 @@
     <color name="colorPrimaryDark">#000000</color>
     <color name="colorAccent">#2FB1F8</color>
     <color name="white">#ffffff</color>
+    <color name="whiteopacity">#8Cffffff</color>
     <color name="textblue">#2FB1F8</color>
     <color name="textgrey">#676767</color>
     <color name="black">#000000</color>
@@ -42,7 +43,7 @@
 
     <color name="blue">#2FB1F8</color>
     <color name="green">#00C899</color>
-    <color name="red">#DA1717</color>
+    <color name="red">#FF4141</color>
 
     <color name="card_bg">#16141D</color>
     <color name="price_color">#00C899</color>

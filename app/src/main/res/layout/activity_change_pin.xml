@@ -10,19 +10,76 @@
         android:id="@+id/ll_view"
 
         android:orientation="vertical"
-        tools:context="com.apt_x.app.views.activity.signup.VerifyPhoneActivity">
-
-        <include
-            android:id="@+id/ll_upper"
-            layout="@layout/top_header" />
+        tools:context="com.apt_x.app.views.activity.card.ChangePinActivity">
 
 
+        <LinearLayout
+
+            android:id="@+id/changepintle"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:layout_marginTop="@dimen/_16sdp"
+            android:orientation="horizontal"
+            android:weightSum="2">
+
+            <FrameLayout
+                android:id="@+id/frameLayout2"
+                android:layout_width="@dimen/_35sdp"
+                android:layout_height="@dimen/_35sdp"
+                android:layout_gravity="center"
+                android:layout_marginStart="@dimen/_16sdp"
+                android:layout_weight="0"
+                android:background="@drawable/btn_bg_lined">
+
+                <ImageView
+                    android:id="@+id/ivBack"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:background="?attr/selectableItemBackground"
+                    android:contentDescription="@string/back"
+                    android:padding="@dimen/_10sdp"
+                    android:src="@drawable/ic_back" />
+            </FrameLayout>
+
+            <TextView
+                style="@style/TextViewTitle"
+                android:id="@+id/titlecgpn"
+                android:layout_marginHorizontal="@dimen/_16sdp"
+                android:layout_weight="2"
+                android:gravity="center"
+                android:text="@string/card_details"
+                android:textFontWeight="500"
+                tools:targetApi="p" />
+
+            <FrameLayout
+                android:id="@+id/frameLayout3"
+                android:layout_width="@dimen/_35sdp"
+                android:layout_height="@dimen/_35sdp"
+                android:layout_gravity="center"
+                android:layout_marginStart="@dimen/_16sdp"
+                android:layout_weight="0"
+                android:background="@drawable/btn_bg_lined"
+                android:visibility="invisible">
+
+                <ImageView
+
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:background="?attr/selectableItemBackground"
+                    android:contentDescription="@string/back"
+                    android:padding="@dimen/_10sdp"
+                    android:src="@drawable/ic_back" />
+            </FrameLayout>
+
+        </LinearLayout>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/_16sdp"
-            android:layout_marginTop="@dimen/_30sdp"
+            android:layout_marginTop="@dimen/_75sdp"
             android:layout_marginEnd="@dimen/_16sdp"
             android:gravity="center"
             android:fontFamily="@font/lato_regular"
@@ -31,13 +88,13 @@
             android:lineSpacingExtra="@dimen/_5sdp"
             android:text="@string/please_enter_old_pin"
             android:textColor="@color/et_hint"
-            android:textSize="@dimen/_14sdp" />
+            android:textSize="@dimen/_12sdp" />
 
 
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="30dp"
+            android:layout_marginHorizontal="@dimen/_10sdp"
             android:layout_marginVertical="@dimen/_20sdp"
             tools:ignore="RtlHardcoded">
 
@@ -64,11 +121,11 @@
 
                 <RelativeLayout
                     android:id="@+id/rl1"
-                    android:layout_width="50dp"
-                    android:layout_weight="1"
-                    android:layout_height="60dp"
+                    android:layout_width="72dp"
+
+                    android:layout_height="50dp"
                     android:layout_gravity="center_vertical"
-                    android:layout_marginHorizontal="10dp"
+                    android:layout_marginHorizontal="5dp"
                     android:background="@drawable/iv_bg"
                     tools:ignore="RtlHardcoded">
 
@@ -77,11 +134,11 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerInParent="true"
-                        android:inputType="number"
-                        android:hint="-"
-                        android:textColorHint="@color/gray_light"
-                        android:textColor="@color/white"
                         android:fontFamily="@font/lato_regular"
+                        android:hint="-"
+                        android:inputType="number"
+                        android:textColor="@color/white"
+                        android:textColorHint="@color/gray_light"
                         android:textSize="18sp"
                         tools:ignore="TextViewEdits" />
 
@@ -89,11 +146,10 @@
 
                 <RelativeLayout
                     android:id="@+id/rl2"
-                    android:layout_width="50dp"
-                    android:layout_weight="1"
-                    android:layout_height="60dp"
+                    android:layout_width="72dp"
+                    android:layout_height="50dp"
                     android:layout_gravity="center_vertical"
-                    android:layout_marginHorizontal="10dp"
+                    android:layout_marginHorizontal="5dp"
                     android:background="@drawable/iv_bg"
                     tools:ignore="RtlHardcoded">
 
@@ -114,12 +170,10 @@
 
                 <RelativeLayout
                     android:id="@+id/rl3"
-                    android:layout_weight="1"
-
-                    android:layout_width="50dp"
-                    android:layout_height="60dp"
+                    android:layout_width="72dp"
+                    android:layout_height="50dp"
                     android:layout_gravity="center_vertical"
-                    android:layout_marginHorizontal="10dp"
+                    android:layout_marginHorizontal="5dp"
                     android:background="@drawable/iv_bg"
                     tools:ignore="RtlHardcoded">
 
@@ -140,12 +194,10 @@
 
                 <RelativeLayout
                     android:id="@+id/rl4"
-                    android:layout_width="50dp"
-                    android:layout_weight="1"
-
-                    android:layout_height="60dp"
+                    android:layout_width="72dp"
+                    android:layout_height="50dp"
                     android:layout_gravity="center_vertical"
-                    android:layout_marginHorizontal="10dp"
+                    android:layout_marginHorizontal="5dp"
                     android:background="@drawable/iv_bg"
                     tools:ignore="RtlHardcoded">
 
@@ -165,6 +217,15 @@
                 </RelativeLayout>
             </LinearLayout>
         </FrameLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_1sdp"
+            android:layout_marginTop="@dimen/_16sdp"
+            android:layout_marginHorizontal="@dimen/_20sdp"
+            android:background="#16141D"
+            android:visibility="visible" />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -178,12 +239,12 @@
             android:lineSpacingExtra="@dimen/_5sdp"
             android:text="@string/please_enter_the_new_pin"
             android:textColor="@color/et_hint"
-            android:textSize="@dimen/_14sdp" />
+            android:textSize="@dimen/_12sdp" />
 
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="30dp"
+            android:layout_marginHorizontal="@dimen/_10sdp"
             android:layout_marginVertical="@dimen/_20sdp"
             tools:ignore="RtlHardcoded">
 
@@ -210,11 +271,11 @@
 
                 <RelativeLayout
                     android:id="@+id/rln1"
-                    android:layout_width="50dp"
-                    android:layout_weight="1"
-                    android:layout_height="60dp"
+                    android:layout_width="72dp"
+
+                    android:layout_height="50dp"
                     android:layout_gravity="center_vertical"
-                    android:layout_marginHorizontal="10dp"
+                    android:layout_marginHorizontal="5dp"
                     android:background="@drawable/iv_bg"
                     tools:ignore="RtlHardcoded">
 
@@ -223,11 +284,11 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerInParent="true"
-                        android:inputType="number"
-                        android:hint="-"
-                        android:textColorHint="@color/gray_light"
-                        android:textColor="@color/white"
                         android:fontFamily="@font/lato_regular"
+                        android:hint="-"
+                        android:inputType="number"
+                        android:textColor="@color/white"
+                        android:textColorHint="@color/gray_light"
                         android:textSize="18sp"
                         tools:ignore="TextViewEdits" />
 
@@ -235,11 +296,11 @@
 
                 <RelativeLayout
                     android:id="@+id/rln2"
-                    android:layout_width="50dp"
-                    android:layout_weight="1"
-                    android:layout_height="60dp"
+                    android:layout_width="72dp"
+
+                    android:layout_height="50dp"
                     android:layout_gravity="center_vertical"
-                    android:layout_marginHorizontal="10dp"
+                    android:layout_marginHorizontal="5dp"
                     android:background="@drawable/iv_bg"
                     tools:ignore="RtlHardcoded">
 
@@ -260,12 +321,11 @@
 
                 <RelativeLayout
                     android:id="@+id/rln3"
-                    android:layout_weight="1"
+                    android:layout_width="72dp"
 
-                    android:layout_width="50dp"
-                    android:layout_height="60dp"
+                    android:layout_height="50dp"
                     android:layout_gravity="center_vertical"
-                    android:layout_marginHorizontal="10dp"
+                    android:layout_marginHorizontal="5dp"
                     android:background="@drawable/iv_bg"
                     tools:ignore="RtlHardcoded">
 
@@ -286,12 +346,11 @@
 
                 <RelativeLayout
                     android:id="@+id/rln4"
-                    android:layout_width="50dp"
-                    android:layout_weight="1"
+                    android:layout_width="72dp"
 
-                    android:layout_height="60dp"
+                    android:layout_height="50dp"
                     android:layout_gravity="center_vertical"
-                    android:layout_marginHorizontal="10dp"
+                    android:layout_marginHorizontal="5dp"
                     android:background="@drawable/iv_bg"
                     tools:ignore="RtlHardcoded">
 
@@ -324,6 +383,36 @@
             android:gravity="center"
             android:text="@string/block"
             android:textColor="@color/white" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:gravity="bottom"
+            android:layout_marginBottom="@dimen/_30sdp"
+            android:layout_height="match_parent">
+            <TextView
+                android:id="@+id/changepinbtn"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_40sdp"
+                android:layout_marginHorizontal="@dimen/_16sdp"
+
+                android:layout_weight="1"
+                android:background="@drawable/tv_btn_bg"
+                android:fontFamily="@font/montserrat_medium"
+                android:gravity="center"
+                android:lineHeight="20sp"
+                android:text="@string/change_pin"
+                android:textColor="@color/white"
+                android:textFontWeight="500"
+                android:textSize="16sp"
+                android:visibility="visible"
+
+
+                tools:targetApi="p" />
+        </LinearLayout>
+
+
+
 
     </LinearLayout>
 </layout>

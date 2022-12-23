@@ -1,5 +1,6 @@
 package com.apt_x.app.views.activity.loadfund;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
@@ -8,6 +9,8 @@ import androidx.databinding.DataBindingUtil;
 import com.apt_x.app.R;
 import com.apt_x.app.databinding.ActivityAddCardNewBinding;
 import com.apt_x.app.model.CardDetaildemomodel;
+import com.apt_x.app.views.activity.card.CardPinActivity;
+import com.apt_x.app.views.activity.home.HomeActivity;
 import com.apt_x.app.views.adapter.AddCardDetailsAdapter;
 import com.apt_x.app.views.base.BaseActivity;
 
@@ -36,6 +39,7 @@ public class AddCardNewActivity extends BaseActivity {
 
         binding = DataBindingUtil.setContentView(this, R.layout.activity_add_card_new);
 
+        binding.ivBack.setOnClickListener(this);
         cardsdetaillist.add("Issue physical Card");
         cardsdetaillist.add("See Card Details");
         cardsdetaillist.add("Change Pin");
@@ -74,6 +78,12 @@ public class AddCardNewActivity extends BaseActivity {
 
     @Override
     public void onClick(View view) {
+        switch (view.getId())
+        {
+            case R.id.ivBack:
+                onBackPressed();
+                break;
 
+        }
     }
 }

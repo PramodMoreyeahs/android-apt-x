@@ -10,10 +10,11 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/llMain"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="@dimen/_50sdp"
+
         android:layout_marginBottom="@dimen/_16sdp"
         android:background="@color/background"
-        android:padding="@dimen/_5sdp">
+        android:padding="@dimen/_8sdp">
 
         <FrameLayout
             android:id="@+id/frameLayout2"

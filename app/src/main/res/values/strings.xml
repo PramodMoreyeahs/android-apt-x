@@ -566,7 +566,7 @@ We\'re creating something exciting in the house and about to launch soon. Thank 
     <string name="issue_physical_card">Issue Physical Card</string>
     <string name="see_card_details">See Card Details</string>
 
-    <string name="change_pin">Change Pin</string>
+    <string name="change_pin">Change PIN</string>
     <string name="block_card">Block Card</string>
     <string name="add_account_">Add Account</string>
     <string name="add_card_">Add Card</string>

@@ -58,7 +58,7 @@ public class AddCardDetailsAdapter extends RecyclerView.Adapter<AddCardDetailsAd
             holder.binding.ivImage.setImageDrawable(context.getDrawable(R.drawable.physicalcard));
         }
         if(obj.getName().equals("Block Card")){
-            holder.binding.tvcardfunctions.setTextColor(0xFFFF0000);
+            holder.binding.tvcardfunctions.setTextColor(ContextCompat.getColor(context, R.color.red));
         }
         if(obj.getName().equals("Change Pin")){
             holder.binding.ivImage.setImageDrawable(context.getDrawable(R.drawable.cpin));;
@@ -69,13 +69,14 @@ public class AddCardDetailsAdapter extends RecyclerView.Adapter<AddCardDetailsAd
 
         holder.binding.llMain.setOnClickListener(view -> {
             if(obj.getName().equals("Issue physical Card")){
-                context.startActivity(new Intent(context, CardPinActivity.class));
+                //context.startActivity(new Intent(context, CardPinActivity.class));
             }
             if(obj.getName().equals("Change Pin")) {
-                context.startActivity(new Intent(context, ChangePinActivity.class));
+                context.startActivity(new Intent(context, ChangePinActivity.class));         //ChangePinActivity
             }
             if(obj.getName().equals("See Card Details")){
-                context.startActivity(new Intent(context, CardDetailNewActivity.class));
+                context.startActivity(new Intent(context, CardPinActivity.class)
+                        .putExtra("changepin","ChangePin"));  //CardDetailNewActivity
             }
             if(obj.getName().equals("Block Card")){
                 context.startActivity(new Intent(context, BlockCardActivity.class));

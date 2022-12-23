@@ -87,7 +87,7 @@
             android:layout_marginTop="@dimen/_80sdp"
             android:layout_marginEnd="@dimen/_16sdp"
             android:layout_marginBottom="@dimen/_16sdp"
-            app:layout_constraintBottom_toTopOf="@id/tvContinue"
+
             app:layout_constraintEnd_toEndOf="@id/progress_horizontal"
             app:layout_constraintStart_toStartOf="@id/progress_horizontal"
             app:layout_constraintTop_toBottomOf="@id/progress_horizontal">
@@ -102,7 +102,7 @@
                     android:id="@+id/tvTitle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_16sdp"
+
                     android:fontFamily="@font/montserrat"
                     android:lineHeight="26sp"
                     android:lineSpacingExtra="@dimen/_5sdp"
@@ -116,14 +116,179 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_16sdp">
+                    android:layout_marginTop="@dimen/_15sdp">
 
-                    <ImageView
+                    <!--<ImageView
                         android:id="@+id/ivCardview"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/_250sdp"
                         android:layout_gravity="center_vertical"
-                        android:src="@drawable/addcard" />
+                        android:src="@drawable/addcard" />-->
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_250sdp">
+
+                        <ImageView
+
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center_vertical"
+                            android:src="@drawable/cardwithsim" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
+
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/_8sdp"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="@dimen/_15sdp"
+                                    android:layout_marginTop="@dimen/_15sdp"
+                                    android:layout_weight="1"
+                                    android:fontFamily="@font/lato_light"
+                                    android:text="Total Balance"
+                                    android:textColor="@color/whiteopacity"
+                                    android:textFontWeight="300"
+                                    android:textSize="@dimen/_12sdp">
+
+                                </TextView>
+
+                                <FrameLayout
+
+                                    android:layout_width="@dimen/_50sdp"
+                                    android:layout_height="@dimen/_35sdp"
+                                    android:layout_gravity="center"
+                                    android:layout_marginStart="@dimen/_16sdp"
+                                    android:layout_weight="0"
+                                    android:background="@drawable/btn_bg_lined"
+                                    android:visibility="invisible">
+
+                                    <ImageView
+
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_gravity="center"
+                                        android:background="?attr/selectableItemBackground"
+                                        android:contentDescription="@string/back"
+                                        android:padding="@dimen/_10sdp"
+                                        android:src="@drawable/ic_back" />
+                                </FrameLayout>
+
+                                <ImageView
+                                    android:layout_width="86dp"
+                                    android:layout_height="20dp"
+                                    android:layout_marginTop="@dimen/_15sdp"
+                                    android:layout_weight="1"
+                                    android:src="@drawable/aptoglogo">
+
+                                </ImageView>
+                            </LinearLayout>
+
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/_15sdp"
+
+                                android:fontFamily="@font/montserrat"
+                                android:text="$ 1,000"
+                                android:textColor="@color/white"
+                                android:textFontWeight="600"
+                                android:textSize="@dimen/_25sdp">
+
+                            </TextView>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/_15sdp"
+                                android:layout_marginTop="@dimen/_12sdp"
+                                android:fontFamily="@font/lato_light"
+                                android:text="Prepaid Card"
+                                android:textColor="@color/whiteopacity"
+                                android:textFontWeight="300"
+                                android:textSize="@dimen/_12sdp">
+
+                            </TextView>
+
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/_5sdp"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="@dimen/_15sdp"
+                                    android:layout_weight="1"
+                                    android:fontFamily="@font/montserrat"
+                                    android:text="XXXX 1080"
+
+                                    android:textColor="@color/white"
+                                    android:textFontWeight="600"
+                                    android:textSize="@dimen/_16sdp">
+
+                                </TextView>
+
+                                <ImageView
+                                    android:layout_width="@dimen/_43sdp"
+                                    android:layout_height="40dp"
+                                    android:layout_weight="1"
+                                    android:src="@drawable/sim"
+                                    android:visibility="invisible">
+
+                                </ImageView>
+
+
+                            </LinearLayout>
+
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/_15sdp"
+                                android:layout_marginTop="@dimen/_5sdp"
+                                android:fontFamily="@font/lato_light"
+                                android:text="Expiry"
+                                android:textColor="@color/whiteopacity"
+                                android:textFontWeight="300"
+                                android:textSize="@dimen/_12sdp">
+
+                            </TextView>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/_15sdp"
+                                android:layout_marginTop="@dimen/_5sdp"
+                                android:fontFamily="@font/montserrat"
+                                android:text="12/22"
+                                android:textColor="@color/white"
+                                android:textFontWeight="400"
+                                android:textSize="@dimen/_15sdp">
+
+                            </TextView>
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="@dimen/_30sdp"
+                                android:layout_marginStart="@dimen/_15sdp"
+                                android:layout_marginTop="@dimen/_8sdp"
+                                android:layout_marginBottom="@dimen/_20sdp"
+                                android:src="@drawable/masterpng"></ImageView>
+
+                        </LinearLayout>
+                    </RelativeLayout>
 
 
                 </LinearLayout>
@@ -135,9 +300,10 @@
                     android:background="#16141D"
                     android:visibility="gone" />
 
+
                 <TextView
                     style="@style/TextViewTitle"
-                    android:layout_marginHorizontal="@dimen/_16sdp"
+                    android:layout_width="match_parent"
                     android:layout_marginTop="@dimen/_16sdp"
                     android:layout_weight="2"
                     android:text="@string/card_pin"
@@ -147,7 +313,10 @@
 
                 <FrameLayout
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/_200sdp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginBottom="@dimen/_60sdp"
+
 
                     tools:ignore="RtlHardcoded">
 
@@ -167,17 +336,18 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/_16sdp"
+                        android:layout_gravity="center_vertical"
+                        android:gravity="center_horizontal"
                         android:orientation="horizontal">
 
 
                         <RelativeLayout
                             android:id="@+id/rl1"
-                            android:layout_width="50dp"
-                            android:layout_height="60dp"
+                            android:layout_width="72dp"
+
+                            android:layout_height="50dp"
                             android:layout_gravity="center_vertical"
-                            android:layout_marginHorizontal="10dp"
-                            android:layout_weight="1"
+                            android:layout_marginHorizontal="5dp"
                             android:background="@drawable/iv_bg"
                             tools:ignore="RtlHardcoded">
 
@@ -198,11 +368,10 @@
 
                         <RelativeLayout
                             android:id="@+id/rl2"
-                            android:layout_width="50dp"
-                            android:layout_height="60dp"
+                            android:layout_width="72dp"
+                            android:layout_height="50dp"
                             android:layout_gravity="center_vertical"
-                            android:layout_marginHorizontal="10dp"
-                            android:layout_weight="1"
+                            android:layout_marginHorizontal="5dp"
                             android:background="@drawable/iv_bg"
                             tools:ignore="RtlHardcoded">
 
@@ -223,12 +392,10 @@
 
                         <RelativeLayout
                             android:id="@+id/rl3"
-                            android:layout_width="50dp"
-
-                            android:layout_height="60dp"
+                            android:layout_width="72dp"
+                            android:layout_height="50dp"
                             android:layout_gravity="center_vertical"
-                            android:layout_marginHorizontal="10dp"
-                            android:layout_weight="1"
+                            android:layout_marginHorizontal="5dp"
                             android:background="@drawable/iv_bg"
                             tools:ignore="RtlHardcoded">
 
@@ -249,12 +416,10 @@
 
                         <RelativeLayout
                             android:id="@+id/rl4"
-                            android:layout_width="50dp"
-                            android:layout_height="60dp"
-
+                            android:layout_width="72dp"
+                            android:layout_height="50dp"
                             android:layout_gravity="center_vertical"
-                            android:layout_marginHorizontal="10dp"
-                            android:layout_weight="1"
+                            android:layout_marginHorizontal="5dp"
                             android:background="@drawable/iv_bg"
                             tools:ignore="RtlHardcoded">
 
@@ -268,15 +433,15 @@
                                 android:inputType="number"
                                 android:textColor="@color/white"
                                 android:textColorHint="@color/white"
-
                                 android:textSize="18sp"
+
                                 tools:ignore="TextViewEdits" />
                         </RelativeLayout>
                     </LinearLayout>
                 </FrameLayout>
 
                 <TextView
-                    android:id="@+id/tvContinue"
+                    android:id="@+id/changepinbtn"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_40sdp"
                     android:layout_marginHorizontal="@dimen/_16sdp"

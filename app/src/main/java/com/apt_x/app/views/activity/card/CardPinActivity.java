@@ -52,12 +52,19 @@ public class CardPinActivity extends BaseActivity {
      public void initializeViews() {
          try {
              if(getIntent()!=null)
+
              {
-                 if (getIntent().getStringExtra("block").equals("blockCard")) {
+
+
+
+                 if (getIntent().getStringExtra("block") != null && getIntent().getStringExtra("block").equals("blockCard")) {
+
                      binding.llUpper.tvTitle.setText(getResources().getString(R.string.block_card));
                      binding.tvContinue.setVisibility(View.VISIBLE);
                      binding.tvtitle.setText(getResources().getString(R.string.please_enter_pin_block));
-                 } else {
+                 }
+                 else if(getIntent().getStringExtra("changepin") != null && getIntent().getStringExtra("changepin").equals("ChangePin")){
+
                      binding.tvContinue.setVisibility(View.GONE);
                      binding.llUpper.tvTitle.setText(R.string.enter_card_pin);
                      binding.tvtitle.setText(getResources().getString(R.string.please_enter_pin));
@@ -103,11 +110,9 @@ public class CardPinActivity extends BaseActivity {
                          try {
                              if(getIntent().getStringExtra("block")==null)
                              {
-                                 startActivity(new Intent(CardPinActivity.this,CardDetailActivity.class));
-                                 finish();
+                                 startActivity(new Intent(CardPinActivity.this,CardDetailNewActivity.class));
+                                 //finish();
                              }
-
-
                          }
                          catch (Exception e){
                              e.printStackTrace();
@@ -140,11 +145,11 @@ public class CardPinActivity extends BaseActivity {
             case R.id.ivBack:
                 onBackPressed();
                 break;
-            case R.id.tvContinue:
+    /*        case R.id.tvContinue:
                 startActivity(new Intent(CardPinActivity.this, HomeActivity.class));
                 finish();
                 break;
-
+*/
         }
     }
   @Override
