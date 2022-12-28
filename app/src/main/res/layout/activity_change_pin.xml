@@ -108,6 +108,7 @@
                 android:focusable="true"
                 android:focusedByDefault="true"
                 android:inputType="number"
+                android:cursorVisible="true"
                 android:maxLength="4"
                 android:textColor="@android:color/transparent"/>
 
@@ -135,10 +136,10 @@
                         android:layout_height="wrap_content"
                         android:layout_centerInParent="true"
                         android:fontFamily="@font/lato_regular"
-                        android:hint="-"
+                        android:hint="_"
                         android:inputType="number"
                         android:textColor="@color/white"
-                        android:textColorHint="@color/gray_light"
+                        android:textColorHint="@color/textgrey"
                         android:textSize="18sp"
                         tools:ignore="TextViewEdits" />
 
@@ -158,11 +159,11 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerInParent="true"
-                        android:inputType="number"
                         android:fontFamily="@font/lato_regular"
-                        android:hint="-"
-                        android:textColorHint="@color/gray_light"
+                        android:hint="_"
+                        android:inputType="number"
                         android:textColor="@color/white"
+                        android:textColorHint="@color/textgrey"
                         android:textSize="18sp"
                         tools:ignore="TextViewEdits" />
 
@@ -182,12 +183,12 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerInParent="true"
+                        android:fontFamily="@font/lato_regular"
+                        android:hint="_"
                         android:inputType="number"
                         android:textColor="@color/white"
+                        android:textColorHint="@color/textgrey"
                         android:textSize="18sp"
-                        android:fontFamily="@font/lato_regular"
-                        android:hint="-"
-                        android:textColorHint="@color/gray_light"
                         tools:ignore="TextViewEdits" />
 
                 </RelativeLayout>
@@ -206,13 +207,13 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerInParent="true"
+                        android:fontFamily="@font/lato_regular"
+                        android:hint="_"
                         android:inputType="number"
                         android:textColor="@color/white"
-                        android:textSize="18sp"
-                        android:hint="-"
-                        android:textColorHint="@color/gray_light"
-                        android:fontFamily="@font/lato_regular"
+                        android:textColorHint="@color/textgrey"
 
+                        android:textSize="18sp"
                         tools:ignore="TextViewEdits" />
                 </RelativeLayout>
             </LinearLayout>
@@ -285,10 +286,10 @@
                         android:layout_height="wrap_content"
                         android:layout_centerInParent="true"
                         android:fontFamily="@font/lato_regular"
-                        android:hint="-"
+                        android:hint="_"
                         android:inputType="number"
                         android:textColor="@color/white"
-                        android:textColorHint="@color/gray_light"
+                        android:textColorHint="@color/textgrey"
                         android:textSize="18sp"
                         tools:ignore="TextViewEdits" />
 
@@ -309,11 +310,11 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerInParent="true"
-                        android:inputType="number"
                         android:fontFamily="@font/lato_regular"
-                        android:hint="-"
-                        android:textColorHint="@color/gray_light"
+                        android:hint="_"
+                        android:inputType="number"
                         android:textColor="@color/white"
+                        android:textColorHint="@color/textgrey"
                         android:textSize="18sp"
                         tools:ignore="TextViewEdits" />
 
@@ -334,12 +335,12 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerInParent="true"
+                        android:fontFamily="@font/lato_regular"
+                        android:hint="_"
                         android:inputType="number"
                         android:textColor="@color/white"
+                        android:textColorHint="@color/textgrey"
                         android:textSize="18sp"
-                        android:fontFamily="@font/lato_regular"
-                        android:hint="-"
-                        android:textColorHint="@color/gray_light"
                         tools:ignore="TextViewEdits" />
 
                 </RelativeLayout>
@@ -359,13 +360,13 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerInParent="true"
+                        android:fontFamily="@font/lato_regular"
+                        android:hint="_"
                         android:inputType="number"
                         android:textColor="@color/white"
-                        android:textSize="18sp"
-                        android:hint="-"
-                        android:textColorHint="@color/gray_light"
-                        android:fontFamily="@font/lato_regular"
+                        android:textColorHint="@color/textgrey"
 
+                        android:textSize="18sp"
                         tools:ignore="TextViewEdits" />
                 </RelativeLayout>
             </LinearLayout>

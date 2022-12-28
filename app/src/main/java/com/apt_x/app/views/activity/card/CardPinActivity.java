@@ -1,17 +1,24 @@
 package com.apt_x.app.views.activity.card;
 
+import static androidx.fragment.app.FragmentManager.TAG;
+
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
 import androidx.core.content.ContextCompat;import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Configuration;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.text.method.PasswordTransformationMethod;
+import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 
+import androidx.core.content.res.ResourcesCompat;
 import androidx.databinding.DataBindingUtil;
 
 import com.apt_x.app.R;
@@ -20,6 +27,7 @@ import com.apt_x.app.utils.LocaleHelper;
 import com.apt_x.app.views.activity.NewHomeActivity;
 import com.apt_x.app.views.activity.home.HomeActivity;
 import com.apt_x.app.views.base.BaseActivity;
+import com.chaos.view.PinView;
 
 public class CardPinActivity extends BaseActivity {
     ActivityCardPinBinding binding;
@@ -56,12 +64,12 @@ public class CardPinActivity extends BaseActivity {
              {
 
 
-
                  if (getIntent().getStringExtra("block") != null && getIntent().getStringExtra("block").equals("blockCard")) {
 
                      binding.llUpper.tvTitle.setText(getResources().getString(R.string.block_card));
                      binding.tvContinue.setVisibility(View.VISIBLE);
                      binding.tvtitle.setText(getResources().getString(R.string.please_enter_pin_block));
+                     binding.select.setVisibility(View.GONE);
                  }
                  else if(getIntent().getStringExtra("changepin") != null && getIntent().getStringExtra("changepin").equals("ChangePin")){
 
@@ -83,10 +91,19 @@ public class CardPinActivity extends BaseActivity {
 
         binding.llUpper.ivBack.setOnClickListener(this);
          binding.tvContinue.setOnClickListener(this);
+         binding.select.setOnClickListener(this);
 
          binding.llView.requestFocus();
          InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
          imm.showSoftInput( binding.llView, InputMethodManager.SHOW_IMPLICIT);
+
+
+         binding.firstPinView.setOnClickListener(new View.OnClickListener() {
+             @Override
+             public void onClick(View view) {
+                 binding.firstPinView.setText("");
+             }
+         });
 
          binding.etOtp.addTextChangedListener(new TextWatcher() {
              public void afterTextChanged(Editable s) {
@@ -107,16 +124,6 @@ public class CardPinActivity extends BaseActivity {
                      }
                      if (i == 3) {
                          binding.tvCodeFour.setText(String.valueOf(cArr[i]));
-                         try {
-                             if(getIntent().getStringExtra("block")==null)
-                             {
-                                 startActivity(new Intent(CardPinActivity.this,CardDetailNewActivity.class));
-                                 //finish();
-                             }
-                         }
-                         catch (Exception e){
-                             e.printStackTrace();
-                         }
 
                      }
                  }
@@ -136,6 +143,8 @@ public class CardPinActivity extends BaseActivity {
              public void onTextChanged(CharSequence s, int start, int before, int count) {
              }
          });
+
+
     }
 
     @Override
@@ -145,11 +154,25 @@ public class CardPinActivity extends BaseActivity {
             case R.id.ivBack:
                 onBackPressed();
                 break;
-    /*        case R.id.tvContinue:
+            case R.id.select:
+                try {
+                    if(getIntent().getStringExtra("block")==null)
+                    {
+                        startActivity(new Intent(CardPinActivity.this,CardDetailNewActivity.class));
+                        //finish();
+                    }
+                }
+                catch (Exception e){
+                    e.printStackTrace();
+                }
+            case R.id.tvContinue:
                 startActivity(new Intent(CardPinActivity.this, HomeActivity.class));
                 finish();
                 break;
-*/
+
+           /*     startActivity(new Intent(CardPinActivity.this, HomeActivity.class));
+                finish();*/
+
         }
     }
   @Override

@@ -344,7 +344,7 @@ class ResultActivity : AppCompatActivity() {
             .addHeader("Content-Type", "application/json")
             .addHeader("AptPayApiKey", "ohl9KWxW2rdtx9f3EEmhzQaoAdtQ8d") //Staging
             .build()
-   /*     val request: Request = Request.Builder()
+     /*   val request: Request = Request.Builder()
             .url(apiUrl)
             .method("POST", body)
             .addHeader("Content-Type", "application/json")

@@ -109,8 +109,6 @@ public class ChangePinActivity extends BaseActivity {
                      }
                      if (i == 3) {
                          binding.tvnCodeFour.setText(String.valueOf(cArr[i]));
-
-
                      }
                  }
                /* if (binding.etOtp.getText().toString().length() == 4) {

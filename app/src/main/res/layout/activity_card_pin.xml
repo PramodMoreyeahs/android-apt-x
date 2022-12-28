@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
 
     <LinearLayout
@@ -31,8 +32,31 @@
             android:textColor="@color/et_hint"
             android:textSize="@dimen/_12sdp" />
 
+        <com.chaos.view.PinView
+            android:visibility="gone"
+            android:id="@+id/firstPinView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:gravity="center"
+            android:focusable="true"
 
+            android:text="____"
+            app:itemWidth="@dimen/_63sdp"
+            app:itemHeight="@dimen/_45sdp"
+            android:focusableInTouchMode="true"
+            android:cursorVisible="true"
+            android:textColor="@color/white"
+            app:lineColor="@color/background"
+            android:focusedByDefault="true"
+            android:layout_marginTop="@dimen/_40sdp"
+            android:layout_gravity="center"
+            android:inputType="number"
+            app:itemSpacing="@dimen/_6sdp"
+            android:itemBackground="@drawable/iv_bg"
+            app:itemRadius="@dimen/_15sdp" />
         <FrameLayout
+            android:visibility="visible"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/_10sdp"
@@ -46,6 +70,8 @@
                 android:background="@android:color/transparent"
                 android:focusable="true"
                 android:focusableInTouchMode="true"
+                android:cursorVisible="true"
+
                 android:focusedByDefault="true"
                 android:imeOptions="actionDone"
                 android:inputType="number"
@@ -76,10 +102,11 @@
                         android:layout_height="wrap_content"
                         android:layout_centerInParent="true"
                         android:fontFamily="@font/lato_regular"
-                        android:hint="-"
+                        android:hint="_"
+                        android:cursorVisible="true"
                         android:inputType="number"
                         android:textColor="@color/white"
-                        android:textColorHint="@color/gray_light"
+                        android:textColorHint="@color/textgrey"
                         android:textSize="18sp"
                         tools:ignore="TextViewEdits" />
 
@@ -100,10 +127,10 @@
                         android:layout_height="wrap_content"
                         android:layout_centerInParent="true"
                         android:fontFamily="@font/lato_regular"
-                        android:hint="-"
+                        android:hint="_"
                         android:inputType="number"
                         android:textColor="@color/white"
-                        android:textColorHint="@color/gray_light"
+                        android:textColorHint="@color/textgrey"
                         android:textSize="18sp"
                         tools:ignore="TextViewEdits" />
 
@@ -124,10 +151,10 @@
                         android:layout_height="wrap_content"
                         android:layout_centerInParent="true"
                         android:fontFamily="@font/lato_regular"
-                        android:hint="-"
+                        android:hint="_"
                         android:inputType="number"
                         android:textColor="@color/white"
-                        android:textColorHint="@color/gray_light"
+                        android:textColorHint="@color/textgrey"
                         android:textSize="18sp"
                         tools:ignore="TextViewEdits" />
 
@@ -148,20 +175,24 @@
                         android:layout_height="wrap_content"
                         android:layout_centerInParent="true"
                         android:fontFamily="@font/lato_regular"
-                        android:hint="-"
+                        android:hint="_"
                         android:inputType="number"
-                        android:textColor="@color/white"
-                        android:textColorHint="@color/gray_light"
-                        android:textSize="18sp"
 
+                        android:textColor="@color/white"
+                        android:textColorHint="@color/textgrey"
+                        android:textSize="18sp"
                         tools:ignore="TextViewEdits" />
                 </RelativeLayout>
             </LinearLayout>
         </FrameLayout>
 
+
+
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:orientation="vertical"
             android:gravity="bottom">
 
             <TextView
@@ -170,12 +201,29 @@
                 android:layout_height="@dimen/_40sdp"
                 android:layout_marginHorizontal="@dimen/_16sdp"
                 android:layout_marginTop="@dimen/_16sdp"
+                android:layout_marginBottom="@dimen/_20sdp"
                 android:background="@drawable/red_btn"
                 android:fontFamily="@font/montserrat_medium"
                 android:gravity="center"
                 android:text="@string/block"
                 android:textColor="@color/white"
                 android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/select"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_40sdp"
+                android:layout_marginHorizontal="@dimen/_16sdp"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:background="@drawable/tv_btn_bg"
+                android:layout_marginBottom="@dimen/_20sdp"
+                android:fontFamily="@font/montserrat_medium"
+                android:gravity="center"
+                android:text="@string/continue_"
+                android:textColor="@color/white"
+                android:visibility="visible" />
+
+
         </LinearLayout>
 
 
