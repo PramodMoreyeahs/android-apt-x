@@ -167,8 +167,6 @@ public class CountryAdapter extends RecyclerView.Adapter<CountryAdapter.Services
                             .putExtra(Keys.COUNTRY_RATE,rate)
                             .putExtra(Keys.SERVICE_FEE,service)
                             .putExtra(CURRENCY_CODE,currence_code)
-
-
                     );
                 }
                 else

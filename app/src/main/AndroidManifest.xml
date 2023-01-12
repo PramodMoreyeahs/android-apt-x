@@ -34,6 +34,13 @@
         tools:ignore="GoogleAppIndexingWarning"
         tools:targetApi="m">
         <activity
+            android:name=".NewEmailVerify"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".CardDetailNewActivity"
             android:exported="false">
             <meta-data
@@ -137,7 +144,7 @@
         <activity android:name=".views.activity.PlacesActivity" />
         <activity android:name=".views.activity.kyc.KYCfailedActivity" />
         <activity android:name=".views.activity.loadfund.AddCardNewActivity" />
-        <activity android:name=".views.activity.card.CardDetailNewActivity"/>
+        <activity android:name=".views.activity.card.CardDetailNewActivity" />
         <activity
             android:name=".views.activity.splash.WelcomeActivity"
             android:exported="true"

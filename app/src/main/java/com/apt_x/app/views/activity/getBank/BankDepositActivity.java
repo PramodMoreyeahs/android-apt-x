@@ -203,7 +203,9 @@ public class BankDepositActivity extends BaseActivity {
     public void navigate( GetBankModel.DataEntity obj)
     {
 
-        if(receiverCountryCode.equals("PK")){
+        System.out.println("BankId for phil flow" + obj.getName() + obj.getId());
+
+        if(receiverCountryCode.equals("PK") || receiverCountryCode.equals("PH")){
 
             System.out.println("total amount in BANK DEPO info" + totalAmount);
             startActivity(new Intent(this, SenderInfoActivity.class)

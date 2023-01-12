@@ -218,6 +218,7 @@ public class RecipientActivity extends BaseActivity  {
             {
                 userList.clear();
                 userList.addAll(getUserByEmail.getData());
+             //   System.out.println("exisitng response" + getUserByEmail.getData().get(0).getBankid());
                /* userAdaptor= new UserAdaptor(RecipientActivity.this,R.layout.user_item,userList);
                 binding.etSearch.setAdapter(userAdaptor);*/
                 userRecipientAdapter=new UserRecipientAdapter(RecipientActivity.this, userList);
@@ -249,6 +250,7 @@ public class RecipientActivity extends BaseActivity  {
         }
         else
         {
+       //     System.out.println("Bankid on RA" + data.getBankid());
             startActivity(new Intent(RecipientActivity.this, MoneyConverterActivity.class)
                     .putExtra("existing",(Serializable) data)
 

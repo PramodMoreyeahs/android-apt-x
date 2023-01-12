@@ -18,15 +18,15 @@ android {
         flavorDimensions "default"
         minSdkVersion androidMinSdkVersion
         targetSdkVersion androidTargetSdkVersion
-        versionCode 7
-        versionName "5.0"
+        versionCode 8
+        versionName "5.1"
         testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
         multiDexEnabled true
     }
     buildTypes {
         release {
-            minifyEnabled true
-            shrinkResources true
+            minifyEnabled false
+            shrinkResources false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
 
@@ -55,9 +55,9 @@ android {
         flavorCDN {
           //  buildConfigField "String", "BASE_URL", '"https://aptpay.herokuapp.com/api/"'
         //   buildConfigField "String", "BASE_URL", '"https://uataptpay.moreyeahs.in/api/"'
-             buildConfigField "String", "BASE_URL", '"https://api-staging.apt-xb.com/api/"' //Staging URL
+            buildConfigField "String", "BASE_URL", '"https://api-staging.apt-xb.com/api/"' //Staging URL
            //   buildConfigField "String", "BASE_URL", '"https://eace-103-15-67-130.in.ngrok.io/api/"'
-       //  buildConfigField "String", "BASE_URL", '"https://api.apt-xb.com/api/"'  ///Production URL
+        // buildConfigField "String", "BASE_URL", '"https://api.apt-xb.com/api/"'  ///Production URL
         //buildConfigField "String", "BASE_URL", '"https://036b-103-15-67-130.ngrok.io/api/"'
            // buildConfigField "String", "BASE_URL", '"http://192.168.1.50:3000/api/"'
 

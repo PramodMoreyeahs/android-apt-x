@@ -121,7 +121,7 @@ String actp = "";
             JSONObject response = new JSONObject(MyPref.getInstance(getApplicationContext()).readPrefs(Pref.COUNTRY_DATA));
             dataEntity = gson.fromJson(response.toString(), GetCountryServiceResponse.DataEntity.class);
             Log.e("Data Pramod *****", "" + dataEntity.getName());
-            System.out.println("dataentity::" + dataEntity.getBankdeposit());
+         //   System.out.println("dataentity::" + dataEntity.getBankdeposit());
 
             if (dataEntity.getBankdeposit() == true) {
                 paymentMode = "BANK_DEPOSIT";
@@ -162,7 +162,7 @@ String actp = "";
                 public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
 
                     selectedacctype = adapterView.getItemAtPosition(position).toString();
-                    System.out.println("Selected acctype2" + selectedacctype);
+                  //  System.out.println("Selected acctype2" + selectedacctype);
 
                     if (selectedacctype.equals(acctypelist[0])) {
                         // (selectedItemView as TextView).setTextColor(Color.parseColor("#676767"))
@@ -242,7 +242,8 @@ String actp = "";
 
         try {
             addRecipientRequest = (AddRecipientRequest) getIntent().getSerializableExtra(Keys.EXISTING_USER_DATA);
-            Log.e("Existing User Data*", "" + addRecipientRequest);
+            Log.e("Existing User Data1*", "" + addRecipientRequest);
+            Log.e("Existing User Data getBankid*", "" + addRecipientRequest.getBankid());
             recipientName = addRecipientRequest.getFirstName() + " " + addRecipientRequest.getLastName();
 
 
@@ -252,7 +253,8 @@ String actp = "";
 
         try {
             exitingUserData = (GetUserByEmail.Data) getIntent().getSerializableExtra("exitingUserData1");
-            Log.e("Existing User Data*", "" + exitingUserData.getAptCardId());
+            Log.e("Existing User Data2*", "" + exitingUserData.getAptCardId());
+            Log.e("Existing User Data2 bankid*", "" + exitingUserData.getBankid());
             userId = String.valueOf(exitingUserData.getAptCardId());
 
             recipientName = exitingUserData.getFirstName() + " " + exitingUserData.getLastName();
@@ -272,7 +274,7 @@ String actp = "";
             userId = String.valueOf(getExistingUserResponse.getData().getAptCard_Id());
             recipientName = getExistingUserResponse.getData().getFirst_name() + " " + getExistingUserResponse.getData().getLast_name();
             Log.e("User Id*************", "" + userId);
-            System.out.println("Account TYpe in sender info" + getExistingUserResponse.getData().getAccountType());
+          //  System.out.println("Account TYpe in sender info" + getExistingUserResponse.getData().getAccountType());
             actNo = getExistingUserResponse.getData().getAccountNo();
              /*actp = getExistingUserResponse.getData().getAccountType();
 
@@ -371,8 +373,8 @@ String actp = "";
         transactionEntity.setBankid(bankId);
     }*/
 
-        System.out.println("country...." + countryCode);
-        if (countryCode.equals("PK")) {
+       // System.out.println("country...." + countryCode);
+        if (countryCode.equals("PK") || countryCode.equals("PH")) {
             transactionEntity.setBankid(bankId);
         }
 
@@ -398,9 +400,19 @@ String actp = "";
         if (branchName == null || branchName.equals("")) {
 
             if(countryCode.equals("US")) {
+
                 transactionEntity.setBranch(binding.abarouting.getText().toString());
 
-            }else {
+            }
+            else if(branchName == null || branchName.equals("")){
+                if(countryCode.equals("PH")) {
+                    System.out.println("PH flow");
+                }else if(countryCode.equals("PK")){
+                    branchName = "0000";
+                    transactionEntity.setBranch(branchName);
+                }
+            }
+            else {
                 branchName = "0000";
                 transactionEntity.setBranch(branchName);
             }
@@ -408,8 +420,8 @@ String actp = "";
         }  else {
             transactionEntity.setBranch(branchName);
         }
-        System.out.println("country...." + countryCode);
-        if (countryCode.equals("PK")) {
+     //   System.out.println("country...." + countryCode);
+        if (countryCode.equals("PK") || countryCode.equals("PH")) {
             transactionEntity.setBankid(bankId);
         }
 
@@ -421,7 +433,7 @@ String actp = "";
         createTransactionBody.setTransaction(transactionEntity);
         createTransactionBody.setData(_transactionData);
 
-        System.out.println("Payment mode in sender info:: " + createTransactionBody.getTransaction().getPaymentmode());
+      //  System.out.println("Payment mode in sender info:: " + createTransactionBody.getTransaction().getPaymentmode());
 
 
         Intent intent = new Intent(SenderInfoActivity.this, ConfirmPaymentActivity.class);
@@ -430,7 +442,7 @@ String actp = "";
         intent.putExtra("recipientName", recipientName);
         intent.putExtra("totalAmount", totalAmount);
         intent.putExtra("countryCode", countryCode);
-        System.out.println("total amount in sender info" + totalAmount);
+       // System.out.println("total amount in sender info" + totalAmount);
         startActivity(intent);
         binding.tvContinue.setVisibility(View.VISIBLE);
         //viewModel.createTransaction(apiCalls, createTransactionBody);
@@ -697,7 +709,15 @@ String actp = "";
                     if(countryCode.equals("US")) {
                         addRecipientRequest.setBranch(binding.abarouting.getText().toString());
 
-                    }else {
+                    }
+                    else if(branchName == null || branchName.equals("")){
+                        if(countryCode.equals("PH")) {
+                            System.out.println("PH flow");
+                        }else if(countryCode.equals("PK")){
+                            addRecipientRequest.setBranch("0000");
+                        }
+                    }
+                    else {
                         addRecipientRequest.setBranch("0000");
                     }
 
@@ -718,8 +738,8 @@ String actp = "";
                 }
 
 
-                System.out.println("country...." + countryCode);
-                if (countryCode.equals("PK")) {
+              //  System.out.println("country...." + countryCode);
+                if (countryCode.equals("PK") || countryCode.equals("PH")) {
                     addRecipientRequest.setBankid(bankId);
                 }
 
@@ -747,7 +767,15 @@ String actp = "";
                     if(countryCode.equals("US")) {
                         addRecipientRequest.setBranch(binding.abarouting.getText().toString());
 
-                    }else{
+                    }
+                    else if(branchName == null || branchName.equals("")){
+                        if(countryCode.equals("PH")) {
+                            System.out.println("PH flow");
+                        }else if(countryCode.equals("PK")){
+                            addRecipientRequest.setBranch("0000");
+                        }
+                    }
+                    else{
                         branchName = "0000";
                         addRecipientRequest.setBranch(branchName);
                     }
@@ -770,8 +798,8 @@ String actp = "";
                 addRecipientRequest.setCountrycode(countryCode);
                 addRecipientRequest.setAccounttype("SAVINGS");
 
-                System.out.println("country...." + countryCode);
-                if (countryCode.equals("PK")) {
+             //   System.out.println("country...." + countryCode);
+                if (countryCode.equals("PK") || countryCode.equals("PH")) {
                     addRecipientRequest.setBankid(bankId);
                 }
 

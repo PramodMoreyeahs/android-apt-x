@@ -1,71 +1,20 @@
 {
-  "version": 2,
+  "version": 3,
   "artifactType": {
     "type": "APK",
     "kind": "Directory"
   },
-  "applicationId": "com.aptcard.app",
+  "applicationId": "com.apt_x.app",
   "variantName": "flavorCDNRelease",
   "elements": [
     {
-      "type": "ONE_OF_MANY",
-      "filters": [
-        {
-          "filterType": "ABI",
-          "value": "x86_64"
-        }
-      ],
-      "versionCode": 500000001,
-      "versionName": "1.0",
-      "outputFile": "app-flavorCDN-x86_64-release.apk"
-    },
-    {
-      "type": "ONE_OF_MANY",
-      "filters": [
-        {
-          "filterType": "ABI",
-          "value": "armeabi-v7a"
-        }
-      ],
-      "versionCode": 200000001,
-      "versionName": "1.0",
-      "outputFile": "app-flavorCDN-armeabi-v7a-release.apk"
-    },
-    {
-      "type": "ONE_OF_MANY",
-      "filters": [
-        {
-          "filterType": "ABI",
-          "value": "x86"
-        }
-      ],
-      "versionCode": 400000001,
-      "versionName": "1.0",
-      "outputFile": "app-flavorCDN-x86-release.apk"
-    },
-    {
-      "type": "ONE_OF_MANY",
-      "filters": [
-        {
-          "filterType": "ABI",
-          "value": "armeabi"
-        }
-      ],
-      "versionCode": 100000001,
-      "versionName": "1.0",
-      "outputFile": "app-flavorCDN-armeabi-release.apk"
-    },
-    {
-      "type": "ONE_OF_MANY",
-      "filters": [
-        {
-          "filterType": "ABI",
-          "value": "arm64-v8a"
-        }
-      ],
-      "versionCode": 300000001,
-      "versionName": "1.0",
-      "outputFile": "app-flavorCDN-arm64-v8a-release.apk"
+      "type": "SINGLE",
+      "filters": [],
+      "attributes": [],
+      "versionCode": 7,
+      "versionName": "5.0",
+      "outputFile": "app-flavorCDN-release.apk"
     }
-  ]
+  ],
+  "elementType": "File"
 }

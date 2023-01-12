@@ -408,7 +408,7 @@ public class MoneyConverterActivity extends BaseActivity {
     }
 
     private void senderInfo() {
-
+     //   System.out.println("Bankid check" + exitingUserData.getBankid() );
         startActivity(new Intent(this, SenderInfoActivity.class)
                 .putExtra(Keys.COUNTRY_CODE, receiverCountryCode)
                 .putExtra(Keys.CURRENCY_CODE, receiverCurrencyCode)

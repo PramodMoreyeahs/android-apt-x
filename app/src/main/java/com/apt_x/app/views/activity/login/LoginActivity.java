@@ -608,7 +608,7 @@ public class LoginActivity extends BaseActivity implements
     @Override
     public void onNetworkConnectionChanged(boolean isConnected) {
         if(!isConnected)
-        {
+         {
             Utils.showToast(getApplicationContext(),"No internet");
 
         }

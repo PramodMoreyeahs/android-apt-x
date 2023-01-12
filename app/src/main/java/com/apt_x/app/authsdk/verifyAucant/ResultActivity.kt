@@ -329,7 +329,7 @@ class ResultActivity : AppCompatActivity() {
             mediaType, jsonObject1.toString()
         )
     var apiUrl = "https://sec.sandbox.aptpay.com/aptverify/callback" // Staging
-      //var apiUrl = "https://sec.aptpay.com/aptverify/callback" // Production
+    //  var apiUrl = "https://sec.aptpay.com/aptverify/callback" // Production
 
 
 //        if (BuildConfig.BUILD_TYPE.equals("debug", ignoreCase = true)) {
@@ -344,7 +344,7 @@ class ResultActivity : AppCompatActivity() {
             .addHeader("Content-Type", "application/json")
             .addHeader("AptPayApiKey", "ohl9KWxW2rdtx9f3EEmhzQaoAdtQ8d") //Staging
             .build()
-     /*   val request: Request = Request.Builder()
+        /*val request: Request = Request.Builder()
             .url(apiUrl)
             .method("POST", body)
             .addHeader("Content-Type", "application/json")
