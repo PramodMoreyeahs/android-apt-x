@@ -253,7 +253,7 @@ public class SignUpActivity extends BaseActivity implements GoogleApiClient.OnCo
                 // startActivity(new Intent(getApplicationContext(), KYCActivity.class));
                 startActivity(new Intent(getApplicationContext(), VerifyPhoneActivity.class)
                         .putExtra(Keys.EMAIL, binding.etEmail.getText().toString()));
-             /*   startActivity(new Intent(getApplicationContext(), NewEmailVerify.class)
+               /* startActivity(new Intent(getApplicationContext(), NewEmailVerify.class)
                         .putExtra(Keys.EMAIL, binding.etEmail.getText().toString()));*/
                 //  finish();
 
@@ -339,6 +339,7 @@ public class SignUpActivity extends BaseActivity implements GoogleApiClient.OnCo
         binding.ivGoogle.setOnClickListener(this);
         binding.ivFb.setOnClickListener(this);
         binding.ivBack.setOnClickListener(this);
+        binding.testclick.setOnClickListener(this);
         viewModel.response_user_validator.observe(this, userObserver);
         viewModel.validator.observe(this, observer);
         viewModel.response_validator_create_wallet.observe(this, response_observer_create_wallet);
@@ -584,6 +585,10 @@ public class SignUpActivity extends BaseActivity implements GoogleApiClient.OnCo
                 }
             }
             break;
+            case R.id.testclick:
+                startActivity(new Intent(getApplicationContext(), NewEmailVerify.class)
+                        .putExtra(Keys.EMAIL, binding.etEmail.getText().toString()));
+                break;
             case R.id.ivFb:
                 binding.loginButton.performClick();
                 break;
@@ -641,9 +646,8 @@ public class SignUpActivity extends BaseActivity implements GoogleApiClient.OnCo
                 break;
             case R.id.tv_terms:
                 startActivity(new Intent(SignUpActivity.this, PrivacyPolicy.class).putExtra("type", "terms"));
-
-
                 break;
+
         }
     }
 
