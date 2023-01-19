@@ -20,6 +20,7 @@ class Constants {
         const val GooglPlaceApikey = "AIzaSyBc7thhFMYo8t-6b51CsHkj8289hZLIZBs"
         const val HG_FRAME_RATE_TARGET = "targetFrameRate"
         const val AddressSelected = ""
+        const val captureselfie = "false"
 
     }
 }

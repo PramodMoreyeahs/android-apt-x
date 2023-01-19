@@ -251,10 +251,10 @@ public class SignUpActivity extends BaseActivity implements GoogleApiClient.OnCo
 
                 MyPref.getInstance(getApplicationContext()).writePrefs(MyPref.WALLET_ID, String.valueOf(loginBean.getData().getWalletCreateId()));
                 // startActivity(new Intent(getApplicationContext(), KYCActivity.class));
-                startActivity(new Intent(getApplicationContext(), VerifyPhoneActivity.class)
-                        .putExtra(Keys.EMAIL, binding.etEmail.getText().toString()));
-               /* startActivity(new Intent(getApplicationContext(), NewEmailVerify.class)
+              /*  startActivity(new Intent(getApplicationContext(), VerifyPhoneActivity.class)
                         .putExtra(Keys.EMAIL, binding.etEmail.getText().toString()));*/
+                startActivity(new Intent(getApplicationContext(), NewEmailVerify.class)
+                        .putExtra(Keys.EMAIL, binding.etEmail.getText().toString()));
                 //  finish();
 
                 //todo change address screen
@@ -586,8 +586,7 @@ public class SignUpActivity extends BaseActivity implements GoogleApiClient.OnCo
             }
             break;
             case R.id.testclick:
-                startActivity(new Intent(getApplicationContext(), NewEmailVerify.class)
-                        .putExtra(Keys.EMAIL, binding.etEmail.getText().toString()));
+                startActivity(new Intent(SignUpActivity.this, CaptureImageActivity.class));
                 break;
             case R.id.ivFb:
                 binding.loginButton.performClick();

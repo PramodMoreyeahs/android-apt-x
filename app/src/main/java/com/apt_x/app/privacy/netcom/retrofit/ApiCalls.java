@@ -35,6 +35,7 @@ import com.apt_x.app.model.GetPurpose;
 import com.apt_x.app.model.GetTransactionHistoryResponse;
 import com.apt_x.app.model.GetUserByEmail;
 import com.apt_x.app.model.GetWalletBalanceResponse;
+import com.apt_x.app.model.LinkVerifyModel;
 import com.apt_x.app.model.P2PRequest;
 import com.apt_x.app.model.P2PResponse;
 import com.apt_x.app.model.PorfilePictureUrlResponse;
@@ -1062,6 +1063,89 @@ public void getActiveCountryService( DisposableObserver<GetCountryServiceRespons
                     @Override
                     public void onNext(VerifyOtpResponse verifyOtpResponse) {
                         disposable.onNext(verifyOtpResponse);
+                    }
+
+                    @Override
+                    public void onError(Throwable t) {
+                        t.printStackTrace();
+                        try {
+                            HttpException error = (HttpException) t;
+
+                            String errorBody = error.response().errorBody().string();
+                            Log.e("errorBody", "" + errorBody);
+                        } catch (Throwable e) {
+                            e.printStackTrace();
+                        }
+                        disposable.onError(t);
+
+                    }
+
+                    @Override
+                    public void onComplete() {
+                        disposable.onComplete();
+
+                    }
+                });
+    }
+
+    public void verifyLink(String email, String link, DisposableObserver disposable) {
+        AppStructureAPI service = RetrofitHolder.getService();
+        JsonObject jsonObject1 = new JsonObject();
+        jsonObject1.addProperty(Keys.EMAIL, email);
+        jsonObject1.addProperty(Keys.LINK, link);
+
+        service.doVerifyLink(jsonObject1)
+                .subscribeOn(io.reactivex.schedulers.Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new io.reactivex.Observer<LinkVerifyModel>() {
+                    @Override
+                    public void onSubscribe(Disposable d) {
+                    }
+
+                    @Override
+                    public void onNext(LinkVerifyModel linkVerifyModel) {
+                        disposable.onNext(linkVerifyModel);
+                    }
+
+                    @Override
+                    public void onError(Throwable t) {
+                        t.printStackTrace();
+                        try {
+                            HttpException error = (HttpException) t;
+
+                            String errorBody = error.response().errorBody().string();
+                            Log.e("errorBody", "" + errorBody);
+                        } catch (Throwable e) {
+                            e.printStackTrace();
+                        }
+                        disposable.onError(t);
+
+                    }
+
+                    @Override
+                    public void onComplete() {
+                        disposable.onComplete();
+
+                    }
+                });
+    }
+    public void ResendLink(String email,DisposableObserver disposable) {
+        AppStructureAPI service = RetrofitHolder.getService();
+        JsonObject jsonObject1 = new JsonObject();
+        jsonObject1.addProperty(Keys.EMAIL, email);
+
+
+        service.doResendLink(jsonObject1)
+                .subscribeOn(io.reactivex.schedulers.Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new io.reactivex.Observer<LinkVerifyModel>() {
+                    @Override
+                    public void onSubscribe(Disposable d) {
+                    }
+
+                    @Override
+                    public void onNext(LinkVerifyModel linkVerifyModel) {
+                        disposable.onNext(linkVerifyModel);
                     }
 
                     @Override

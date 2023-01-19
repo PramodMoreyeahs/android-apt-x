@@ -28,6 +28,7 @@ import com.apt_x.app.model.GetPurpose;
 import com.apt_x.app.model.GetTransactionHistoryResponse;
 import com.apt_x.app.model.GetUserByEmail;
 import com.apt_x.app.model.GetWalletBalanceResponse;
+import com.apt_x.app.model.LinkVerifyModel;
 import com.apt_x.app.model.P2PRequest;
 import com.apt_x.app.model.P2PResponse;
 import com.apt_x.app.model.PorfilePictureUrlResponse;
@@ -139,6 +140,13 @@ public interface AppStructureAPI {
 
     @POST(Config.VERIFY_OTP)
     io.reactivex.Observable<VerifyOtpResponse> doVerifyOtp(@Body JsonObject jsonObject);
+
+    @POST(Config.VERIFY_LINK)
+    io.reactivex.Observable<LinkVerifyModel> doVerifyLink(@Body JsonObject jsonObject);
+
+    @POST(Config.RESEND_LINK)
+    io.reactivex.Observable<LinkVerifyModel> doResendLink(@Body JsonObject jsonObject);
+
 
     @GET(Config.GET_PROFILE)
     io.reactivex.Observable<GetProfileResponse> getProfile(@Header(Keys.authorization) String token);

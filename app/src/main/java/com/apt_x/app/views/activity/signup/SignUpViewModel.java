@@ -14,6 +14,7 @@ import com.apt_x.app.model.CreateWalletResponse;
 import com.apt_x.app.model.GetExistingUserResponse;
 import com.apt_x.app.model.GetOccupationResponse;
 import com.apt_x.app.model.GetUserByEmail;
+import com.apt_x.app.model.LinkVerifyModel;
 import com.apt_x.app.model.ResendOtpResponses;
 import com.apt_x.app.model.SignUpResponseBean;
 import com.apt_x.app.model.SocialSignupResponse;
@@ -47,6 +48,9 @@ public class SignUpViewModel extends BaseViewModel implements DialogClickListene
     public final MutableLiveData<AddNewRecipientREsposne> response_validator_recipient = new MutableLiveData<>();
     public final MutableLiveData<AddAddressResponse> response_validator_address = new MutableLiveData<>();
     public final MutableLiveData<VerifyOtpResponse> response_validator_otp = new MutableLiveData<>();
+    public final MutableLiveData<LinkVerifyModel> response_linkverify = new MutableLiveData<>();
+    public final MutableLiveData<LinkVerifyModel> response_resendlink = new MutableLiveData<>();
+
     public final MutableLiveData<ResendOtpResponses> response_validator_resend = new MutableLiveData<>();
     public final MutableLiveData<SocialSignupResponse> response_validator_social = new MutableLiveData<>();
     public final MutableLiveData<CountriesResponse> response_countries = new MutableLiveData<>();
@@ -191,6 +195,12 @@ public class SignUpViewModel extends BaseViewModel implements DialogClickListene
 
     public void verifyOtp(String otp, String email, ApiCalls apiCalls) {
         apiCalls.verifyOtp(email, otp, callVerifyOtpDes);
+    }
+    public void verifyLink(String link, String email, ApiCalls apiCalls) {
+        apiCalls.verifyLink(email, link, callVerifyLink);
+
+    } public void ResendLink(String email, ApiCalls apiCalls) {
+        apiCalls.ResendLink(email, callResendLink);
     }
     public void resendOtp(String email, ApiCalls apiCalls) {
         apiCalls.resendOTP(email, resendOtpDes);
@@ -431,6 +441,63 @@ public class SignUpViewModel extends BaseViewModel implements DialogClickListene
         public void onNext(VerifyOtpResponse verifyOtpResponse) {
             Utils.hideProgressDialog();
             response_validator_otp.setValue(verifyOtpResponse);
+        }
+
+        @Override
+        public void onError(Throwable e) {
+            try {
+                if (Objects.requireNonNull(e.getMessage()).contains("400")) {
+
+                } else {
+                }
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+//            validator.setValue(AppUtils.SERVER_ERROR);
+            Utils.hideProgressDialog();
+            e.printStackTrace();
+        }
+
+        @Override
+        public void onComplete() {
+
+        }
+    };
+
+    DisposableObserver<LinkVerifyModel> callVerifyLink = new DisposableObserver<LinkVerifyModel>() {
+
+        @Override
+        public void onNext(LinkVerifyModel linkVerifyModel) {
+            Utils.hideProgressDialog();
+            response_linkverify.setValue(linkVerifyModel);
+        }
+
+        @Override
+        public void onError(Throwable e) {
+            try {
+                if (Objects.requireNonNull(e.getMessage()).contains("400")) {
+
+                } else {
+                }
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+//            validator.setValue(AppUtils.SERVER_ERROR);
+            Utils.hideProgressDialog();
+            e.printStackTrace();
+        }
+
+        @Override
+        public void onComplete() {
+
+        }
+    };
+    DisposableObserver<LinkVerifyModel> callResendLink = new DisposableObserver<LinkVerifyModel>() {
+
+        @Override
+        public void onNext(LinkVerifyModel linkVerifyModel) {
+            Utils.hideProgressDialog();
+            response_resendlink.setValue(linkVerifyModel);
         }
 
         @Override

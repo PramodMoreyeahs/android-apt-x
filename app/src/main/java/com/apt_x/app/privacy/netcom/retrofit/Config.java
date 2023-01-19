@@ -15,6 +15,7 @@ public interface Config {
     /**
      * API NAMES
      */
+
     String LOGIN_URL = "auth/signin";
     String WALLET_BALANCE = "wallet/getWalletBalance";
     String TRANSACTION_HISTORY = "wallet/GetWalletTransactionHistory";
@@ -35,6 +36,8 @@ public interface Config {
     String ADD_NEW_EFT_ACCOUNT = "disbursement/addDisbursementInstrument";
     String RESEND_OTP = "auth/reSendOtp";
     String VERIFY_OTP = "auth/verifyOtp";
+    String VERIFY_LINK = "auth/identities/sendverificationlink";
+    String RESEND_LINK = "auth/reSendVerificationLink";
     String COVERT_MONEY = "crossborder/calculate";
     String GET_ACTIVE_COUNTRIES = "auth/getActiveCountries";
     String FORGOT_PASSWORD_URL = "forgotpassword";

@@ -32,11 +32,9 @@
                 android:orientation="vertical">
 
                 <FrameLayout
-                    android:layout_width="@dimen/_35sdp"
-                    android:layout_height="@dimen/_35sdp"
-                    android:background="@drawable/btn_bg_linedwhiteline"
-
-                    >
+                    android:layout_width="@dimen/_32sdp"
+                    android:layout_height="@dimen/_32sdp"
+                    android:background="@drawable/btn_bg_linedwhiteline">
 
                     <ImageView
                         android:id="@+id/ivBack"
@@ -44,7 +42,7 @@
                         android:layout_height="match_parent"
                         android:layout_gravity="center"
                         android:background="?attr/selectableItemBackground"
-                        android:padding="@dimen/_10sdp"
+                        android:padding="@dimen/_8sdp"
                         android:src="@drawable/ic_back"
                         tools:ignore="ContentDescription" />
                 </FrameLayout>
@@ -70,7 +68,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/_16sdp"
-                    android:layout_marginTop="@dimen/_24sdp"
+                    android:layout_marginTop="@dimen/_45sdp"
                     android:layout_marginEnd="@dimen/_16sdp"
 
                     android:fontFamily="@font/lato_regular"
@@ -129,7 +127,7 @@
 
 
                     <TextView
-                        android:id="@+id/tvSignIn"
+                        android:id="@+id/Resendlink"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/_4sdp"

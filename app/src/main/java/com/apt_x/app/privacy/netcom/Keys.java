@@ -37,6 +37,7 @@ public interface Keys {
     String SET_AMOUNT = "sentAmount";
 
     String OTP = "otp";
+    String LINK = "link";
     String PASSWORD = "password";
     String NAME = "name";
     String FIRST_NAME = "first_name";

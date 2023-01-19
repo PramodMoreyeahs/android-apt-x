@@ -4,8 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
+        <variable
+            name="viewModel"
+            type="com.apt_x.app.views.activity.signup.SignUpViewModel" />
     </data>
+
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -15,14 +18,14 @@
         tools:context="com.apt_x.app.views.activity.signup.VerifyPhoneActivity">
 
         <ImageView
-            android:layout_width="@dimen/_35sdp"
-            android:layout_height="@dimen/_35sdp"
+            android:layout_width="@dimen/_32sdp"
+            android:layout_height="@dimen/_32sdp"
             android:layout_marginStart="@dimen/_16sdp"
             android:layout_marginTop="@dimen/_16sdp"
             android:background="@drawable/btn_bg_linedwhiteline"
             android:id="@+id/iv_back"
             android:onClick="onClick"
-            android:padding="@dimen/_10sdp"
+            android:padding="@dimen/_8sdp"
             android:src="@drawable/ic_back" />
 
         <TextView

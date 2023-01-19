@@ -2,12 +2,14 @@ package com.acuant.acuantfacecapture
 
 import android.Manifest
 import android.app.AlertDialog
+import android.content.Context
 import android.content.DialogInterface
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
+import android.net.Uri
 import android.os.Bundle
-
+import android.os.Environment
 import android.util.Log
 import android.view.View
 import android.widget.ImageView
@@ -40,9 +42,11 @@ class FaceCaptureActivity : AppCompatActivity(), FaceListener {
     private lateinit var mFacialGraphicOverlay: FacialGraphicOverlay
     private var mFacialGraphic: FacialGraphic? = null
     private var faceCaptureStarted = false
-    private var liveFaceDetector : FaceDetector? = null
+    private var liveFaceDetector: FaceDetector? = null
     private lateinit var faceImage: ImageView
     private var options: FaceCaptureOptions? = null
+    private var uri: Uri? = null
+    private var photoFile: File? = null
     //==============================================================================================
     // Activity Methods
     //==============================================================================================
@@ -77,15 +81,73 @@ class FaceCaptureActivity : AppCompatActivity(), FaceListener {
         }
     }
 
+    private fun savenewResult(data: Bitmap?) {
+        val result = Intent()
+        if (data != null) {
+            var photoURI: Uri? = null
+            val file = File(applicationContext.cacheDir, "${UUID.randomUUID()}.jpg")
+            result.putExtra(OUTPUT_URL, file.absolutePath)
+            println("Capture Image Path ${file.absolutePath}")
+         //   photoFile = createImageFileWith();
+            absolutePath = file.absolutePath
+            //   saveFile2(file, data)
+
+          //  saveFile1(photoFile!!)
+
+            var imgPath = file.absolutePath
+            val sharedPreference = getSharedPreferences("PREFERENCE_NAME", Context.MODE_PRIVATE)
+            var editor = sharedPreference.edit()
+            editor.putString("capImgNew", imgPath)
+            editor.commit()
+        }
+
+        val myIntent =
+            Intent(this, Class.forName("com.apt_x.app.views.activity.signup.CaptureImageActivity"))
+        startActivity(myIntent)
+
+
+        this@FaceCaptureActivity.finish()
+    }
+
+
+    @Throws(IOException::class)
+    private fun createImageFileWith(): File? {
+        val imageFileName = "JPEG_"
+        val storageDir: File = File(
+            Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES),
+            "pics"
+        )
+        storageDir.mkdirs()
+        return File.createTempFile(imageFileName, ".jpg", storageDir)
+    }
+
+
+    fun setIntent(cObjection: Class<*>, isFrom: Int) {
+        startActivity(Intent(this, cObjection))
+        when (isFrom) {
+            1 -> {
+                //just no need to finish
+            }
+            2 ->
+                //just finishing the single activity
+                finish()
+            3 ->
+                //finishing all previous activity
+                finishAffinity()
+        }
+    }
+
     private fun saveResult(data: Bitmap?) {
         val result = Intent()
-        if(data != null) {
+        if (data != null) {
             val file = File(applicationContext.cacheDir, "${UUID.randomUUID()}.jpg")
+             Log.e("Capture Image url", file.absolutePath)
             val bitmap = AcuantImagePreparation.resize(data, 720)
             if (bitmap != null) {
                 saveFile(file, bitmap)
             } else {
                 Log.e("Acuant", "resize error")
+
             }
             result.putExtra(OUTPUT_URL, file.absolutePath)
         }
@@ -105,19 +167,27 @@ class FaceCaptureActivity : AppCompatActivity(), FaceListener {
 
         val builder = AlertDialog.Builder(this)
         builder.setMessage("The camera is required to capture faces. If the permission has been declined you will need to manually go to the app settings to enable it.")
-                .setOnCancelListener {
-                    if (!ActivityCompat.shouldShowRequestPermissionRationale(this,
-                                    Manifest.permission.CAMERA)) {
-                        ActivityCompat.requestPermissions(this, permissions, RC_HANDLE_CAMERA_PERM)
-                    } }
-                .setPositiveButton("OK"
-                ) { dialog, _ ->
-                    dialog.dismiss()
-                    if (!ActivityCompat.shouldShowRequestPermissionRationale(this,
-                                    Manifest.permission.CAMERA)) {
-                        ActivityCompat.requestPermissions(this, permissions, RC_HANDLE_CAMERA_PERM)
-                    }
+            .setOnCancelListener {
+                if (!ActivityCompat.shouldShowRequestPermissionRationale(
+                        this,
+                        Manifest.permission.CAMERA
+                    )
+                ) {
+                    ActivityCompat.requestPermissions(this, permissions, RC_HANDLE_CAMERA_PERM)
                 }
+            }
+            .setPositiveButton(
+                "OK"
+            ) { dialog, _ ->
+                dialog.dismiss()
+                if (!ActivityCompat.shouldShowRequestPermissionRationale(
+                        this,
+                        Manifest.permission.CAMERA
+                    )
+                ) {
+                    ActivityCompat.requestPermissions(this, permissions, RC_HANDLE_CAMERA_PERM)
+                }
+            }
         builder.create().show()
     }
 
@@ -148,7 +218,7 @@ class FaceCaptureActivity : AppCompatActivity(), FaceListener {
         if (mCameraSource != null) {
             mCameraSource!!.release()
         }
-        if(liveFaceDetector!=null){
+        if (liveFaceDetector != null) {
             liveFaceDetector!!.release()
         }
     }
@@ -172,8 +242,10 @@ class FaceCaptureActivity : AppCompatActivity(), FaceListener {
      * or [PackageManager.PERMISSION_DENIED]. Never null.
      * @see .requestPermissions
      */
-    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<String>,
-                                            grantResults: IntArray) {
+    override fun onRequestPermissionsResult(
+        requestCode: Int, permissions: Array<String>,
+        grantResults: IntArray
+    ) {
         if (requestCode != RC_HANDLE_CAMERA_PERM) {
             Log.d(TAG, "Got unexpected permission result: $requestCode")
             super.onRequestPermissionsResult(requestCode, permissions, grantResults)
@@ -187,16 +259,18 @@ class FaceCaptureActivity : AppCompatActivity(), FaceListener {
             return
         }
 
-        Log.e(TAG, "Permission not granted: results len = " + grantResults.size +
-                " Result code = " + if (grantResults.isNotEmpty()) grantResults[0] else "(empty)")
+        Log.e(
+            TAG, "Permission not granted: results len = " + grantResults.size +
+                    " Result code = " + if (grantResults.isNotEmpty()) grantResults[0] else "(empty)"
+        )
 
         val listener = DialogInterface.OnClickListener { _, _ -> finish() }
 
         val builder = AlertDialog.Builder(this)
         builder.setTitle(R.string.camera_load_error)
-                .setMessage(R.string.no_camera_permission)
-                .setPositiveButton(R.string.ok, listener)
-                .show()
+            .setMessage(R.string.no_camera_permission)
+            .setPositiveButton(R.string.ok, listener)
+            .show()
     }
 
     //==============================================================================================
@@ -220,7 +294,8 @@ class FaceCaptureActivity : AppCompatActivity(), FaceListener {
 
     private fun createCameraSource() {
         val context = applicationContext
-        liveFaceDetector = FaceProcessor.initLiveFaceDetector(context, this, options?.totalCaptureTime ?: 2)
+        liveFaceDetector =
+            FaceProcessor.initLiveFaceDetector(context, this, options?.totalCaptureTime ?: 2)
         val facing = CameraSource.CAMERA_FACING_FRONT
         // The camera source is initialized to use either the front or rear facing camera.  We use a
         // relatively low resolution for the camera preview, since this is sufficient for this app
@@ -233,10 +308,10 @@ class FaceCaptureActivity : AppCompatActivity(), FaceListener {
 
         // want to increase the resolution.
         mCameraSource = CameraSource.Builder(context, liveFaceDetector)
-                .setFacing(facing)
-                .setRequestedFps(10.0f)
-                .setAutoFocusEnabled(true)
-                .build()
+            .setFacing(facing)
+            .setRequestedFps(10.0f)
+            .setAutoFocusEnabled(true)
+            .build()
     }
 
     /**
@@ -247,10 +322,11 @@ class FaceCaptureActivity : AppCompatActivity(), FaceListener {
     private fun startCameraSource() {
         // check that the device has play services available.
         val code = GoogleApiAvailability.getInstance().isGooglePlayServicesAvailable(
-                applicationContext)
+            applicationContext
+        )
         if (code != ConnectionResult.SUCCESS) {
             val dlg = GoogleApiAvailability.getInstance().getErrorDialog(this, code, RC_HANDLE_GMS)
-            dlg.show()
+            dlg?.show()
         }
 
         if (mCameraSource != null) {
@@ -282,7 +358,18 @@ class FaceCaptureActivity : AppCompatActivity(), FaceListener {
                 if (faceDetails.state == FaceDetailState.FACE_GOOD_DISTANCE) {
                     if (!faceCaptureStarted && faceDetails.countdownToCapture == 0) {
                         faceCaptureStarted = true
-                        saveResult(faceDetails.image)
+                        if (intent.getStringExtra("captureselfie") != null && intent.getStringExtra(
+                                "captureselfie"
+                            ).equals("true")
+                        ) {
+                            println("CAPTURE IMAGE TRUE")
+                            savenewResult(faceDetails.image);
+
+                        } else {
+                            println("CAPTURE IMAGE false")
+                            saveResult(faceDetails.image)
+                        }
+                        //saveResult(faceDetails.image)  // old flow without capture image
                     }
                 } else {
                     faceCaptureStarted = false
@@ -302,8 +389,28 @@ class FaceCaptureActivity : AppCompatActivity(), FaceListener {
     }
 
 
+    private fun saveFile2(file: File, bitmap: Bitmap?) {
+        if (bitmap != null) {
+            var output: FileOutputStream? = null
+            try {
 
-    private fun saveFile(file: File, bitmap: Bitmap?){
+                output = FileOutputStream(file)
+                println("fddfgdffdfg" + output)
+            } catch (e: IOException) {
+                e.printStackTrace()
+            } finally {
+                output?.let {
+                    try {
+                        it.close()
+                    } catch (e: IOException) {
+                        e.printStackTrace()
+                    }
+                }
+            }
+        }
+    }
+
+    private fun saveFile(file: File, bitmap: Bitmap?) {
         if (bitmap != null) {
             var output: FileOutputStream? = null
             try {
@@ -326,6 +433,25 @@ class FaceCaptureActivity : AppCompatActivity(), FaceListener {
         }
     }
 
+    private fun saveFile1(file: File) {
+        var output: FileOutputStream? = null
+        try {
+            val stream = ByteArrayOutputStream()
+            val byteArray = stream.toByteArray()
+            output = FileOutputStream(file).apply { write(byteArray) }
+        } catch (e: IOException) {
+            e.printStackTrace()
+        } finally {
+            output?.let {
+                try {
+                    it.close()
+                } catch (e: IOException) {
+                    e.printStackTrace()
+                }
+            }
+        }
+    }
+
     companion object {
         private const val TAG = "FaceCapture"
 
@@ -335,7 +461,9 @@ class FaceCaptureActivity : AppCompatActivity(), FaceListener {
         private const val RC_HANDLE_CAMERA_PERM = 2
 
         const val RESPONSE_SUCCESS_CODE = 2
+        const val RESPONSE_SUCCESS_CODE_CAPTUREIMG = 5
         const val RESPONSE_CANCEL_CODE = 4
+        var absolutePath = ""
         const val OUTPUT_URL = "outputUrl"
         private const val ACUANT_EXTRA_FACE_CAPTURE_OPTIONS = "faceCaptureOptions"
     }

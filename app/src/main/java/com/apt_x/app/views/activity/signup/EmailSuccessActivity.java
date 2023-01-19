@@ -32,7 +32,7 @@ public class EmailSuccessActivity extends BaseActivity {
         switch (v.getId()) {
 
             case R.id.tvContinue:
-                startActivity(new Intent(EmailSuccessActivity.this, EmailFailureActivity.class));
+                startActivity(new Intent(EmailSuccessActivity.this, CaptureImageActivity.class));
 
                 break;
 
