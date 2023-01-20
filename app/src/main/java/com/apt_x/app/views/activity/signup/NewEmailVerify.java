@@ -1,9 +1,5 @@
 package com.apt_x.app.views.activity.signup;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.databinding.DataBindingUtil;
-import androidx.lifecycle.ViewModelProviders;
-
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -11,16 +7,18 @@ import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.View;
 
+import androidx.databinding.DataBindingUtil;
+import androidx.lifecycle.ViewModelProviders;
+
 import com.apt_x.app.R;
 import com.apt_x.app.databinding.ActivityNewEmailVerifyBinding;
-import com.apt_x.app.privacy.PrivacyPolicy;
 import com.apt_x.app.privacy.netcom.Keys;
 import com.apt_x.app.privacy.netcom.retrofit.ApiCalls;
 import com.apt_x.app.utils.LocaleHelper;
 import com.apt_x.app.views.base.BaseActivity;
 
 public class NewEmailVerify extends BaseActivity {
- ActivityNewEmailVerifyBinding binding;
+    ActivityNewEmailVerifyBinding binding;
     public ApiCalls apiCalls;
     String email = "";
     SignUpViewModel viewModel;
@@ -46,7 +44,7 @@ public class NewEmailVerify extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-    //    setContentView(R.layout.activity_new_email_verify);
+        //    setContentView(R.layout.activity_new_email_verify);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_new_email_verify);
         initializeViews();
     }
@@ -72,13 +70,15 @@ public class NewEmailVerify extends BaseActivity {
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.ivBack:
-                onBackPressed();
+            case R.id.iv_back:
+                startActivity(new Intent(getApplicationContext(), SignUpActivity.class)
+                        .putExtra(Keys.EMAIL, email));
                 break;
-                case R.id.tvContinue:
-                    startActivity(new Intent(NewEmailVerify.this, PasteLinkActivity.class)
-                            .putExtra(Keys.EMAIL, email));
-                break;
+            case R.id.tvContinue:
+                startActivity(new Intent(NewEmailVerify.this, PasteLinkActivity.class)
+                        .putExtra(Keys.EMAIL, email));
+
+                          break;
 
         }
 

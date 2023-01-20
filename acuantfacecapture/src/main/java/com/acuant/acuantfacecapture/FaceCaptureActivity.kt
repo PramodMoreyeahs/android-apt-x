@@ -84,15 +84,15 @@ class FaceCaptureActivity : AppCompatActivity(), FaceListener {
     private fun savenewResult(data: Bitmap?) {
         val result = Intent()
         if (data != null) {
-            var photoURI: Uri? = null
             val file = File(applicationContext.cacheDir, "${UUID.randomUUID()}.jpg")
             result.putExtra(OUTPUT_URL, file.absolutePath)
             println("Capture Image Path ${file.absolutePath}")
-         //   photoFile = createImageFileWith();
-            absolutePath = file.absolutePath
-            //   saveFile2(file, data)
+            photoFile = createImageFileWith();
+            saveFile(photoFile!!, data)
 
-          //  saveFile1(photoFile!!)
+
+            absolutePath = photoFile!!.absolutePath
+
 
             var imgPath = file.absolutePath
             val sharedPreference = getSharedPreferences("PREFERENCE_NAME", Context.MODE_PRIVATE)
@@ -104,9 +104,8 @@ class FaceCaptureActivity : AppCompatActivity(), FaceListener {
         val myIntent =
             Intent(this, Class.forName("com.apt_x.app.views.activity.signup.CaptureImageActivity"))
         startActivity(myIntent)
-
-
         this@FaceCaptureActivity.finish()
+
     }
 
 
@@ -118,7 +117,7 @@ class FaceCaptureActivity : AppCompatActivity(), FaceListener {
             "pics"
         )
         storageDir.mkdirs()
-        return File.createTempFile(imageFileName, ".jpg", storageDir)
+        return File.createTempFile(imageFileName, ".png", storageDir)
     }
 
 
@@ -141,7 +140,7 @@ class FaceCaptureActivity : AppCompatActivity(), FaceListener {
         val result = Intent()
         if (data != null) {
             val file = File(applicationContext.cacheDir, "${UUID.randomUUID()}.jpg")
-             Log.e("Capture Image url", file.absolutePath)
+            Log.e("Capture Image url", file.absolutePath)
             val bitmap = AcuantImagePreparation.resize(data, 720)
             if (bitmap != null) {
                 saveFile(file, bitmap)
@@ -155,6 +154,7 @@ class FaceCaptureActivity : AppCompatActivity(), FaceListener {
         this@FaceCaptureActivity.finish()
 
     }
+
 
     /**
      * Handles the requesting of the camera permission.  This includes showing a "Snackbar" message
@@ -364,6 +364,7 @@ class FaceCaptureActivity : AppCompatActivity(), FaceListener {
                         ) {
                             println("CAPTURE IMAGE TRUE")
                             savenewResult(faceDetails.image);
+
 
                         } else {
                             println("CAPTURE IMAGE false")

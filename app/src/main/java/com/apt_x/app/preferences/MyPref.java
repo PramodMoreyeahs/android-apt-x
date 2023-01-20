@@ -64,6 +64,7 @@ public class MyPref {
     public static final String EXCHANGE_RATE="exchange_rate";
     public static final String CAD_AMOUNT="cad_amount";
     public static final String SERVICE_FEE="service_fee";
+    public static final String USER_EMAIL="user_email";
 
 
 

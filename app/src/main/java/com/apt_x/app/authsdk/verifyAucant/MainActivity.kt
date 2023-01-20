@@ -364,6 +364,7 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener, IP
     private fun readFromFile(fileUri: String): ByteArray{
         val file = File(fileUri)
         val bytes = ByteArray(file.length().toInt())
+        println("READFROMFILE ${bytes.size.toString()}")
         try {
             val buf = BufferedInputStream(FileInputStream(file))
             buf.read(bytes, 0, bytes.size)

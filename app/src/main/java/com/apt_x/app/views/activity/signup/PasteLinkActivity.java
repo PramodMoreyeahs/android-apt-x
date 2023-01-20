@@ -92,7 +92,8 @@ public class PasteLinkActivity extends BaseActivity {
                 return;
             }
             if (loginBean.getStatus()) {
-                startActivity(new Intent(PasteLinkActivity.this, EmailSuccessActivity.class));
+                startActivity(new Intent(PasteLinkActivity.this, CaptureImageActivity.class)
+                        .putExtra(Keys.EMAIL, email));
 
                 finish();
             } else {
@@ -131,7 +132,8 @@ public class PasteLinkActivity extends BaseActivity {
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.ivBack:
-                onBackPressed();
+                startActivity(new Intent(getApplicationContext(), NewEmailVerify.class)
+                        .putExtra(Keys.EMAIL, email));
                 break;
             case R.id.Resendlink:
                 viewModel.ResendLink(email,apiCalls);

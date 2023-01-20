@@ -1,5 +1,6 @@
 package com.apt_x.app.views.activity.signup;
 
+import android.animation.ValueAnimator;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -34,6 +35,21 @@ public class EmailFailureActivity extends BaseActivity {
         } else {
 
         }
+
+        final ValueAnimator anim = ValueAnimator.ofFloat(1f, 0.3f);
+        anim.setDuration(900);
+        anim.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+            @Override
+            public void onAnimationUpdate(ValueAnimator animation) {
+                binding.failedimage.setScaleX((Float) animation.getAnimatedValue());
+                binding.failedimage.setScaleY((Float) animation.getAnimatedValue());
+            }
+        });
+        anim.setRepeatCount(1);
+        anim.setRepeatMode(ValueAnimator.REVERSE);
+        anim.start();
+
+
     }
 
     @Override

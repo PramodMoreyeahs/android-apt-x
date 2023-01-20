@@ -24,46 +24,47 @@
         android:required="false" />
 
     <application
+        android:allowBackup="true"
         android:name="com.apt_x.app.application.MyApp"
-        android:hardwareAccelerated="true"
         android:icon="@mipmap/ic_launcher_round"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
+        android:requestLegacyExternalStorage="true"
         android:theme="@style/NoActionbarTheme"
         android:usesCleartextTraffic="true"
         tools:ignore="GoogleAppIndexingWarning"
         tools:targetApi="m">
         <activity
-            android:name=".CaptureImageActivity"
+            android:name=".views.activity.signup.CaptureImageActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".EmailFailureActivity"
+            android:name=".views.activity.signup.EmailFailureActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".EmailSuccessActivity"
+            android:name=".views.activity.signup.EmailSuccessActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".PasteLinkActivity"
+            android:name=".views.activity.signup.PasteLinkActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".NewEmailVerify"
+            android:name=".views.activity.signup.NewEmailVerify"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
@@ -129,7 +130,6 @@
         <activity android:name=".views.activity.getBank.BankDepositActivity" />
         <activity android:name=".views.activity.getBank.BankBranchesActivity" />
         <activity android:name=".views.activity.account.AddNewAccountActivity" />
-        <activity android:name=".views.activity.signup.NewEmailVerify" />
         <activity
             android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
             android:theme="@style/Base.Theme.AppCompat" />
@@ -175,10 +175,7 @@
         <activity android:name=".views.activity.kyc.KYCfailedActivity" />
         <activity android:name=".views.activity.loadfund.AddCardNewActivity" />
         <activity android:name=".views.activity.card.CardDetailNewActivity" />
-        <activity android:name=".views.activity.signup.PasteLinkActivity" />
-        <activity android:name=".views.activity.signup.EmailSuccessActivity" />
-        <activity android:name=".views.activity.signup.EmailFailureActivity" />
-        <activity android:name=".views.activity.signup.CaptureImageActivity"/>
+
         <activity
             android:name=".views.activity.splash.WelcomeActivity"
             android:exported="true"

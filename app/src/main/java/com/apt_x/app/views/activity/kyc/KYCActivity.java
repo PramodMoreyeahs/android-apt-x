@@ -12,6 +12,8 @@ import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.View;
+
+import com.acuant.acuantfacecapture.FaceCaptureActivity;
 import com.apt_x.app.R;
 import com.apt_x.app.authsdk.verifyAucant.MainActivity;
 import com.apt_x.app.privacy.netcom.Keys;
@@ -20,6 +22,8 @@ import com.apt_x.app.utils.Utils;
 import com.apt_x.app.views.activity.NewHomeActivity;
 import com.apt_x.app.views.activity.forgotpassword.ForgotPasswordVerificationActivity;
 import com.apt_x.app.views.activity.signup.CaptureIdActivity;
+import com.apt_x.app.views.activity.signup.CaptureImageActivity;
+import com.apt_x.app.views.activity.signup.PasteLinkActivity;
 import com.apt_x.app.views.activity.signup.VerifyPhoneActivity;
 import com.apt_x.app.views.base.BaseActivity;
 import com.apt_x.app.databinding.ActivityKYCBinding;
@@ -92,10 +96,10 @@ public class KYCActivity extends BaseActivity {
                         .putExtra(Keys.detail, Keys.secure));
                 break;
             case R.id.ivBack:
-               startActivity(new Intent(this, VerifyPhoneActivity.class)
-                       .putExtra(Keys.EMAIL, email));
-               finish();
-               // onBackPressed();
+                FaceCaptureActivity.Companion.setAbsolutePath("");
+                startActivity(new Intent(this, CaptureImageActivity.class)
+                        .putExtra(Keys.EMAIL, email));
+
                 break;
 
         }

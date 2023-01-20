@@ -1,29 +1,33 @@
 package com.apt_x.app.views.activity.signup;
 
-import static com.acuant.acuantfacecapture.FaceCaptureActivity.RESPONSE_SUCCESS_CODE_CAPTUREIMG;
-
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.view.View;
 
-import androidx.annotation.Nullable;
 import androidx.databinding.DataBindingUtil;
 
 import com.acuant.acuantfacecapture.FaceCaptureActivity;
 import com.apt_x.app.R;
 import com.apt_x.app.databinding.ActivityCaptureImageBinding;
+import com.apt_x.app.preferences.MyPref;
+import com.apt_x.app.privacy.netcom.Keys;
+import com.apt_x.app.views.activity.kyc.KYCActivity;
 import com.apt_x.app.views.base.BaseActivity;
-import com.bumptech.glide.Glide;
-import com.squareup.picasso.Picasso;
 
+import java.io.BufferedInputStream;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
 
 public class CaptureImageActivity extends BaseActivity {
 
     ActivityCaptureImageBinding binding;
+    String capturedurl;
+    public String email = "";
+    private Bitmap capturedSelfieImage = null;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,51 +41,107 @@ public class CaptureImageActivity extends BaseActivity {
 
     @Override
     public void initializeViews() {
-        binding.tvContinue.setOnClickListener(this);
 
-        String capturedurl = FaceCaptureActivity.Companion.getAbsolutePath();
+        if (getIntent() != null) {
+            email = getIntent().getStringExtra(Keys.EMAIL);
+            MyPref.getInstance(this).writePrefs(MyPref.USER_EMAIL, email);
+        } else {
+            email = MyPref.getInstance(getApplicationContext()).readPrefs(MyPref.USER_EMAIL);
+
+        }
+
+        binding.tvContinue.setOnClickListener(this);
+        binding.tvcapture.setOnClickListener(this);
+        binding.retry.setOnClickListener(this);
+        binding.ivBack.setOnClickListener(this);
+
+        capturedurl = FaceCaptureActivity.Companion.getAbsolutePath();
 
         System.out.println("Captured Url callback1" + capturedurl);
 
-        if(capturedurl != null && !capturedurl.isEmpty()){
-            File imgFile = new File(capturedurl);
+        if (capturedurl != null && !capturedurl.isEmpty()) {
 
-            if(imgFile.getAbsolutePath() != null){
-                System.out.println("Captured Url imgFile" + imgFile.getAbsolutePath());
-                Bitmap myBitmap = BitmapFactory.decodeFile(imgFile.getAbsolutePath());
+            Bitmap myBitmap = BitmapFactory.decodeFile(capturedurl);
 
-               // binding.capturedimg.setImageBitmap(myBitmap);
-                 Picasso.with(this).load(imgFile.getAbsolutePath()).into(binding.capturedimg);
-                System.out.println("Captured Url callback2" + capturedurl);
-                capturedurl="";
+            binding.capturedimg.setImageBitmap(myBitmap);
+            binding.tvContinue.setVisibility(View.VISIBLE);
+            binding.retry.setVisibility(View.VISIBLE);
+            binding.tvcapture.setVisibility(View.GONE);
+        } else {
+            binding.retry.setVisibility(View.GONE);
+            binding.tvContinue.setVisibility(View.GONE);
+            binding.tvcapture.setVisibility(View.VISIBLE);
 
-            }else{
-                System.out.println("Captured Url imgFile else" + imgFile.getAbsolutePath());
-            }
-
-
-
-
-
-        }else{
-            System.out.println("captured is empty");
         }
 
 
     }
 
+    private void newtest() {
 
+        String url = capturedurl;
+
+        byte[] bytes = readFromFile(url);
+
+        capturedSelfieImage = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
+
+
+    }
+
+
+    private byte[] readFromFile(String fileUri) {     //java code for readfrom file
+
+        File file = new File(fileUri);
+        int size = Math.toIntExact(file.length());
+
+        byte[] bytes = new byte[size];
+        System.out.println("READFROMFILE" + bytes.length);
+
+        try {
+            BufferedInputStream buf = new BufferedInputStream(new FileInputStream(file));
+            buf.read(bytes, 0, bytes.length);
+            buf.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return bytes;
+
+    }
+
+
+/*
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == 99 && resultCode == RESULT_OK) {
+
+            System.out.println("OnAcrivity listened");
+        }
+    }
+*/
 
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.back:
-                onBackPressed();
+            case R.id.ivBack:
+                startActivity(new Intent(this, PasteLinkActivity.class)
+                        .putExtra(Keys.EMAIL, email));
                 break;
             case R.id.tvContinue:
-                System.out.println("Captured Url2" + FaceCaptureActivity.OUTPUT_URL);
+                capturedurl = "";
+                startActivity(new Intent(getApplicationContext(), KYCActivity.class)
+                        .putExtra(Keys.EMAIL, email));
+
+                break;
+            case R.id.tvcapture:
                 startActivity(new Intent(CaptureImageActivity.this, FaceCaptureActivity.class)
                         .putExtra("captureselfie", "true"));
+                break;
+            case R.id.retry:
+                System.out.println("Captured Url2" + FaceCaptureActivity.OUTPUT_URL);
+                startActivityForResult(new Intent(CaptureImageActivity.this, FaceCaptureActivity.class)
+                        .putExtra("captureselfie", "true"), 99);
 
         }
 
