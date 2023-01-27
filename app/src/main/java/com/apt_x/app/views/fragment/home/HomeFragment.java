@@ -36,6 +36,8 @@ import com.apt_x.app.views.activity.home.HomeActivity;
 import com.apt_x.app.views.activity.loadfund.AddCardNewActivity;
 import com.apt_x.app.views.activity.loadfund.InteracETransferActivity;
 import com.apt_x.app.views.activity.newTransactions.RecipientActivity;
+import com.apt_x.app.views.activity.signup.CaptureImageActivity;
+import com.apt_x.app.views.activity.signup.SignUpActivity;
 import com.apt_x.app.views.adapter.TransactionAdapter;
 import com.apt_x.app.interfaces.DialogClickListener;
 import com.apt_x.app.model.GetTransactionHistoryResponse;
@@ -336,8 +338,9 @@ public class HomeFragment extends BaseFragment implements DialogClickListener,Fi
                 startActivity(new Intent(context, RecipientActivity.class));
                 break;
             case R.id.ll_load_fund:
-              //  startActivity(new Intent(context, InteracETransferActivity.class));
-                startActivity(new Intent(context, AddCardNewActivity.class));
+                startActivity(new Intent(context, InteracETransferActivity.class));
+              //  startActivity(new Intent(context, AddCardNewActivity.class));
+             //   startActivity(new Intent(context, CaptureImageActivity.class));
                 break;
         }
     }

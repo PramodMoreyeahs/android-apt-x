@@ -15,6 +15,7 @@ class Constants {
         const val REQUEST_CAMERA_FACE_CAPTURE = 7
         const val REQUEST_CAMERA_MRZ = 8
         const val REQUEST_HELP_MRZ = 9
+        const val BACK = 6
         const val REQUEST_CAMERA_BARCODE = 10
       //  const val GooglPlaceApikey = "AIzaSyC2_JaEArN6eNLIY4WZKMnW5KhB9kT1O8o"
         const val GooglPlaceApikey = "AIzaSyBc7thhFMYo8t-6b51CsHkj8289hZLIZBs"

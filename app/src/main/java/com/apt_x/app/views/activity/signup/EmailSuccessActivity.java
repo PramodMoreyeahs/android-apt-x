@@ -14,6 +14,8 @@ import android.view.animation.AnimationUtils;
 
 import com.apt_x.app.R;
 import com.apt_x.app.databinding.ActivityEmailSuccessBinding;
+import com.apt_x.app.views.activity.home.HomeActivity;
+import com.apt_x.app.views.activity.verification.AddAddressActivity;
 import com.apt_x.app.views.base.BaseActivity;
 
 public class EmailSuccessActivity extends BaseActivity {
@@ -60,7 +62,8 @@ public class EmailSuccessActivity extends BaseActivity {
         switch (v.getId()) {
 
             case R.id.tvContinue:
-                startActivity(new Intent(EmailSuccessActivity.this, CaptureImageActivity.class));
+                startActivity(new Intent(EmailSuccessActivity.this, ThankYouActivity.class));
+
 
                 break;
 

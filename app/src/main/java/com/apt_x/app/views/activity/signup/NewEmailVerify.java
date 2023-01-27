@@ -73,6 +73,7 @@ public class NewEmailVerify extends BaseActivity {
             case R.id.iv_back:
                 startActivity(new Intent(getApplicationContext(), SignUpActivity.class)
                         .putExtra(Keys.EMAIL, email));
+                finish();
                 break;
             case R.id.tvContinue:
                 startActivity(new Intent(NewEmailVerify.this, PasteLinkActivity.class)

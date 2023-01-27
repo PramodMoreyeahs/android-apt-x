@@ -75,16 +75,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/llCapture"
+                android:layout_centerInParent="true"
                 android:layout_marginHorizontal="@dimen/_20sdp"
                 android:layout_marginTop="@dimen/_30sdp"
                 android:background="@drawable/btn_bg"
                 android:fontFamily="@font/montserrat_medium"
                 android:gravity="center"
                 android:onClick="retry"
-                android:layout_centerInParent="true"
-                android:textAllCaps="false"
                 android:paddingVertical="@dimen/_10sdp"
                 android:text="@string/retry"
+                android:textAllCaps="false"
                 android:textColor="@color/white" />
 
 

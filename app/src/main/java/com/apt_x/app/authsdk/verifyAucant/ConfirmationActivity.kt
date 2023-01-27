@@ -14,6 +14,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.apt_x.app.R
+import com.apt_x.app.views.activity.kyc.KYCActivity
 
 
 class ConfirmationActivity : AppCompatActivity() {
@@ -22,6 +23,8 @@ class ConfirmationActivity : AppCompatActivity() {
     private var isBarcode: Boolean = false
     private var isHealthCard: Boolean = false
     private var barcodeString: String? = null
+    private var headerTitle: TextView? = null
+
     private var image: Bitmap? = null
     private var sharpness = -1
     private var glare = -1
@@ -38,6 +41,9 @@ class ConfirmationActivity : AppCompatActivity() {
         glare = intent.getIntExtra("glare", -1)
         dpi = intent.getIntExtra("dpi", -1)
         image = MainActivity.image
+        headerTitle = findViewById(R.id.tvTitle)
+        headerTitle?.setText(getText(R.string.capture_id))
+
 
         if(barcodeString != null){
             val barcodeText = findViewById<TextView>(R.id.barcodeText)
@@ -57,9 +63,11 @@ class ConfirmationActivity : AppCompatActivity() {
                 val isBlurry = sharpness < SHARPNESS_THRESHOLD
                 if (sharpnessText != null) {
                     if (isBlurry) {
-                        sharpnessText.text = "It is a blurry image. Sharpness Grade : $sharpness"
+                        println("It is a blurry image. Sharpness Grade : $sharpness")
+                      //  sharpnessText.text = "It is a blurry image. Sharpness Grade : $sharpness"
                     } else {
-                        sharpnessText.text = "It is a sharp image. Sharpness Grade : $sharpness"
+//                        sharpnessText.text = "It is a sharp image. Sharpness Grade : $sharpness"
+                        println("It is a sharp image. Sharpness Grade : $sharpness")
                     }
                 }
 
@@ -67,9 +75,11 @@ class ConfirmationActivity : AppCompatActivity() {
                 val hasGlare = glare < GLARE_THRESHOLD
                 if (glareText != null && image != null) {
                     if (hasGlare) {
-                        glareText.text = "Image has glare. Glare Grade : $glare"
+//                        glareText.text = "Image has glare. Glare Grade : $glare"
+                        println("Image has glare. Glare Grade : $glare")
                     } else {
-                        glareText.text = "Image doesn't have glare. Glare Grade : $glare"
+//                        glareText.text = "Image doesn't have glare. Glare Grade : $glare"
+                        println("Image doesn't have glare. Glare Grade : $glare")
                     }
                 }
             }
@@ -78,13 +88,16 @@ class ConfirmationActivity : AppCompatActivity() {
             if (dpiText != null) {
                 when {
                     dpi < 550 -> {
-                        dpiText.text = "DPI is low: $dpi"
+                       // dpiText.text = "DPI is low: $dpi"
+                        println("DPI is low: $dpi")
                     }
                     dpi < 600 -> {
-                        dpiText.text = "DPI is slightly low: $dpi"
+//                        dpiText.text = "DPI is slightly low: $dpi"
+                        println("DPI is slightly low: $dpi")
                     }
                     else -> {
-                        dpiText.text = "DPI: $dpi"
+//                        dpiText.text = "DPI: $dpi"
+                        println("DPI: $dpi")
                     }
                 }
             }
@@ -127,6 +140,15 @@ class ConfirmationActivity : AppCompatActivity() {
 
     }
 
+    fun imageclick(@Suppress("UNUSED_PARAMETER") view: View){
+
+        println("Image clicked")
+        val intent =   Intent(this, MainActivity::class.java)
+
+        startActivityForResult(intent, Constants.BACK)
+        finish()
+
+    }
 
     fun confirmClicked(@Suppress("UNUSED_PARAMETER") view: View) {
         val result = Intent()

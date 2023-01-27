@@ -318,16 +318,11 @@ class ResultActivity : AppCompatActivity() {
         jsonObject1.addProperty("Photo", ProcessedData.frontImageUri)
         jsonObject1.addProperty("Issue Date", Utils.convertDate(issueDate))
         jsonObject1.addProperty("Issuing Authority", issueAuth)
-
-
-
         print("Data>>>>>>$jsonObject1")
         print("Data  dob>>>>>>${ProcessedData.dateOfBirth}")
         print("Data  convertesdob>>>>>>${Utils.convertDate(ProcessedData.dateOfBirth)}")
 
-        val body = RequestBody.create(
-            mediaType, jsonObject1.toString()
-        )
+        val body = RequestBody.create(mediaType, jsonObject1.toString())
     var apiUrl = "https://sec.sandbox.aptpay.com/aptverify/callback" // Staging
     //  var apiUrl = "https://sec.aptpay.com/aptverify/callback" // Production
 

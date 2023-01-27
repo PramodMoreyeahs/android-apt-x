@@ -17,6 +17,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.databinding.DataBindingUtil;
 
+import com.acuant.acuantfacecapture.FaceCaptureActivity;
 import com.apt_x.app.privacy.PrivacyPolicy;
 import com.apt_x.app.utils.LocaleHelper;
 import com.apt_x.app.utils.Utils;
@@ -149,6 +150,7 @@ public class MoreActionActivity extends BaseActivity implements GoogleApiClient.
         Pref.setAccessToken(this, "");
         Pref.setBoolean(this, false, Pref.REMEMBER_ME);
         Pref.setBoolean(this, false, Pref.IS_LOGIN);
+        FaceCaptureActivity.Companion.setAbsolutePath("");
         startActivity(new Intent(this, LoginActivity.class)
                 .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK)
         );

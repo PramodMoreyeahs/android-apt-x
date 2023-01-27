@@ -8,7 +8,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/black"
+        android:background="@color/background"
         android:id="@+id/main_layout"
         android:orientation="vertical">
         <RelativeLayout
@@ -17,10 +17,66 @@
             android:background="@color/black"
             android:orientation="vertical">
 
-            <include
+            <LinearLayout
+                android:background="@color/background"
                 android:id="@+id/header"
-                android:visibility="gone"
-                layout="@layout/top_header" />
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+
+                android:orientation="horizontal"
+                android:weightSum="2">
+                <FrameLayout
+                    android:id="@+id/frameLayout2"
+                    android:layout_width="@dimen/_35sdp"
+                    android:layout_height="@dimen/_35sdp"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="@dimen/_16sdp"
+                    android:layout_weight="0"
+                    android:background="@drawable/btn_bg_lined">
+                    <ImageView
+                        android:id="@+id/ivBack"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:onClick="imageclick"
+
+                        android:background="?attr/selectableItemBackground"
+                        android:contentDescription="@string/back"
+                        android:padding="@dimen/_10sdp"
+                        android:src="@drawable/ic_back" />
+                </FrameLayout>
+                <TextView
+                    android:id="@+id/tvTitle"
+                    style="@style/TextViewTitle"
+                    android:layout_centerInParent="true"
+                    android:gravity="center"
+                    android:text="@string/passport"
+                    android:layout_weight="2"
+                    android:textFontWeight="500"
+                    tools:targetApi="p" />
+
+                <FrameLayout
+                    android:id="@+id/frameLayout3"
+                    android:layout_width="@dimen/_35sdp"
+                    android:layout_height="@dimen/_35sdp"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="@dimen/_16sdp"
+                    android:layout_weight="0"
+                    android:background="@drawable/btn_bg_lined"
+                    android:visibility="invisible">
+
+                    <ImageView
+
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:background="?attr/selectableItemBackground"
+                        android:contentDescription="@string/back"
+                        android:padding="@dimen/_10sdp"
+                        android:src="@drawable/ic_back" />
+                </FrameLayout>
+            </LinearLayout>
+
 
             <TextView
                 android:id="@+id/tvHeader"

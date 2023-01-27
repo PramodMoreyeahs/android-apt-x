@@ -87,11 +87,11 @@ class FaceCaptureActivity : AppCompatActivity(), FaceListener {
             val file = File(applicationContext.cacheDir, "${UUID.randomUUID()}.jpg")
             result.putExtra(OUTPUT_URL, file.absolutePath)
             println("Capture Image Path ${file.absolutePath}")
-            photoFile = createImageFileWith();
-            saveFile(photoFile!!, data)
+          //  photoFile = createIm
+            //  ageFileWith();
+            saveFile(file, data)
 
-
-            absolutePath = photoFile!!.absolutePath
+            absolutePath = file.absolutePath
 
 
             var imgPath = file.absolutePath
@@ -101,8 +101,7 @@ class FaceCaptureActivity : AppCompatActivity(), FaceListener {
             editor.commit()
         }
 
-        val myIntent =
-            Intent(this, Class.forName("com.apt_x.app.views.activity.signup.CaptureImageActivity"))
+        val myIntent = Intent(this, Class.forName("com.apt_x.app.views.activity.signup.CaptureImageActivity"))
         startActivity(myIntent)
         this@FaceCaptureActivity.finish()
 
@@ -117,7 +116,7 @@ class FaceCaptureActivity : AppCompatActivity(), FaceListener {
             "pics"
         )
         storageDir.mkdirs()
-        return File.createTempFile(imageFileName, ".png", storageDir)
+        return File.createTempFile(imageFileName, ".jpg", storageDir)
     }
 
 
@@ -200,6 +199,7 @@ class FaceCaptureActivity : AppCompatActivity(), FaceListener {
         mFacialGraphic?.setOptions(options)
         startCameraSource()
     }
+
 
     /**
      * Stops the camera.

@@ -317,7 +317,7 @@ We\'re creating something exciting in the house and about to launch soon. Thank 
     <string name="please_sele">Please select date of issue</string>
     <string name="capture_id">Capture ID</string>
     <string name="capture_id_">Capture ID/</string>
-    <string name="capture_id_passport">Capture ID \nPassport</string>
+    <string name="capture_id_passport">Capture ID/Passport</string>
     <string name="capture_id_licence">Capture ID \nLicence</string>
     <string name="capture_a_c">Capture a clear picture of the front of your ID card.</string>
     <string name="verified">Success: Verified user\'s identity</string>
@@ -517,6 +517,7 @@ We\'re creating something exciting in the house and about to launch soon. Thank 
     <string name="error_echip_help">eChip read interrupted.\nPlease try again making sure to keep the phone still.</string>
     <string name="error_echip">eChip Not Read</string>
     <string name="confirm">Confirm</string>
+    <string name="confirm_with">Continue with this image</string>
     <string name="face_doest_match">Facial Match Failed! Please try again</string>
     <string name="yes_we_are_done">Yes we are Done!</string>
     <string name="thank_you_">Thank You!</string>

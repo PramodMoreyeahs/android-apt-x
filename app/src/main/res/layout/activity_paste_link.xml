@@ -78,22 +78,29 @@
                     android:textColor="@color/et_hint"
                     android:textSize="@dimen/_11sdp" />
 
+<com.google.android.material.textfield.TextInputLayout
+    android:id="@+id/textlayid"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:hint="Paste here"
+    app:helperTextTextColor="@color/red"
+    android:textColorHint="@color/et_hint">
+    <EditText
+        android:id="@+id/etEmail"
+        style="@style/EditText"
+        android:layout_marginTop="@dimen/_16sdp"
+        android:drawableStart="@drawable/pasteicon"
+        android:drawablePadding="@dimen/_10sdp"
+        android:fontFamily="@font/lato_regular"
+        android:imeOptions="actionNext"
+        android:importantForAutofill="noExcludeDescendants"
 
+        android:inputType="textEmailAddress"
+        android:paddingHorizontal="@dimen/_10sdp"
+        android:textSize="14sp" />
 
-                <EditText
-                    android:id="@+id/etEmail"
-                    style="@style/EditText"
-                    android:layout_marginTop="@dimen/_16sdp"
-                    android:drawableStart="@drawable/pasteicon"
-                    android:drawablePadding="@dimen/_10sdp"
-                    android:fontFamily="@font/lato_regular"
-                    android:hint="Paste here"
-                    android:imeOptions="actionNext"
-                    android:importantForAutofill="noExcludeDescendants"
+</com.google.android.material.textfield.TextInputLayout>
 
-                    android:inputType="textEmailAddress"
-                    android:paddingHorizontal="@dimen/_10sdp"
-                    android:textSize="14sp" />
 
 
                 <LinearLayout

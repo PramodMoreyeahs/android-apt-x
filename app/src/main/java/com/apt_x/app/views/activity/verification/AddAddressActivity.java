@@ -28,6 +28,7 @@ import com.apt_x.app.views.activity.NewHomeActivity;
 import com.apt_x.app.views.activity.PlacesActivity;
 import com.apt_x.app.views.activity.home.HomeActivity;
 import com.apt_x.app.views.activity.profile.EditProfileActivity;
+import com.apt_x.app.views.activity.signup.EmailSuccessActivity;
 import com.apt_x.app.views.activity.signup.ThankYouActivity;
 import com.apt_x.app.views.base.BaseActivity;
 
@@ -181,7 +182,8 @@ public class AddAddressActivity extends BaseActivity {
                 }
                 else {
                     MyPref.getInstance(getApplicationContext()).writeBooleanPrefs(Pref.IS_ADDRESS_FILLED,true);
-                    startActivity(new Intent(AddAddressActivity.this, HomeActivity.class));
+                //    startActivity(new Intent(AddAddressActivity.this, HomeActivity.class));
+                    startActivity(new Intent(AddAddressActivity.this, EmailSuccessActivity.class));
                     finish();
                 }
             }

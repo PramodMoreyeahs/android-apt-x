@@ -76,6 +76,7 @@ public class PasteLinkActivity extends BaseActivity {
 
         }
 
+
         viewModel = ViewModelProviders.of(this).get(SignUpViewModel.class);
 
         viewModel.response_linkverify.observe(this, response_observer);
@@ -97,8 +98,11 @@ public class PasteLinkActivity extends BaseActivity {
 
                 finish();
             } else {
-                startActivity(new Intent(PasteLinkActivity.this, EmailFailureActivity.class)
-                        .putExtra(Keys.EMAIL, email));
+                binding.textlayid.setHelperText("Invalid link.Please enter a valid Link.");
+                binding.etEmail.requestFocus();
+              //  Toast.makeText(context, "Link Expired", Toast.LENGTH_SHORT).show();
+                /*startActivity(new Intent(PasteLinkActivity.this, EmailFailureActivity.class)
+                     .putExtra(Keys.EMAIL, email)); */
 
 
 
@@ -134,6 +138,7 @@ public class PasteLinkActivity extends BaseActivity {
             case R.id.ivBack:
                 startActivity(new Intent(getApplicationContext(), NewEmailVerify.class)
                         .putExtra(Keys.EMAIL, email));
+                finish();
                 break;
             case R.id.Resendlink:
                 viewModel.ResendLink(email,apiCalls);
@@ -148,6 +153,13 @@ public class PasteLinkActivity extends BaseActivity {
 
     private void navfun() {
         System.out.println("Email success clicked");
-        viewModel.verifyLink(binding.etEmail.getText().toString(),email,apiCalls);
+        System.out.println("ddsddd" + binding.etEmail.getText());
+        if(binding.etEmail.getText().toString().equals("")){
+
+            binding.textlayid.setHelperText("Please paste the Link.");
+        }else {
+            viewModel.verifyLink(binding.etEmail.getText().toString(), email, apiCalls);
+        }
+
     }
 }

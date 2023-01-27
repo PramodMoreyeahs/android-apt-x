@@ -585,11 +585,11 @@ public class SignUpActivity extends BaseActivity implements GoogleApiClient.OnCo
                 }
             }
             break;
-           /* case R.id.testclick:
-                startActivity(new Intent(SignUpActivity.this, CaptureImageActivity.class));
-              //  startActivity(new Intent(SignUpActivity.this, EmailSuccessActivity.class));
+            case R.id.testclick:
+                /*startActivity(new Intent(SignUpActivity.this, CaptureImageActivity.class));*/
+                startActivity(new Intent(SignUpActivity.this, EmailSuccessActivity.class));
               //  startActivity(new Intent(SignUpActivity.this, EmailFailureActivity.class));
-                break;*/
+                break;
             case R.id.ivFb:
                 binding.loginButton.performClick();
                 break;
@@ -608,7 +608,8 @@ public class SignUpActivity extends BaseActivity implements GoogleApiClient.OnCo
 
                 break;
             case R.id.ivBack:
-                onBackPressed();
+                startActivity(new Intent(this, LoginActivity.class));
+                finish();
 
                 break;
 

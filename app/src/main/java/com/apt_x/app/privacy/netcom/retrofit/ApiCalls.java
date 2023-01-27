@@ -667,7 +667,7 @@ public void getActiveCountryService( DisposableObserver<GetCountryServiceRespons
     }
 
     //uploadProfile
-    public void uploadProfile(File file, DisposableObserver disposable) {
+    public void uploadProfile(File file, DisposableObserver<PorfilePictureUrlResponse> disposable) {
         AppStructureAPI service = RetrofitHolder.getService();
         MultipartBody.Part filePart = MultipartBody.Part.createFormData(
                 "file", file.getName(),
@@ -675,6 +675,7 @@ public void getActiveCountryService( DisposableObserver<GetCountryServiceRespons
 
         Log.e("TAG", "uploadProfile: ******   "+file.getName() );
         service.uploadProfile(filePart,"profile")
+      //  service.uploadProfile(filePart)
                 .subscribeOn(io.reactivex.schedulers.Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new io.reactivex.Observer<PorfilePictureUrlResponse>() {

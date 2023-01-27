@@ -15,6 +15,8 @@ import androidx.databinding.DataBindingUtil;
 import android.os.Handler;
 import android.util.Log;
 import android.view.View;
+
+import com.acuant.acuantfacecapture.FaceCaptureActivity;
 import com.apt_x.app.R;
 import com.apt_x.app.authsdk.verifyAucant.MainActivity;
 import com.apt_x.app.preferences.MyPref;

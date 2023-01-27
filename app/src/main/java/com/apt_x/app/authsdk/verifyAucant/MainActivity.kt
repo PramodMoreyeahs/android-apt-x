@@ -66,6 +66,7 @@ import com.acuant.sampleapp.backgroundtasks.AcuantTokenServiceListener
 import com.apt_x.app.R
 import com.apt_x.app.privacy.netcom.Keys
 import com.apt_x.app.utils.CommonUtils
+import com.apt_x.app.views.activity.kyc.KYCActivity
 import java.io.BufferedInputStream
 import java.io.File
 import java.io.FileInputStream
@@ -80,6 +81,8 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener, IP
     private var progressDialog: LinearLayout? = null
     private var progressText: TextView? = null
     private var headerText: TextView? = null
+    private var ivBacknew: ImageView? = null
+    private var headerTitle: TextView? = null
     private var capturedFrontImage: AcuantImage? = null
     private var capturedBackImage: AcuantImage? = null
     private var capturedSelfieImage: Bitmap? = null
@@ -139,6 +142,9 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener, IP
 
         idButton = findViewById(R.id.main_id_passport)
         headerText = findViewById(R.id.tvHeader)
+        headerTitle = findViewById(R.id.tvTitle)
+        ivBacknew = findViewById(R.id.ivBack)
+
 
 //        livenessSpinner = findViewById(R.id.livenessSpinner)
 //        val list = mutableListOf("No liveness test/face match", "Liveness: Passive Liveness", "tmp")
@@ -147,7 +153,6 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener, IP
 //        livenessSpinner.adapter = livenessArrayAdapter
 //        loadLastLiveness(true)
 //        livenessSpinner.onItemSelectedListener = this
-
 
 
         progressDialog = findViewById(R.id.main_progress_layout)
@@ -173,11 +178,14 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener, IP
             idButton?.setText(getText(R.string.capture_id_passport))
             idButton?.setText(getText(R.string.capture_id_passport))
             headerText?.setText(getText(R.string.capture_id_passport))
+            headerTitle?.setText(getText(R.string.capture_id))
         }
         else
         {
             idButton?.setText(getText(R.string.capture_id_licence))
             headerText?.setText(getText(R.string.capture_id_licence))
+            headerTitle?.setText(getText(R.string.capture_id))
+
         }
     }
 
@@ -713,6 +721,17 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener, IP
         }
     }
 
+    fun imageclick(@Suppress("UNUSED_PARAMETER") view: View){
+
+        println("Image clicked")
+        val intent =   Intent(this@MainActivity, KYCActivity::class.java)
+
+        startActivityForResult(intent, Constants.BACK)
+        finish()
+
+    }
+
+
     // ID/Passport Clicked
     fun idPassPortClicked(@Suppress("UNUSED_PARAMETER") view: View) {
         val currentTime: String = SimpleDateFormat("HH:mm:ss", Locale.getDefault()).format(Date())
@@ -1110,9 +1129,15 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener, IP
                                     dialog.dismiss()
                                 })
                             }
-                        } else {
-                            val alert = AlertDialog.Builder(this@MainActivity)
+                        }
+                        else {
+                            setProgress(true,"Please Wait")
+                            getData()
+
+                          /*  val alert = AlertDialog.Builder(this@MainActivity)
+
                             alert.setTitle("Message")
+
                             if (livenessSelected != 0) {
                                 alert.setMessage("Capture Selfie Image")
                             } else {
@@ -1121,7 +1146,7 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener, IP
                             alert.setPositiveButton("OK") { dialog, _ ->
                                 dialog.dismiss()
                                 setProgress(true, "Getting Data...")
-                                showFrontCamera()
+                                //showFrontCamera()
                                 getData()
                             }
                             if (livenessSelected != 0) {
@@ -1132,7 +1157,7 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener, IP
                                     dialog.dismiss()
                                 }
                             }
-                            alert.show()
+                            alert.show()*/
                         }
 
                     } else {
@@ -1403,6 +1428,7 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener, IP
 //                    }else{
                     val currentTime: String = SimpleDateFormat("HH:mm:ss", Locale.getDefault()).format(Date())
                     Log.e("EndTime Scan**","  "+currentTime)
+                    setProgress(false)
                         val resultIntent = Intent(
                             this@MainActivity,
                             ResultActivity::class.java

@@ -91,11 +91,11 @@
                     style="@style/TextViewSubHeader"
                     android:layout_marginStart="@dimen/_16sdp"
                     android:layout_marginEnd="@dimen/_16sdp"
-                    android:fontFamily="@font/lato_regular"
+                    android:fontFamily="@font/montserrat"
                     android:lineHeight="32sp"
                     android:text="@string/to_get_your_aptpay_card"
                     android:visibility="visible"
-                    android:textFontWeight="100"
+                    android:textFontWeight="600"
                     tools:targetApi="p" />
 
                 <TextView
