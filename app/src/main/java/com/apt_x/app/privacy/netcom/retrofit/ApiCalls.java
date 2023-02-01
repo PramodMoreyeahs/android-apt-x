@@ -36,6 +36,7 @@ import com.apt_x.app.model.GetTransactionHistoryResponse;
 import com.apt_x.app.model.GetUserByEmail;
 import com.apt_x.app.model.GetWalletBalanceResponse;
 import com.apt_x.app.model.LinkVerifyModel;
+import com.apt_x.app.model.NewImageResponseModel;
 import com.apt_x.app.model.P2PRequest;
 import com.apt_x.app.model.P2PResponse;
 import com.apt_x.app.model.PorfilePictureUrlResponse;
@@ -670,11 +671,11 @@ public void getActiveCountryService( DisposableObserver<GetCountryServiceRespons
     public void uploadProfile(File file, DisposableObserver<PorfilePictureUrlResponse> disposable) {
         AppStructureAPI service = RetrofitHolder.getService();
         MultipartBody.Part filePart = MultipartBody.Part.createFormData(
-                "file", file.getName(),
+                "image", file.getName(),
                 RequestBody.create(MediaType.parse("image/*"), file));
 
         Log.e("TAG", "uploadProfile: ******   "+file.getName() );
-        service.uploadProfile(filePart,"profile")
+        service.uploadProfile(Pref.getAccessToken(MyApp.getInstance()),filePart)
       //  service.uploadProfile(filePart)
                 .subscribeOn(io.reactivex.schedulers.Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
@@ -711,6 +712,55 @@ public void getActiveCountryService( DisposableObserver<GetCountryServiceRespons
                     }
                 });
     }
+
+
+
+    public void uploadProfile2(File file, DisposableObserver<NewImageResponseModel> disposable) {
+        AppStructureAPI service = RetrofitHolder.getService();
+        MultipartBody.Part filePart = MultipartBody.Part.createFormData(
+                "image", file.getName(),
+                RequestBody.create(MediaType.parse("image/png"), file));
+
+        Log.e("TAG", "uploadProfile: ******   "+file.getName() );
+        service.uploadProfile2(Pref.getAccessToken(MyApp.getInstance()),filePart)
+                //  service.uploadProfile(filePart)
+                .subscribeOn(io.reactivex.schedulers.Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new io.reactivex.Observer<NewImageResponseModel>() {
+                    @Override
+                    public void onSubscribe(Disposable d) {
+                    }
+
+                    @Override
+                    public void onNext(NewImageResponseModel signUpResponseBean) {
+                        disposable.onNext(signUpResponseBean);
+                    }
+
+                    @Override
+                    public void onError(Throwable t) {
+                        t.printStackTrace();
+                        try {
+                            HttpException error = (HttpException) t;
+
+                            String errorBody = error.response().errorBody().string();
+                            Log.e("errorBody", "" + errorBody);
+//                            MyPref.getInstance(MyApp.getInstance()).writePrefs(MyPref.ERROR_BODY, errorBody);
+                        } catch (Throwable e) {
+                            e.printStackTrace();
+                        }
+                        disposable.onError(t);
+
+                    }
+
+                    @Override
+                    public void onComplete() {
+                        disposable.onComplete();
+
+                    }
+                });
+    }
+
+
     //add new card
     public void addCard(String bankId, String cardNumber, String expiryDate, DisposableObserver disposable) {
         AppStructureAPI service = RetrofitHolder.getService();

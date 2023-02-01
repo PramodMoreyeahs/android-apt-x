@@ -70,6 +70,8 @@ public class SenderInfoActivity extends BaseActivity implements
     PostCreateTransactionBody.Data _transactionData;
     PostCreateTransactionBody.TransactionEntity transactionEntity;
     String iban = "";
+    String abarouting = "";
+    String ifccode = "";
     String selectedacctype = "";
     ObservableBoolean isAccountCheck = new ObservableBoolean(false);
 
@@ -402,6 +404,7 @@ String actp = "";
             if(countryCode.equals("US")) {
 
                 transactionEntity.setBranch(binding.abarouting.getText().toString());
+                abarouting = binding.abarouting.getText().toString();
 
             }
             else if(branchName == null || branchName.equals("")){
@@ -442,6 +445,8 @@ String actp = "";
         intent.putExtra("recipientName", recipientName);
         intent.putExtra("totalAmount", totalAmount);
         intent.putExtra("countryCode", countryCode);
+        intent.putExtra("abarouting", abarouting);
+        intent.putExtra("ifc", ifccode);
        // System.out.println("total amount in sender info" + totalAmount);
         startActivity(intent);
         binding.tvContinue.setVisibility(View.VISIBLE);
@@ -692,6 +697,7 @@ String actp = "";
 
                 if (country.equals("India")) {
                     branchName = binding.etIfsc.getText().toString();
+                    ifccode = binding.etIfsc.getText().toString();
                 } else {
                     branchName = getIntent().getStringExtra("branchName");
                 }

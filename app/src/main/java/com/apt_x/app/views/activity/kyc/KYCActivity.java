@@ -16,6 +16,7 @@ import android.view.View;
 import com.acuant.acuantfacecapture.FaceCaptureActivity;
 import com.apt_x.app.R;
 import com.apt_x.app.authsdk.verifyAucant.MainActivity;
+import com.apt_x.app.preferences.MyPref;
 import com.apt_x.app.privacy.netcom.Keys;
 import com.apt_x.app.utils.LocaleHelper;
 import com.apt_x.app.utils.Utils;
@@ -38,10 +39,16 @@ public class KYCActivity extends BaseActivity {
     public void initializeViews() {
         if (getIntent() != null) {
             email = getIntent().getStringExtra(Keys.EMAIL);
+            System.out.println("email in KYC1" + email);
+          //  MyPref.getInstance(this).writePrefs(MyPref.USER_EMAIL, email);
 
         } else {
-
+            System.out.println("email in KYC2" + email);
+            email = MyPref.getInstance(getApplicationContext()).readPrefs(MyPref.USER_EMAIL);
         }
+        email=MyPref.getInstance(getApplicationContext()).readPrefs(MyPref.USER_EMAIL);
+        System.out.println("email in KYC3" + email);
+
     }
 
     @Override

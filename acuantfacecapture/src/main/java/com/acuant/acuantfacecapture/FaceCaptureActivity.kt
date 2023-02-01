@@ -47,6 +47,7 @@ class FaceCaptureActivity : AppCompatActivity(), FaceListener {
     private var options: FaceCaptureOptions? = null
     private var uri: Uri? = null
     private var photoFile: File? = null
+    private var email: String? = null
     //==============================================================================================
     // Activity Methods
     //==============================================================================================
@@ -64,7 +65,13 @@ class FaceCaptureActivity : AppCompatActivity(), FaceListener {
             null
         }
 
-        mPreview = findViewById(R.id.preview)
+
+        if (intent.getStringExtra("email") != null && !intent.getStringExtra("email").equals("") ){
+
+            email=intent.getStringExtra("email").toString()
+        }
+
+            mPreview = findViewById(R.id.preview)
         mFacialGraphicOverlay = findViewById(R.id.faceOverlay)
         faceImage = findViewById(R.id.blank_face_image)
         faceImage.imageAlpha = 153
@@ -102,7 +109,7 @@ class FaceCaptureActivity : AppCompatActivity(), FaceListener {
         }
 
         val myIntent = Intent(this, Class.forName("com.apt_x.app.views.activity.signup.CaptureImageActivity"))
-        startActivity(myIntent)
+        startActivity(myIntent.putExtra("email",email))
         this@FaceCaptureActivity.finish()
 
     }

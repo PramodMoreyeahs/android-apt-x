@@ -42,6 +42,7 @@ import com.apt_x.app.views.activity.home.HomeActivity;
 import com.apt_x.app.views.activity.withdraw.WithdrawMethodActivity;
 import com.apt_x.app.views.base.BaseActivity;
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.gun0912.tedpermission.PermissionListener;
 import com.gun0912.tedpermission.TedPermission;
@@ -64,6 +65,7 @@ public class MyProfileActivity extends BaseActivity {
     Utils utils;
     boolean getFromCamera;
     boolean getAsSquare;
+    public static ImageView Myproimg;
     private File photoFile;
     private File file;
     String profilePicture;
@@ -79,7 +81,7 @@ public class MyProfileActivity extends BaseActivity {
         binding = DataBindingUtil.setContentView(this, R.layout.profile_activity);
         viewModel = ViewModelProviders.of(this).get(ProfileViewModel.class);
         viewModel.response_validator_picture.observe(this, response_observer_picture);
-
+        Myproimg = binding.ivProfile;
         super.onCreate(savedInstanceState);
         initializeViews();
     }
@@ -154,20 +156,39 @@ public class MyProfileActivity extends BaseActivity {
                         + countriesResponse.getUser().getState() : "");
                 binding.tvName.setText(countriesResponse.getUser().getFirstName() + " " + countriesResponse.getUser().getLastName());
                 MyPref.getInstance(MyProfileActivity.this).writePrefs(MyPref.EMAIL_ID_USER, countriesResponse.getUser().getEmail());
-                MyPref.getInstance(MyProfileActivity.this)
-                        .writePrefs(MyPref.USER_SELFI, countriesResponse.getUser().getProfilePicture());
+             /*   MyPref.getInstance(MyProfileActivity.this)
+                        .writePrefs(MyPref.USER_SELFI, countriesResponse.getUser().getProfilePicture());*/
+
                 if (countriesResponse.getUser().getProfilePicture() != null) {
+                    String profileurl = MyPref.getInstance(MyProfileActivity.this).readPrefs(MyPref.USER_SELFI);
+
                     Glide
                             .with(MyProfileActivity.this)
                             .asBitmap()
-                            .load(countriesResponse.getUser().getProfilePicture())
-                            //.placeholder()
-                            .into(binding.ivProfile);
-                } else {
+                            .load(profileurl)
+                            .diskCacheStrategy(DiskCacheStrategy.NONE)
+                            .skipMemoryCache(true)
 
-                    byte[] b = Base64.decode(MyPref.getInstance(MyProfileActivity.this).readPrefs(MyPref.USER_SELFI1), Base64.DEFAULT);
+                            .placeholder(R.drawable.loadimg)
+
+                            .into(binding.ivProfile);
+                }
+                else {
+
+                    String profileurl = MyPref.getInstance(MyProfileActivity.this).readPrefs(MyPref.USER_SELFI);
+
+                    Glide
+                            .with(MyProfileActivity.this)
+                            .asBitmap()
+                            .load(profileurl)
+                          /*  .diskCacheStrategy(DiskCacheStrategy.NONE)
+                            .skipMemoryCache(true)*/
+                            .placeholder(R.drawable.loadimg)
+
+                            .into(binding.ivProfile);
+                /*    byte[] b = Base64.decode(profileurl, Base64.DEFAULT);
                     Bitmap bitmapImage = BitmapFactory.decodeByteArray(b, 0, b.length);
-                    binding.ivProfile.setImageBitmap(bitmapImage);
+                    binding.ivProfile.setImageBitmap(bitmapImage);*/
                 }
             }
         }
@@ -354,11 +375,11 @@ public class MyProfileActivity extends BaseActivity {
 
     private File saveBitmap(Context context, Bitmap bitmap, String name) {
         File filesDir = context.getFilesDir();
-        File imageFile = new File(filesDir, name + ".jpg");
+        File imageFile = new File(filesDir, name + ".png");
         OutputStream os;
         try {
             os = new FileOutputStream(imageFile);
-            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, os);
+            bitmap.compress(Bitmap.CompressFormat.PNG, 50, os);
             os.flush();
             os.close();
         } catch (Exception e) {
@@ -379,7 +400,7 @@ public class MyProfileActivity extends BaseActivity {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMdd");
         LocalDate now = LocalDate.now();
 
-        return new File(this != null ? this.getFilesDir() : null, "pic-" + UUID.randomUUID() + '-' + now.format(formatter) + ".jpg");
+        return new File(this != null ? this.getFilesDir() : null, "pic-" + UUID.randomUUID() + '-' + now.format(formatter) + ".png");
     }
 
     private void goToEditProfile() {

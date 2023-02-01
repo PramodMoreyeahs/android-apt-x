@@ -7,6 +7,8 @@ import static com.apt_x.app.utils.Utils.showCustomDialog;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
+
+import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -33,6 +35,8 @@ import androidx.core.content.ContextCompat;
 import androidx.databinding.DataBindingUtil;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProviders;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.NavigationUI;
@@ -40,9 +44,12 @@ import androidx.navigation.ui.NavigationUI;
 import com.apt_x.app.R;
 import com.apt_x.app.app.MyApp;
 import com.apt_x.app.databinding.ActivityNewHomeBinding;
+import com.apt_x.app.model.GetProfileResponse;
 import com.apt_x.app.model.LeftMenuDrawerItems;
+import com.apt_x.app.model.PorfilePictureUrlResponse;
 import com.apt_x.app.preferences.MyPref;
 import com.apt_x.app.preferences.Pref;
+import com.apt_x.app.privacy.netcom.retrofit.ApiCalls;
 import com.apt_x.app.utils.Connectivity;
 import com.apt_x.app.utils.ConnectivityReceiver;
 import com.apt_x.app.utils.FingerPrintEnable;
@@ -51,6 +58,7 @@ import com.apt_x.app.utils.Utils;
 import com.apt_x.app.views.activity.SupportActivity;
 import com.apt_x.app.views.activity.exchangeRate.CountryListActivity;
 import com.apt_x.app.views.activity.profile.MyProfileActivity;
+import com.apt_x.app.views.activity.profile.ProfileViewModel;
 import com.apt_x.app.views.adapter.LeftDrawerListAdapter;
 import com.apt_x.app.views.base.BaseActivity;
 import com.apt_x.app.views.fragment.FingerPrintBottomSheet.FingerPrintBottomLoginFragment;
@@ -58,6 +66,7 @@ import com.apt_x.app.views.fragment.home.HomeFragment;
 import com.apt_x.app.views.fragment.mycard.MyCardFragment;
 import com.apt_x.app.views.fragment.transaction.TransactionFragment;
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -73,9 +82,10 @@ public class HomeActivity extends BaseActivity implements LeftDrawerListAdapter.
     ActionBarDrawerToggle mDrawerToggle;
     List<LeftMenuDrawerItems> leftMenuDrawerItemses = new ArrayList<>();
     public BottomNavigationOnClickListener _btmNavigation = new BottomNavigationOnClickListener();
-
+    ProfileViewModel viewModel;
     LeftDrawerListAdapter leftDrawerListAdapter;
     View drawerView;
+    ApiCalls apicalls;
     Fragment fragment;
     private static boolean activityVisible;
     public ActivityNewHomeBinding binding;
@@ -87,6 +97,7 @@ public class HomeActivity extends BaseActivity implements LeftDrawerListAdapter.
     FingerPrintEnable fingerPrintEnable;
     ConnectivityReceiver connectivityReceiver;
     int SPLASH_TIME_OUT = 5000;
+    String profilePicture;
 
     @Override
     protected void attachBaseContext(Context newBase) {
@@ -127,11 +138,54 @@ public class HomeActivity extends BaseActivity implements LeftDrawerListAdapter.
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_new_home);
+        viewModel = ViewModelProviders.of(this).get(ProfileViewModel.class);
+        viewModel.response_validator.observe(this, response_observer);
+       // viewModel.getProfile(apicalls);
         initializeViews();
         connectivityReceiver = new ConnectivityReceiver();
         // Utils.replaceFragment(HomeActivity.this, new HomeFragment());
 
     }
+
+
+    Observer<GetProfileResponse> response_observer = new Observer<GetProfileResponse>() {
+        @SuppressLint("SetTextI18n")
+        @Override
+        public void onChanged(@Nullable GetProfileResponse countriesResponse) {
+            assert countriesResponse != null;
+            if (countriesResponse.getUser() != null) {
+
+
+                if (countriesResponse.getUser().getProfilePicture() != null) {
+                    Glide
+                            .with(HomeActivity.this)
+                            .asBitmap()
+                            .load(countriesResponse.getUser().getProfilePicture())
+                            .diskCacheStrategy(DiskCacheStrategy.NONE)
+                            .skipMemoryCache(true)
+                            //.placeholder()
+                            .into(binding.ivUser);
+                } else {
+
+                    String profileurl = MyPref.getInstance(HomeActivity.this).readPrefs(MyPref.USER_SELFI);
+
+                    Glide
+                            .with(HomeActivity.this)
+                            .asBitmap()
+                            .load(profileurl)
+                            .diskCacheStrategy(DiskCacheStrategy.NONE)
+                            .skipMemoryCache(true)
+                            // .placeholder(bitmapImage)
+                            .into(binding.ivUser);
+                  /*  byte[] b = Base64.decode(profileurl, Base64.DEFAULT);
+                    Bitmap bitmapImage = BitmapFactory.decodeByteArray(b, 0, b.length);
+                    binding.ivProfile.setImageBitmap(bitmapImage);*/
+                }
+            }
+        }
+    };
+
+
 
 
     @RequiresApi(api = Build.VERSION_CODES.M)
@@ -144,7 +198,7 @@ public class HomeActivity extends BaseActivity implements LeftDrawerListAdapter.
 
         fingerPrintEnable = new FingerPrintEnable(this, true, this);
         fingerprintManager = (FingerprintManager) this.getSystemService(Context.FINGERPRINT_SERVICE);
-
+        loadProfilePicture();
 
         if (fingerprintManager != null && fingerprintManager.isHardwareDetected()) {
             if (MyPref.getInstance(context).readBooleanPrefs(MyPref.USE_FINGER_PRINT)) {
@@ -215,16 +269,18 @@ public class HomeActivity extends BaseActivity implements LeftDrawerListAdapter.
         byte[] b = Base64.decode(MyPref.getInstance(HomeActivity.this).readPrefs(MyPref.USER_SELFI1), Base64.DEFAULT);
         Bitmap bitmapImage = BitmapFactory.decodeByteArray(b, 0, b.length);
 
-        if (!profileUrl.equals("")) {
+        /*if (!profileUrl.equals("")) {
             Glide
                     .with(HomeActivity.this)
                     .asBitmap()
                     .load(profileUrl)
+                    .diskCacheStrategy(DiskCacheStrategy.NONE)
+                    .skipMemoryCache(true)
                     // .placeholder(bitmapImage)
                     .into(binding.ivUser);
         } else {
             binding.ivUser.setImageBitmap(bitmapImage);
-        }
+        }*/
 
     }
 
@@ -238,7 +294,7 @@ public class HomeActivity extends BaseActivity implements LeftDrawerListAdapter.
     protected void onResume() {
         super.onResume();
         MyApp.getInstance().setConnectivityListener(this);
-        loadProfilePicture();
+       loadProfilePicture();
         Log.e("OnresumeActivity", "*******");
         Log.e("ImagePOic***", "*******" + MyPref.getInstance(HomeActivity.this)
                 .readPrefs(MyPref.USER_SELFI));
@@ -492,11 +548,14 @@ public class HomeActivity extends BaseActivity implements LeftDrawerListAdapter.
 
         profileUrl = MyPref.getInstance(HomeActivity.this)
                 .readPrefs(MyPref.USER_SELFI);
+        System.out.println("PRO PICC" + profileUrl);
         Glide
                 .with(HomeActivity.this)
                 .asBitmap()
                 .load(profileUrl)
-                // .placeholder(bitmapImage)
+                .diskCacheStrategy(DiskCacheStrategy.NONE)
+                .skipMemoryCache(true)
+                .placeholder(R.drawable.loadimg)
                 .into(binding.ivUser);
 
     }

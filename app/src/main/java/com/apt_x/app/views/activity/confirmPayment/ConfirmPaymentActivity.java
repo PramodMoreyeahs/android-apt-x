@@ -40,7 +40,7 @@ public class ConfirmPaymentActivity extends BaseActivity {
     SenderViewModel viewModel;
     ApiCalls apicalls;
     PostCreateTransactionBody createTransactionBody;
-    private String recipientName="",bankName="",countryCode="",totalAmount="";
+    private String recipientName="",bankName="",countryCode="",totalAmount="", abarouting = "", ifccode = "";
     ObservableBoolean terms1 = new ObservableBoolean();
     ObservableBoolean terms2 = new ObservableBoolean();
     Context context = ConfirmPaymentActivity.this;
@@ -84,6 +84,11 @@ public class ConfirmPaymentActivity extends BaseActivity {
         bankName=getIntent().getStringExtra("bankName");
         totalAmount=getIntent().getStringExtra("totalAmount");
         countryCode=getIntent().getStringExtra("countryCode");
+        if(countryCode.equals("IN")){
+            ifccode=getIntent().getStringExtra("ifc");
+        }else if(countryCode.equals("US")){
+            abarouting=getIntent().getStringExtra("abarouting");
+        }
 
         customTextView2(binding.cfrmpageterms);
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
@@ -137,6 +142,8 @@ public class ConfirmPaymentActivity extends BaseActivity {
                intent.putExtra("bankName",bankName);
                intent.putExtra("recipientName",recipientName);
                intent.putExtra("countryCode",countryCode);
+                intent.putExtra("abarouting", abarouting);
+                intent.putExtra("ifc", ifccode);
                intent.putExtra("transactionId",data.getData().getPrepaid().getTransactionId());
                startActivity(intent);
                 finish();

@@ -29,6 +29,7 @@ import com.apt_x.app.model.GetTransactionHistoryResponse;
 import com.apt_x.app.model.GetUserByEmail;
 import com.apt_x.app.model.GetWalletBalanceResponse;
 import com.apt_x.app.model.LinkVerifyModel;
+import com.apt_x.app.model.NewImageResponseModel;
 import com.apt_x.app.model.P2PRequest;
 import com.apt_x.app.model.P2PResponse;
 import com.apt_x.app.model.PorfilePictureUrlResponse;
@@ -176,10 +177,28 @@ public interface AppStructureAPI {
 
 
     @Multipart
-    @POST("https://uatcaradmin.moreyeahs.in/api/upload/UploadFileAll")
-    io.reactivex.Observable<PorfilePictureUrlResponse> uploadProfile(
-            @Part MultipartBody.Part rProfilePicture,
+  /*  @POST("https://uatcaradmin.moreyeahs.in/api/upload/UploadFileAll")*/
+    @POST("https://api-staging.apt-xb.com/api/auth/uploadAwsFile")
+   /* @POST("https://uatbuilddream.moreyeahs.in/api/Upload/UploadFileAll")*/
+    io.reactivex.Observable<NewImageResponseModel> uploadProfile2(
+            @Header(Keys.authorization) String Token,
+            @Part MultipartBody.Part rProfilePicture);
+/*
             @Query("Type") String type);
+*/
+
+
+
+    @Multipart
+    /*  @POST("https://uatcaradmin.moreyeahs.in/api/upload/UploadFileAll")*/
+    @POST("https://api-staging.apt-xb.com/api/auth/uploadAwsFile")
+        /* @POST("https://uatbuilddream.moreyeahs.in/api/Upload/UploadFileAll")*/
+    io.reactivex.Observable<PorfilePictureUrlResponse> uploadProfile(
+            @Header(Keys.authorization) String Token,
+            @Part MultipartBody.Part rProfilePicture);
+/*
+            @Query("Type") String type);
+*/
 
 
     //createWallet

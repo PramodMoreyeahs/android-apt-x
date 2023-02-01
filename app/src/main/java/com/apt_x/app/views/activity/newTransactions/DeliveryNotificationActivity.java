@@ -35,7 +35,7 @@ public class DeliveryNotificationActivity extends BaseActivity {
     private SenderViewModel senderViewModel;
     private ApiCalls apiCalls;
     PostCreateTransactionBody createTransactionBody;
-    String recipientname="",bankName="",transactionId="",countryCode="";
+    String recipientname="",bankName="",transactionId="",countryCode="",abarouting = "", ifccode = "";
     private TransactionEmailBody emailBody;
     Context context = DeliveryNotificationActivity.this;
     Activity activity = DeliveryNotificationActivity.this;
@@ -76,6 +76,8 @@ public class DeliveryNotificationActivity extends BaseActivity {
         transactionId=getIntent().getStringExtra("transactionId");
         bankName=getIntent().getStringExtra("bankName");
         countryCode =getIntent().getStringExtra("countryCode");
+        abarouting =getIntent().getStringExtra("abarouting");
+        ifccode =getIntent().getStringExtra("ifc");
 
     }
 
@@ -102,6 +104,8 @@ public class DeliveryNotificationActivity extends BaseActivity {
         emailBody.setCostdeducted(""+createTransactionBody.getTransaction().getAmount());
         emailBody.setCurrency(createTransactionBody.getTransaction().getReceivecurrency());
         emailBody.setRate(""+MyPref.getInstance(this).readPrefs(MyPref.EXCHANGE_RATE));
+
+        System.out.println("IFC" + ifccode + "aba routing" + abarouting);
         emailBody.setRecipientBank(bankName==null?"IBAN":bankName);
         emailBody.setRecipientname(recipientname);
         emailBody.setReceivingcountry(countryCode);

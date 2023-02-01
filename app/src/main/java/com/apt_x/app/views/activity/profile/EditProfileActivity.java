@@ -27,6 +27,7 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import com.apt_x.app.R;
 import com.apt_x.app.model.GetProfileResponse;
+import com.apt_x.app.model.NewImageResponseModel;
 import com.apt_x.app.model.PorfilePictureUrlResponse;
 import com.apt_x.app.privacy.netcom.retrofit.ApiCalls;
 import com.apt_x.app.preferences.MyPref;
@@ -37,6 +38,7 @@ import com.apt_x.app.views.activity.verification.AddAddressActivity;
 import com.apt_x.app.views.base.BaseActivity;
 import com.apt_x.app.databinding.EditProfileActivityBinding;
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.gun0912.tedpermission.PermissionListener;
 import com.gun0912.tedpermission.TedPermission;
@@ -104,7 +106,7 @@ public class EditProfileActivity extends BaseActivity {
 
         apicalls = ApiCalls.getInstance(this);
         viewModel.response_validator.observe(this, response_observer);
-        viewModel.response_validator_picture.observe(this, response_observer_picture);
+        viewModel.response_validator_picture2.observe(this, response_observer_picture);
         viewModel.response_validator_update_profile.observe(this, response_observer_update_picture);
 
         viewModel.getProfile(apicalls);
@@ -135,11 +137,17 @@ public class EditProfileActivity extends BaseActivity {
                 if (countriesResponse.getUser().getProfilePicture()!=null){
                     MyPref.getInstance(EditProfileActivity.this)
                             .writePrefs(MyPref.USER_SELFI, countriesResponse.getUser().getProfilePicture());
+                    String profileurl = MyPref.getInstance(EditProfileActivity.this).readPrefs(MyPref.USER_SELFI);
+
                     Glide
                             .with(EditProfileActivity.this)
                             .asBitmap()
                             .load(countriesResponse.getUser().getProfilePicture())
-                            //.placeholder()
+                            .diskCacheStrategy(DiskCacheStrategy.NONE)
+                            .skipMemoryCache(true)
+                            .placeholder(R.drawable.loadimg)
+
+
                             .into(binding.ivProfile);
                 }
                 else {
@@ -167,13 +175,18 @@ public class EditProfileActivity extends BaseActivity {
             }
         }
     };
-    Observer<PorfilePictureUrlResponse> response_observer_picture = new Observer<PorfilePictureUrlResponse>() {
+
+
+    Observer<NewImageResponseModel> response_observer_picture = new Observer<NewImageResponseModel>() {
         @SuppressLint("SetTextI18n")
         @Override
-        public void onChanged(@Nullable PorfilePictureUrlResponse countriesResponse) {
-            if (countriesResponse.getData().getFlag()){
-                profilePicture=countriesResponse.getData().getData().getFilepath();
+        public void onChanged(@Nullable NewImageResponseModel countriesResponse) {
 
+            if(countriesResponse.getStatus()){
+
+                System.out.println("Location in edit profile" + countriesResponse.getData().getMessage().toString());
+                profilePicture =  countriesResponse.getData().getMessage();
+                MyPref.getInstance(EditProfileActivity.this).writePrefs(MyPref.USER_SELFI,profilePicture);
             }
 
         }
@@ -183,6 +196,7 @@ public class EditProfileActivity extends BaseActivity {
         @Override
         public void onChanged(@Nullable GetProfileResponse countriesResponse) {
             assert countriesResponse != null;
+
             Utils.showToast(getApplicationContext(),getString(R.string.user_details_update));
                 startActivity(new Intent(EditProfileActivity.this, MyProfileActivity.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
 
@@ -326,7 +340,8 @@ public class EditProfileActivity extends BaseActivity {
                         binding.ivProfile.setImageBitmap(bmp);
                         file = saveBitmap(this, bmp, "photoName");
                         Utils.showDialog(this,getString(R.string.loading));
-                        viewModel.uploadProfile(file,apicalls);
+                      //  viewModel.uploadProfile(file,apicalls);
+                        viewModel.uploadProfile2(file,apicalls);
 
                     } catch (IOException e) {
                         e.printStackTrace();
@@ -341,7 +356,7 @@ public class EditProfileActivity extends BaseActivity {
         OutputStream os;
         try {
             os = new FileOutputStream(imageFile);
-            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, os);
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 50, os);
             os.flush();
             os.close();
         } catch (Exception e) {

@@ -24,9 +24,11 @@ import com.apt_x.app.privacy.netcom.retrofit.ApiCalls;
 import com.apt_x.app.preferences.MyPref;
 import com.apt_x.app.utils.LocaleHelper;
 import com.apt_x.app.views.activity.NewHomeActivity;
+import com.apt_x.app.views.activity.home.HomeActivity;
 import com.apt_x.app.views.base.BaseActivity;
 import com.apt_x.app.databinding.PersonalProfileBinding;
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 
 public class PersonalDetailActivity extends BaseActivity {
     private PersonalProfileBinding binding;
@@ -102,11 +104,15 @@ public class PersonalDetailActivity extends BaseActivity {
                 if(countriesResponse.getUser().getEmail()!=null)
                 binding.tvEMail.setText(countriesResponse.getUser().getEmail());
                 if (countriesResponse.getUser().getProfilePicture()!=null){
+                    String profileurl =MyPref.getInstance(PersonalDetailActivity.this)
+                            .readPrefs(MyPref.USER_SELFI);
                     Glide
                             .with(PersonalDetailActivity.this)
                             .asBitmap()
                             .load(countriesResponse.getUser().getProfilePicture())
-                            //.placeholder()
+                            .diskCacheStrategy(DiskCacheStrategy.NONE)
+                            .skipMemoryCache(true)
+                            .placeholder(R.drawable.loadimg)
                             .into(binding.ivProfile);
                 }
                 else {

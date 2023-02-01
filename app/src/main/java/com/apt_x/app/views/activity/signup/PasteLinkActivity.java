@@ -71,9 +71,11 @@ public class PasteLinkActivity extends BaseActivity {
 
         if (getIntent() != null) {
             email = getIntent().getStringExtra(Keys.EMAIL);
-
+            MyPref.getInstance(this).writePrefs(MyPref.USER_EMAIL, email);
+            System.out.println("email in paste link" + email);
         } else {
-
+            email = MyPref.getInstance(getApplicationContext()).readPrefs(MyPref.USER_EMAIL);
+            System.out.println("email in paste link" + email);
         }
 
 
@@ -145,7 +147,6 @@ public class PasteLinkActivity extends BaseActivity {
                 break;
             case R.id.tvContinue:
                 navfun();
-
                 break;
 
         }
