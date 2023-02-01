@@ -168,7 +168,6 @@ public class MyProfileActivity extends BaseActivity {
                             .load(profileurl)
                             .diskCacheStrategy(DiskCacheStrategy.NONE)
                             .skipMemoryCache(true)
-
                             .placeholder(R.drawable.loadimg)
 
                             .into(binding.ivProfile);

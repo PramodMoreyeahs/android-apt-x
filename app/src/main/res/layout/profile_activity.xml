@@ -97,6 +97,8 @@
                         android:id="@+id/ivProfile"
                         android:scaleType="fitXY"
                         android:contentDescription="@string/my_profile"
+                        android:src="@drawable/loadimg"
+
                         />
                 </androidx.cardview.widget.CardView>
 

@@ -1,5 +1,7 @@
 package com.apt_x.app.views.activity.profile;
 
+import static com.apt_x.app.views.activity.profile.MyProfileActivity.Myproimg;
+
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -138,7 +140,6 @@ public class EditProfileActivity extends BaseActivity {
                     MyPref.getInstance(EditProfileActivity.this)
                             .writePrefs(MyPref.USER_SELFI, countriesResponse.getUser().getProfilePicture());
                     String profileurl = MyPref.getInstance(EditProfileActivity.this).readPrefs(MyPref.USER_SELFI);
-
                     Glide
                             .with(EditProfileActivity.this)
                             .asBitmap()
@@ -187,6 +188,18 @@ public class EditProfileActivity extends BaseActivity {
                 System.out.println("Location in edit profile" + countriesResponse.getData().getMessage().toString());
                 profilePicture =  countriesResponse.getData().getMessage();
                 MyPref.getInstance(EditProfileActivity.this).writePrefs(MyPref.USER_SELFI,profilePicture);
+
+                Glide
+                        .with(EditProfileActivity.this)
+                        .asBitmap()
+                        .load(profilePicture)
+                        .diskCacheStrategy(DiskCacheStrategy.NONE)
+                        .skipMemoryCache(true)
+                        .placeholder(R.drawable.loadimg)
+
+
+                        .into(Myproimg);
+
             }
 
         }
