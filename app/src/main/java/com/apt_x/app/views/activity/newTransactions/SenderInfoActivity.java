@@ -151,6 +151,7 @@ String actp = "";
             bankId = getIntent().getStringExtra("bankId");
             branchName = getIntent().getStringExtra("branchName");
             country = getIntent().getStringExtra(Keys.COUNTRY);
+
             Log.e("Data******", "IBAN" + iban + "  Country code" + countryCode + " " + totalAmount + " UserID******" + userId + "Currency Code *****" + currency
                     + "Branh Name " + branchName + " BankName " + bankName + "BankId" + bankId);
 
@@ -257,6 +258,7 @@ String actp = "";
             exitingUserData = (GetUserByEmail.Data) getIntent().getSerializableExtra("exitingUserData1");
             Log.e("Existing User Data2*", "" + exitingUserData.getAptCardId());
             Log.e("Existing User Data2 bankid*", "" + exitingUserData.getBankid());
+            Log.e("Existing User Data2 bankid*", "" + exitingUserData.getBranch());
             userId = String.valueOf(exitingUserData.getAptCardId());
 
             recipientName = exitingUserData.getFirstName() + " " + exitingUserData.getLastName();
@@ -422,6 +424,9 @@ String actp = "";
 
         }  else {
             transactionEntity.setBranch(branchName);
+            ifccode = branchName;
+            abarouting = branchName;
+            System.out.println("Check branch Name::" + branchName);
         }
      //   System.out.println("country...." + countryCode);
         if (countryCode.equals("PK") || countryCode.equals("PH")) {

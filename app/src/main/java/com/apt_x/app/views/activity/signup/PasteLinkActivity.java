@@ -67,6 +67,7 @@ public class PasteLinkActivity extends BaseActivity {
         binding.ivBack.setOnClickListener(this);
         binding.tvContinue.setOnClickListener(this);
         binding.Resendlink.setOnClickListener(this);
+        binding.pasteid.setOnClickListener(this);
         apiCalls = ApiCalls.getInstance(PasteLinkActivity.this);
 
         if (getIntent() != null) {
@@ -148,6 +149,9 @@ public class PasteLinkActivity extends BaseActivity {
             case R.id.tvContinue:
                 navfun();
                 break;
+            case R.id.pasteid:
+                startActivity(new Intent(getApplicationContext(), NewEmailVerify.class));
+                break;
 
         }
     }
@@ -159,7 +163,9 @@ public class PasteLinkActivity extends BaseActivity {
 
             binding.textlayid.setHelperText("Please paste the Link.");
         }else {
-            viewModel.verifyLink(binding.etEmail.getText().toString(), email, apiCalls);
+           // viewModel.verifyLink(binding.etEmail.getText().toString(), email, apiCalls);
+            startActivity(new Intent(PasteLinkActivity.this, WebViewActivity.class)
+                    .putExtra(Keys.VERIFYLINK, binding.etEmail.getText().toString()));
         }
 
     }

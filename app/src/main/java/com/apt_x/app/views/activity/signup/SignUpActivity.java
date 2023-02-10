@@ -1,27 +1,12 @@
 package com.apt_x.app.views.activity.signup;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.widget.AppCompatEditText;
-import androidx.core.content.ContextCompat;
-import androidx.databinding.ObservableBoolean;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProviders;
-
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
-import androidx.core.content.ContextCompat;import android.app.Dialog;
+import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-
-import androidx.databinding.DataBindingUtil;
-import androidx.annotation.Nullable;
-import androidx.recyclerview.widget.DividerItemDecoration;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
-import android.content.res.ColorStateList;
 import android.content.res.Configuration;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -40,11 +25,40 @@ import android.view.inputmethod.EditorInfo;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.widget.AppCompatEditText;
+import androidx.core.content.ContextCompat;
+import androidx.databinding.DataBindingUtil;
+import androidx.databinding.ObservableBoolean;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProviders;
+import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.apt_x.app.R;
+import com.apt_x.app.databinding.ActivitySignUpBinding;
+import com.apt_x.app.interfaces.DialogClickListener;
+import com.apt_x.app.model.CountriesResponse;
+import com.apt_x.app.model.CountryCodeObject;
 import com.apt_x.app.model.CreateWalletResponse;
 import com.apt_x.app.model.GetUserByEmail;
+import com.apt_x.app.model.SignUpResponseBean;
+import com.apt_x.app.model.SocialSignupResponse;
+import com.apt_x.app.preferences.MyPref;
+import com.apt_x.app.preferences.Pref;
 import com.apt_x.app.privacy.PrivacyPolicy;
+import com.apt_x.app.privacy.netcom.Keys;
+import com.apt_x.app.privacy.netcom.retrofit.ApiCalls;
+import com.apt_x.app.utils.AppUtils;
 import com.apt_x.app.utils.LocaleHelper;
-import com.apt_x.app.views.activity.NewHomeActivity;
+import com.apt_x.app.utils.Utils;
+import com.apt_x.app.views.activity.login.LoginActivity;
+import com.apt_x.app.views.activity.verification.AddAddressActivity;
+import com.apt_x.app.views.adapter.DialCodeAdapter;
+import com.apt_x.app.views.base.BaseActivity;
+import com.apt_x.app.views.customview.Link;
 import com.bumptech.glide.Glide;
 import com.facebook.AccessToken;
 import com.facebook.CallbackManager;
@@ -62,27 +76,8 @@ import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.common.api.ResultCallback;
 import com.google.android.gms.common.api.Status;
-import com.google.android.gms.common.util.DataUtils;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-import com.apt_x.app.R;
-import com.apt_x.app.interfaces.DialogClickListener;
-import com.apt_x.app.model.CountriesResponse;
-import com.apt_x.app.model.CountryCodeObject;
-import com.apt_x.app.model.SignUpResponseBean;
-import com.apt_x.app.model.SocialSignupResponse;
-import com.apt_x.app.privacy.netcom.Keys;
-import com.apt_x.app.privacy.netcom.retrofit.ApiCalls;
-import com.apt_x.app.preferences.MyPref;
-import com.apt_x.app.preferences.Pref;
-import com.apt_x.app.utils.AppUtils;
-import com.apt_x.app.utils.Utils;
-import com.apt_x.app.views.activity.login.LoginActivity;
-import com.apt_x.app.views.activity.verification.AddAddressActivity;
-import com.apt_x.app.views.adapter.DialCodeAdapter;
-import com.apt_x.app.views.base.BaseActivity;
-import com.apt_x.app.views.customview.Link;
-import com.apt_x.app.databinding.ActivitySignUpBinding;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -117,7 +112,7 @@ public class SignUpActivity extends BaseActivity implements GoogleApiClient.OnCo
     Activity activity = SignUpActivity.this;
     //   String countryId= "62b400656f070d306420787e"; //UAT
     String countryId = "62df73699427b30af2ff246a";//Staging
-   //String countryId = "633eb5fe762f842b609cfc0e";//Staging
+    //String countryId = "633eb5fe762f842b609cfc0e";//Staging
     // String countryId= "63314d126518a30f28b51930";//ngrok
     //String countryId= "63280e12b7a27008e9898297";//Production
 
@@ -219,7 +214,7 @@ public class SignUpActivity extends BaseActivity implements GoogleApiClient.OnCo
                 Pref.setBoolean(SignUpActivity.this, true, Pref.IS_LOGIN);
                 MyPref.getInstance(getApplicationContext()).writePrefs(MyPref.APPID, String.valueOf(loginBean.getData().getAptCard_Id()));
                 viewModel.createWallet(MyPref.getInstance(SignUpActivity.this).readPrefs(MyPref.APPID), apiCalls);
-
+                viewModel.verifyLink(binding.etEmail.getText().toString(),apiCalls);
                /* startActivity(new Intent(getApplicationContext(), AddAddressActivity.class));
                 finish();*/
             } else if (loginBean.getMessage() != null) {
@@ -350,7 +345,7 @@ public class SignUpActivity extends BaseActivity implements GoogleApiClient.OnCo
         apiCalls = ApiCalls.getInstance(SignUpActivity.this);
         // viewModel.getActiveCountry(apiCalls);
         binding.etEmail.addTextChangedListener(emailTextWatcher);
-       customTextView(binding.tvPrivacy);
+        customTextView(binding.tvPrivacy);
         //  makeTextViewResizable(binding.tvTerms, 2, "see more", true);
 
 
@@ -560,11 +555,9 @@ public class SignUpActivity extends BaseActivity implements GoogleApiClient.OnCo
                         Utils.showToast(getApplicationContext(), getString(R.string.please_check_privacy));
                     } /*else if (terms2.get() == false) {
                         Utils.showToast(getApplicationContext(), "Please check all privacy policy");
-                    }*/
-                    else if (radioCheck.get() == false) {
+                    }*/ else if (radioCheck.get() == false) {
                         Utils.showToast(getApplicationContext(), getString(R.string.please_check_terms_condition));
-                    }
-                    else {
+                    } else {
                         Utils.showDialog(this, getString(R.string.please_wait));
                         viewModel.doSignUp(binding, countryId, apiCalls);
                     }
@@ -585,11 +578,13 @@ public class SignUpActivity extends BaseActivity implements GoogleApiClient.OnCo
                 }
             }
             break;
-         //   case R.id.testclick:
-           //     startActivity(new Intent(SignUpActivity.this, CaptureImageActivity.class));
-              //  startActivity(new Intent(SignUpActivity.this, EmailSuccessActivity.class));
-              //  startActivity(new Intent(SignUpActivity.this, EmailFailureActivity.class));
-             //   break;
+            case R.id.testclick:
+                //  startActivity(new Intent(SignUpActivity.this, CaptureImageActivity.class));
+                startActivity(new Intent(SignUpActivity.this, PasteLinkActivity.class));
+            //    startActivity(new Intent(SignUpActivity.this, WebViewActivity.class));
+                //startActivity(new Intent(SignUpActivity.this, EmailSuccessActivity.class));
+                //startActivity(new Intent(SignUpActivity.this, EmailFailureActivity.class));
+                break;
             case R.id.ivFb:
                 binding.loginButton.performClick();
                 break;
@@ -839,7 +834,7 @@ public class SignUpActivity extends BaseActivity implements GoogleApiClient.OnCo
         }
     }
 
-  @Override
+    @Override
     public void doLogout() {
         activity.runOnUiThread(new Runnable() {
             public void run() {

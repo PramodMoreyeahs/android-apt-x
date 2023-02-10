@@ -1139,11 +1139,11 @@ public void getActiveCountryService( DisposableObserver<GetCountryServiceRespons
                 });
     }
 
-    public void verifyLink(String email, String link, DisposableObserver disposable) {
+    public void verifyLink(String email, DisposableObserver disposable) {
         AppStructureAPI service = RetrofitHolder.getService();
         JsonObject jsonObject1 = new JsonObject();
         jsonObject1.addProperty(Keys.EMAIL, email);
-        jsonObject1.addProperty(Keys.LINK, link);
+       // jsonObject1.addProperty(Keys.LINK, link);
 
         service.doVerifyLink(jsonObject1)
                 .subscribeOn(io.reactivex.schedulers.Schedulers.io())

@@ -6,35 +6,51 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.CAMERA" />
-    <uses-permission android:name="android.permission.CAMERA2" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.USE_FINGERPRINT" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.AUDIO_CAPTURE" />
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION"/>
+    <uses-permission android:name="android.permission.MICROPHONE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" tools:ignore="ScopedStorage" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.NFC" />
+    <uses-permission android:name="android.hardware.camera"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <permission android:name="android.permission.START_ACTIVITIES_FROM_BACKGROUND"
+        android:protectionLevel="signature|privileged|vendorPrivileged|oem|verifier" />
 
     <uses-feature
         android:name="android.hardware.camera"
         android:required="true" />
-    <uses-feature android:name="android.hardware.camera.autofocus" />
     <uses-feature
         android:name="android.hardware.fingerprint"
         android:required="false" />
 
     <application
-        android:allowBackup="true"
         android:name="com.apt_x.app.application.MyApp"
+        android:allowBackup="true"
         android:icon="@mipmap/ic_launcher_round"
         android:label="@string/app_name"
+        android:requestLegacyExternalStorage="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:requestLegacyExternalStorage="true"
         android:theme="@style/NoActionbarTheme"
         android:usesCleartextTraffic="true"
         tools:ignore="GoogleAppIndexingWarning"
         tools:targetApi="m">
+
+        <activity
+            android:name=".views.activity.signup.WebViewActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
         <activity
             android:name=".views.activity.signup.CaptureImageActivity"
             android:exported="false">
@@ -71,35 +87,35 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".CardDetailNewActivity"
+            android:name=".views.activity.card.CardDetailNewActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".AddCardNewActivity"
+            android:name=".views.activity.loadfund.AddCardNewActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".KYCfailedActivity"
+            android:name=".views.activity.kyc.KYCfailedActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".PlacesActivity"
+            android:name=".views.activity.PlacesActivity"
             android:exported="true">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".GooglePlacesActivity"
+            android:name=".views.activity.GoogleplacesActivity"
             android:exported="true">
             <meta-data
                 android:name="android.app.lib_name"
@@ -170,11 +186,6 @@
         <activity android:name=".views.activity.withdraw.AddNewEftAccountActivity" />
         <activity android:name=".views.activity.withdraw.AddNewCardActivity" />
         <activity android:name=".views.activity.withdraw.SendingPaymentActivity" />
-        <activity android:name=".views.activity.GoogleplacesActivity" />
-        <activity android:name=".views.activity.PlacesActivity" />
-        <activity android:name=".views.activity.kyc.KYCfailedActivity" />
-        <activity android:name=".views.activity.loadfund.AddCardNewActivity" />
-        <activity android:name=".views.activity.card.CardDetailNewActivity" />
 
         <activity
             android:name=".views.activity.splash.WelcomeActivity"
@@ -241,7 +252,8 @@
         <meta-data
             android:name="firebase_analytics_collection_enabled"
             android:value="false" />
-
+        <service
+            android:name=".views.activity.signup.MyForegroundService"/>
         <service
             android:name="com.apt_x.app.utils.MyFirebaseMessagingService"
             android:exported="false">
@@ -323,6 +335,16 @@
                 <action android:name="android.net.wifi.WIFI_STATE_CHANGED" />
             </intent-filter>
         </receiver>
+
+        <receiver
+            android:name=".views.activity.signup.MyForegroundService"
+            android:exported="true"
+            tools:ignore="Instantiatable">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"></action>
+            </intent-filter>
+        </receiver>
+
     </application>
 
 </manifest>

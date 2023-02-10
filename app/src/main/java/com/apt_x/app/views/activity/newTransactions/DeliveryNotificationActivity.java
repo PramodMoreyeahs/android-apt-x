@@ -101,18 +101,27 @@ public class DeliveryNotificationActivity extends BaseActivity {
         emailBody=new TransactionEmailBody();
         emailBody.setAmount(""+MyPref.getInstance(this).readPrefs(MyPref.USER_AMOUNT));
         emailBody.setBought(""+MyPref.getInstance(this).readPrefs(MyPref.USER_AMOUNT)+" "+createTransactionBody.getTransaction().getReceivecurrency());
-        emailBody.setCostdeducted(""+createTransactionBody.getTransaction().getAmount());
+        emailBody.setCostdeducted(" $"+Utils.convertDecimalFormate2((double)createTransactionBody.getTransaction().getAmount()));
         emailBody.setCurrency(createTransactionBody.getTransaction().getReceivecurrency());
-        emailBody.setRate(""+MyPref.getInstance(this).readPrefs(MyPref.EXCHANGE_RATE));
+        emailBody.setRate(" $"+MyPref.getInstance(this).readPrefs(MyPref.EXCHANGE_RATE));
 
         System.out.println("IFC" + ifccode + "aba routing" + abarouting);
-        emailBody.setRecipientBank(bankName==null?"IBAN":bankName);
+
+        if(countryCode.equals("US")){
+            emailBody.setRecipientBank(abarouting);
+        } else if (countryCode.equals("IN")){
+            emailBody.setRecipientBank(ifccode);
+        }else{
+            emailBody.setRecipientBank(bankName==null?"IBAN":bankName);
+        }
+
+
         emailBody.setRecipientname(recipientname);
         emailBody.setReceivingcountry(countryCode);
         emailBody.setTransactionnumber(transactionId);
-        emailBody.setTransferfees(MyPref.getInstance(this).readPrefs(MyPref.SERVICE_FEE));
+        emailBody.setTransferfees(" $"+ Utils.convertDecimalFormate2(Double.parseDouble(MyPref.getInstance(this).readPrefs(MyPref.SERVICE_FEE))));
 
-        emailBody.setSold("$ "+createTransactionBody.getTransaction().getAmount());
+        emailBody.setSold(" $"+Utils.convertDecimalFormate2((double) createTransactionBody.getTransaction().getAmount()));
         emailBody.setValuedate(Utils.getCurrentDate());
 
 

@@ -30,6 +30,7 @@ public interface Keys {
      */
     String EMAIL = "email";
     String USER_ID = "userid";
+    String VERIFYLINK = "verifylink";
     String PAYMENT_MODE = "paymentMode";
     String RECEIVE_CURRENCY = "receiveCurrency";
     String SOURCECURRENCY = "sourcecurrency";

@@ -196,8 +196,8 @@ public class SignUpViewModel extends BaseViewModel implements DialogClickListene
     public void verifyOtp(String otp, String email, ApiCalls apiCalls) {
         apiCalls.verifyOtp(email, otp, callVerifyOtpDes);
     }
-    public void verifyLink(String link, String email, ApiCalls apiCalls) {
-        apiCalls.verifyLink(email, link, callVerifyLink);
+    public void verifyLink(String email, ApiCalls apiCalls) {
+        apiCalls.verifyLink(email, callVerifyLink);
 
     } public void ResendLink(String email, ApiCalls apiCalls) {
         apiCalls.ResendLink(email, callResendLink);
