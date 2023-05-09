@@ -25,62 +25,7 @@ import com.apt_x.app.R;
 
 public class MyForegroundService extends Service {
     PermissionRequest request;
-  /*  // Constants
-    private static final int ID_SERVICE = 1337;
 
-    @Override
-    public int onStartCommand(Intent intent, int flags, int startId) {
-        super.onStartCommand(intent, flags, startId);
-        return START_STICKY;
-    }
-
-    @Nullable
-    @Override
-    public IBinder onBind(Intent intent) {
-        return null;
-    }
-
-    @Override
-    public void onCreate() {
-        super.onCreate();
-        System.out.println("INSIDE YOUR SERVICE");
-        Intent notificationIntent = new Intent(this, WebViewActivity.class);
-        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0,
-                notificationIntent, 0);
-
-        Notification notification = new NotificationCompat.Builder(this)
-                .setSmallIcon(R.mipmap.ic_launcher)
-                .setContentTitle("Apt-X Pay")
-                .setContentText("Verification Process...")
-                .setContentIntent(pendingIntent).build();
-
-
-        // do stuff like register for BroadcastReceiver, etc.
-
-        // Create the Foreground Service
-   *//*     NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-        String channelId = Build.VERSION.SDK_INT >= Build.VERSION_CODES.O ? createNotificationChannel(notificationManager) : "";
-        NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(this, channelId);
-        Notification notification = notificationBuilder.setOngoing(true)
-                .setSmallIcon(R.mipmap.ic_launcher)
-                .setPriority(PRIORITY_MIN)
-                .setCategory(NotificationCompat.CATEGORY_SERVICE)
-                .build();*//*
-
-        startForeground(ID_SERVICE, notification);
-    }
-
-    @RequiresApi(Build.VERSION_CODES.O)
-    private String createNotificationChannel(NotificationManager notificationManager) {
-        String channelId = "my_service_channelid";
-        String channelName = "My Foreground Service";
-        NotificationChannel channel = new NotificationChannel(channelId, channelName, NotificationManager.IMPORTANCE_HIGH);
-        // omitted the LED color
-        channel.setImportance(NotificationManager.IMPORTANCE_NONE);
-        channel.setLockscreenVisibility(Notification.VISIBILITY_PRIVATE);
-        notificationManager.createNotificationChannel(channel);
-        return channelId;
-    }*/
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
@@ -98,10 +43,10 @@ public class MyForegroundService extends Service {
 
                                     } else {
                                         System.out.println("Granted  permission inside foreground services");
-                                       /* String[] PERMISSIONS = {
+                                        String[] PERMISSIONS = {
                                                 PermissionRequest.RESOURCE_VIDEO_CAPTURE,};
-                                        request.grant(new String[]{PermissionRequest.RESOURCE_VIDEO_CAPTURE});*/
-                                      //  webView.loadUrl(verifylink);
+                                        //request.grant(new String[]{PermissionRequest.RESOURCE_VIDEO_CAPTURE});
+                                      // webView.loadUrl(verifylink);
                                     }
                                 }
 
@@ -145,11 +90,6 @@ public class MyForegroundService extends Service {
     public IBinder onBind(Intent intent) {
         return null;
     }
-
-
-
-
-
 
 
 }

@@ -12,12 +12,12 @@ repositories {//
     maven { url 'https://raw.githubusercontent.com/iProov/android/master/maven/' }
 }
 android {
-    compileSdkVersion 32
+    compileSdkVersion 33
     defaultConfig {
         applicationId "com.apt_x.app"
         flavorDimensions "default"
-        minSdkVersion androidMinSdkVersion
-        targetSdkVersion androidTargetSdkVersion
+        minSdkVersion 21
+        targetSdkVersion 33
         versionCode 8
         versionName "5.1"
         testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'

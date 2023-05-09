@@ -139,6 +139,8 @@ public class PasteLinkActivity extends BaseActivity {
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.ivBack:
+               /* Intent serviceIntent = new Intent(this, MyForegroundService.class);
+                stopService(serviceIntent);*/
                 startActivity(new Intent(getApplicationContext(), NewEmailVerify.class)
                         .putExtra(Keys.EMAIL, email));
                 finish();
